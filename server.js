@@ -1,6 +1,5 @@
-// server.js - UPDATED WITH EMAIL CALLBACK FEATURE ✅
-console.log("🔥 THIS SERVER.JS IS RUNNING 🔥");
-
+// server.js - PRODUCTION READY WITH ALL KEYWORDS & HYPERLINKS ✅
+console.log("🔥 VANTAGE HALL SERVER.JS - PRODUCTION VERSION 🔥");
 
 const fetch = require('node-fetch');
 const express = require('express');
@@ -10,14 +9,14 @@ const { GoogleGenerativeAI } = require('@google/generative-ai');
 require('dotenv').config();
 
 const app = express();
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
 // Middleware
 app.use(cors());
 app.use(express.json());
 
 // ==============================================
-// API KEYS - UPDATED FOR GEMINI
+// API KEYS
 // ==============================================
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
@@ -31,23 +30,21 @@ if (GEMINI_API_KEY) {
 }
 
 // ==============================================
-// ✅ NEW: EMAIL CONFIGURATION FOR CALLBACK
+// EMAIL CONFIGURATION
 // ==============================================
 const EMAIL_CONFIG = {
   service: 'gmail',
   auth: {
-    user: process.env.ADMIN_EMAIL || 'bhk295826@gmail.com',
-    pass: process.env.EMAIL_PASSWORD || 'hcis fdlh lbta gotv'
+    user: process.env.ADMIN_EMAIL || 'your-email@gmail.com',
+    pass: process.env.EMAIL_PASSWORD || 'your-app-password'
   }
 };
 
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'admin@vantagehall.org';
 const transporter = nodemailer.createTransport(EMAIL_CONFIG);
 
-
-
 // ==============================================
-// COMPREHENSIVE KNOWLEDGE BASE WITH FAQ + EMOTIONAL QUOTIENT
+// COMPREHENSIVE KNOWLEDGE BASE - UPDATED ✅
 // ==============================================
 const KNOWLEDGE_BASE = {
   // ==============================================
@@ -181,13 +178,12 @@ const KNOWLEDGE_BASE = {
   },
 
   // ==============================================
-  // EMOTIONAL QUOTIENT MENU (NEW SECTION)
+  // EMOTIONAL QUOTIENT MENU - UPDATED WITH KEYWORDS ✅
   // ==============================================
-
   emotional_menu: {
     keywords: [
-      'emotional', 'emotional support', 'emotional quotient', 'wellbeing', 'mental health', 
-      'care', 'pastoral care', 'counselling', 'student counselling'
+      'emotional', 'emotional support', 'emotional quotient', 'wellbeing', 
+      'mental health', 'care', 'pastoral care', 'counselling', 'student counselling'
     ],
     answer: "💚 Emotional Support & Wellbeing:\n\nChoose a topic:",
     hasOptions: true,
@@ -204,7 +200,6 @@ const KNOWLEDGE_BASE = {
             label: "🏫 Can I visit my daughter?",
             trigger: [
               '1', 'can i visit', 'visiting', 'visit daughter',
-              // Keywords added:
               'visiting hours', 'parent visit anytime', 'meet my daughter', 
               'boarding visitation', 'weekend visit', 'visit policy', 
               'parent meeting schedule', 'visit in dehradun'
@@ -216,7 +211,6 @@ const KNOWLEDGE_BASE = {
             label: "📱 Can I speak to my daughter?",
             trigger: [
               '2', 'speak to daughter', 'call daughter', 'phone call',
-              // Keywords added:
               'phone calls', 'video call time', 'mobile rules', 'sunday call', 
               'parent contact', 'emergency call', 'device policy'
             ],
@@ -235,19 +229,17 @@ const KNOWLEDGE_BASE = {
             label: "💙 What if daughter feels homesick?",
             trigger: [
               '1', 'homesick', 'feeling sad', 'missing home',
-              // Keywords added:
               'homesick child', 'boarding loneliness', 'emotional care', 
               'student counselling', 'mental health support', 'pastoral care', 
               'sad in hostel'
             ],
-            response: "💚 Emotional Support:\n\nYes, we provide comprehensive emotional care:\n\n👩‍⚕️ Professional counselor on campus\n🏠 Caring dorm mothers\n👩‍🏫 Supportive teachers\n📞 Weekly video calls with parents\n👭 Small, close-knit community\n🤝 Regular check-ins & bonding sessions\n\nEvery girl receives continuous support to feel at home!"
+            response: "💚 Emotional Support:\n\nYes, we provide comprehensive emotional care:\n\n👩‍⚕️ Professional counselor on campus\n🏠 Caring dorm mothers\n👩‍🏫 Supportive teachers\n📞 Weekly video calls with parents\n👭 Small, close-knit community\n🤝 Regular check-ins & bonding sessions\n\nEvery girl receives continuous support to feel at home!\n\n🔗 <a href='https://vantagehall.org/emotional-health-boarding-school-dehradun/' target='_blank'>Learn more</a>"
           },
           {
             id: 2,
             label: "👩‍🏫 How is staff trained?",
             trigger: [
               '2', 'staff trained', 'teacher training', 'staff care',
-              // Keywords added:
               'pastoral staff', 'child psychology', 'dorm mother role', 
               'mentor system', 'student support staff'
             ],
@@ -258,7 +250,6 @@ const KNOWLEDGE_BASE = {
             label: "🆕 How do new students settle?",
             trigger: [
               '3', 'new student', 'settling in', 'transition',
-              // Keywords added:
               'orientation program', 'buddy system', 'boarding adjustment', 
               'first time hostel', 'induction support'
             ],
@@ -277,7 +268,6 @@ const KNOWLEDGE_BASE = {
             label: "🍎 Meal Schedule",
             trigger: [
               '1', 'hungry', 'meal schedule', 'food timing',
-              // Keywords added:
               'meal timings', 'hostel food schedule', 'snacks allowed', 
               'hungry between meals', 'late night food', 'nutrition plan', 
               'dry fruits allowed'
@@ -289,22 +279,20 @@ const KNOWLEDGE_BASE = {
             label: "🍽️ Food Quality & Nutrition",
             trigger: [
               '2', 'food quality', 'nutrition', 'what food',
-              // Keywords added:
               'healthy meals', 'school menu', 'vegetarian options', 
               'nutritionist meals', 'hygienic food', 'balanced diet'
             ],
-            response: "🍽️ Food & Nutrition:\n\nMeals are:\n✅ Nutritious & diverse\n✅ Lovingly prepared\n✅ Curated by nutritionist\n✅ Mix of Indian & Continental\n\n👩‍🍳 Personal Care:\n• Pastoral team supervises mealtimes\n• Ensures no one skips meals\n• Makes sure each student eats properly"
+            response: "🍽️ Food & Nutrition:\n\nMeals are:\n✅ Nutritious & diverse\n✅ Lovingly prepared\n✅ Curated by nutritionist\n✅ Mix of Indian & Continental\n\n👩‍🍳 Personal Care:\n• Pastoral team supervises mealtimes\n• Ensures no one skips meals\n• Makes sure each student eats properly\n\n🔗 <a href='https://vantagehall.org/food-nutrition-boarding-school-dehradun/' target='_blank'>Full Menu Details</a>"
           },
           {
             id: 3,
             label: "📅 Daily Routine",
             trigger: [
               '3', 'daily routine', 'schedule', 'typical day',
-              // Keywords added:
               'student timetable', 'study hours', 'sports schedule', 
               'weekend routine', 'self-study time', 'activity timetable'
             ],
-            response: "📅 Daily Routine:\n\nBalanced routine includes:\n\n📚 Academics\n⚽ Sports & Physical Activities\n🎨 Co-curricular Activities\n📖 Self-Study Time\n😌 Relaxation Periods\n\n🌅 Evenings: Outdoor play\n🎯 Weekends: Hobbies & recreation\n\nPerfect balance of learning, activity, and rest!"
+            response: "📅 Daily Routine:\n\nBalanced routine includes:\n\n📚 Academics\n⚽ Sports & Physical Activities\n🎨 Co-curricular Activities\n📖 Self-Study Time\n😌 Relaxation Periods\n\n🌅 Evenings: Outdoor play\n🎯 Weekends: Hobbies & recreation\n\nPerfect balance of learning, activity, and rest!\n\n🔗 <a href='https://vantagehall.org/typical-day-boarding-school-dehradun/' target='_blank'>Learn more</a>"
           }
         ]
       },
@@ -319,19 +307,17 @@ const KNOWLEDGE_BASE = {
             label: "🛡️ Security Measures",
             trigger: [
               '1', 'security', 'how safe', 'campus security',
-              // Keywords added:
               'school security', 'cctv campus', 'girls safety', 
               '24/7 supervision', 'hostel security', 'safe boarding school', 
               'entry restrictions'
             ],
-            response: "🛡️ Safety Measures:\n\n📹 24x7 CCTV surveillance\n👮 Trained security personnel\n🚪 Restricted entry with ID\n🏠 Round-the-clock dorm supervision\n🚨 Regular safety drills\n\nYour daughter's safety is our top priority with multiple protection layers!"
+            response: "🛡️ Safety Measures:\n\n📹 24x7 CCTV surveillance\n👮 Trained security personnel\n🚪 Restricted entry with ID\n🏠 Round-the-clock dorm supervision\n🚨 Regular safety drills\n\nYour daughter's safety is our top priority with multiple protection layers!\n\n🔗 <a href='https://vantagehall.org/security-girls-boarding-school-dehradun/' target='_blank'>Security Details</a>"
           },
           {
             id: 2,
             label: "🚫 Bullying Policy",
             trigger: [
               '2', 'bullying', 'bullied', 'unsafe', 'harassment',
-              // Keywords added:
               'bullying policy', 'zero tolerance', 'student safety', 
               'complaint system', 'peer issues', 'report bullying', 
               'unsafe situation'
@@ -343,7 +329,6 @@ const KNOWLEDGE_BASE = {
             label: "🚨 Emergency Protocols",
             trigger: [
               '3', 'emergency', 'emergency protocol', 'crisis',
-              // Keywords added:
               'emergency procedure', 'fire drill', 'safety protocol', 
               'crisis management', 'parent notification', 'disaster preparedness'
             ],
@@ -363,18 +348,16 @@ const KNOWLEDGE_BASE = {
             trigger: [
               '1', 'medical facility', 'doctor', 'infirmary', 
               'is medical facility available in school',
-              // Keywords added:
               'school infirmary', 'nurse on campus', 'doctor visit', 
               'medical emergency', 'hospital tie-up', 'sick child', 'health care'
             ],
-            response: "🏥 Medical Facilities:\n\n✅ Fully equipped infirmary - 24/7\n👩‍⚕️ Qualified female doctor & nurses\n🚑 School ambulance available\n🏥 Tie-ups with hospitals:\n• Graphic Era\n• Synergy\n• Max Hospital\n\n📞 Parents informed immediately in any medical situation!"
+            response: "🏥 Medical Facilities:\n\n✅ Fully equipped infirmary - 24/7\n👩‍⚕️ Qualified female doctor & nurses\n🚑 School ambulance available\n🏥 Tie-ups with hospitals:\n• Graphic Era\n• Synergy\n• Max Hospital\n\n📞 Parents informed immediately in any medical situation!\n\n🔗 <a href='https://vantagehall.org/medical-services-boarding-school-dehradun/' target='_blank'>Medical Services</a>"
           },
           {
             id: 2,
             label: "🍽️ Special Dietary Needs",
             trigger: [
               '2', 'special dietary', 'allergies', 'food allergy',
-              // Keywords added:
               'allergy support', 'special diet', 'medical condition', 
               'individual care plan', 'food customization', 'health monitoring'
             ],
@@ -393,7 +376,6 @@ const KNOWLEDGE_BASE = {
             label: "⚖️ How is balance maintained?",
             trigger: [
               '1', 'balance academics', 'study balance', 'how balance',
-              // Keywords added:
               'study and sports balance', 'extracurricular support', 
               'academic focus', 'leadership programs', 'flexible schedule', 
               'coaching support'
@@ -406,12 +388,12 @@ const KNOWLEDGE_BASE = {
   },
 
   // ==============================================
-  // OTHER SCHOOL INFORMATION
+  // GENERAL SCHOOL INFORMATION - UPDATED WITH HYPERLINKS ✅
   // ==============================================
 
   founder: {
     keywords: ['founder', 'established', 'history', 'who started', 'foundation', 'when founded'],
-    answer: "🏫 Vantage Hall Girls' Residential School was established in 2013 with a vision to provide world-class boarding education for girls in a nurturing and empowering environment."
+    answer: "🏫 Vantage Hall Girls' Residential School was established in 2013 with a vision to provide world-class boarding education for girls in a nurturing and empowering environment.\n\n🔗 <a href='https://vantagehall.org/vision-mission-girls-school-dehradun/' target='_blank'>Vision & Mission</a>"
   },
 
   affiliation: {
@@ -420,117 +402,304 @@ const KNOWLEDGE_BASE = {
   },
 
   location: {
-    keywords: ['location', 'map', 'how to reach', 'directions', 'bus stop', 'address'],
-    answer: "📍 Vantage Hall is located in Doonga, Dehradun — about 10 km from the city centre. Easily accessible via Sahaspur Road & Rajpur Road.\n🗺 Google Maps: https://maps.app.goo.gl/F9okR4GADbhN9x5G8"
+    keywords: [
+      'location', 'map', 'how to reach', 'directions', 'bus stop', 'address',
+      'school address', 'contact number', 'school email', 'where located',
+      'admission contact', 'dehradun boarding school'
+    ],
+    answer: "📍 Vantage Hall Girls' Residential School\nThe Yellow Brick Road, Doonga\nDehradun - 248007, Uttarakhand\n\n🗺 Google Maps: https://maps.app.goo.gl/F9okR4GADbhN9x5G8\n\n🔗 <a href='https://vantagehall.org/contact-vantage-hall-boarding-school/' target='_blank'>Full Contact Details</a>"
   },
 
   faculty: {
-    keywords: ['faculty', 'teachers', 'staff', 'teaching quality', 'teacher qualification'],
-    answer: `🏫 All faculty members are highly qualified professionals with CBSE teaching certifications. Many hold postgraduate degrees and have years of teaching and mentoring experience.\n🔗 Learn more: <a href='https://vantagehall.org/teachers-bio/' target='_blank'>vantagehall.org/teachers-bio</a>`
+    keywords: [
+      'faculty', 'teachers', 'staff', 'teaching quality', 'teacher qualification',
+      'who teaches'
+    ],
+    answer: "🏫 All faculty members are highly qualified professionals with CBSE teaching certifications. Many hold postgraduate degrees and have years of teaching and mentoring experience.\n\n🔗 <a href='https://vantagehall.org/teachers-bio/' target='_blank'>Meet Our Teachers</a>"
   },
   
   smart_class: {
-    keywords: ['smart class', 'technology', 'digital classroom', 'computer lab', 'ERP', 'online learning'],
-    answer: "💻 Digital & Smart Learning:\n• Smart classrooms with interactive panels\n• Computer & Robotics Labs\n• Wi-Fi-enabled learning environment\n• Integrated Edunext ERP for attendance, grades & communication"
+    keywords: [
+      'smart class', 'technology', 'digital classroom', 'computer lab', 
+      'ERP', 'online learning', 'wifi'
+    ],
+    answer: "💻 Digital & Smart Learning:\n\n• Smart classrooms with interactive panels\n• Computer & Robotics Labs\n• Wi-Fi-enabled learning environment\n• Integrated Edunext ERP for attendance, grades & communication"
   },
 
   safety: {
-    keywords: ['safety', 'security', 'cctv', 'warden', 'camera', 'rules'],
-    answer: "🛡 Safety & Security:\n• 24x7 wardens in each hostel block\n• CCTV surveillance in corridors & common areas\n• Controlled visitor access with ID verification\n• Strict discipline & conduct policy"
+    keywords: ['safety', 'security', 'cctv', 'warden', 'camera', 'rules', 'discipline'],
+    answer: "🛡 Safety & Security:\n\n• 24x7 wardens in each hostel block\n• CCTV surveillance in corridors & common areas\n• Controlled visitor access with ID verification\n• Strict discipline & conduct policy\n\n🔗 <a href='https://vantagehall.org/security-girls-boarding-school-dehradun/' target='_blank'>Security Details</a>"
   },
 
   campus: {
-    keywords: ['campus', 'infrastructure', 'library', 'labs', 'facilities available', 'auditorium'],
-    answer: "🏫 Campus Facilities:\n• 12-acre lush green campus\n• Modern academic blocks & labs\n• Fully stocked library\n• Amphitheatre & multi-purpose auditorium\n• Indoor & outdoor sports arenas"
+    keywords: [
+      'campus', 'infrastructure', 'library', 'labs', 'facilities available', 
+      'auditorium'
+    ],
+    answer: "🏫 Campus Facilities:\n\n• 12-acre lush green campus\n• Modern academic blocks & labs\n• Fully stocked library\n• Amphitheatre & multi-purpose auditorium\n• Indoor & outdoor sports arenas"
   },
 
-
   medical: {
-  keywords: [
-    'medical',
-    'medical facilities',
-    'health',
-    'doctor',
-    'hospital',
-    'infirmary',
-    'ambulance'
-  ],
-  answer: "🏥 <a href='https://vantagehall.org/medical-services-boarding-school-dehradun/' target='_blank'>Medical Facilities</a>:\n\n✅ Fully equipped infirmary – 24/7\n👩‍⚕️ Qualified female doctor & nurses\n🚑 School ambulance available\n🏥 Tie-ups with hospitals:\n• Graphic Era\n• Synergy\n• Max Hospital\n\n📞 Parents are informed immediately in any medical situation!"
-},
+    keywords: [
+      'medical', 'medical facilities', 'health', 'doctor', 'hospital', 
+      'infirmary', 'ambulance'
+    ],
+    answer: "🏥 <a href='https://vantagehall.org/medical-services-boarding-school-dehradun/' target='_blank'>Medical Facilities</a>:\n\n✅ Fully equipped infirmary – 24/7\n👩‍⚕️ Qualified female doctor & nurses\n🚑 School ambulance available\n🏥 Tie-ups with hospitals:\n• Graphic Era\n• Synergy\n• Max Hospital\n\n📞 Parents are informed immediately in any medical situation!"
+  },
 
   vision: {
-    keywords: ['vision', 'goal', 'objective', 'purpose', 'mission'],
-    answer: "🎯 Our Vision & Mission:\n\nTo nurture happy, independent, and unique individuals in a safe and supportive environment."
+    keywords: [
+      'vision', 'goal', 'objective', 'purpose', 'mission',
+      'school vision', 'mission statement', 'core values', 
+      'school philosophy', 'educational goals'
+    ],
+    answer: "🎯 Our Vision & Mission:\n\nTo nurture happy, independent, and unique individuals in a safe and supportive environment.\n\n🔗 <a href='https://vantagehall.org/vision-mission-girls-school-dehradun/' target='_blank'>Learn More</a>"
   },
 
   curriculum: {
-    keywords: ['curriculum', 'board', 'cbse', 'syllabus', 'academics system', 'what subject', 'subjects taught'],
-    answer: "📚 We follow the CBSE curriculum with a well-balanced, student-centric academic programme that encourages holistic learning and critical thinking.<br><br>🎓 Streams Offered (Classes 11-12):<br>• Science<br>• Commerce<br>• Humanities<br><br>Our curriculum emphasizes holistic development beyond textbooks, including hands-on activities, critical thinking, and creative expression. For full information, visit: <a href='https://vantagehall.org/curriculum/' target='_blank'>Curriculum</a>"
+    keywords: [
+      'curriculum', 'board', 'cbse', 'syllabus', 'academics system', 
+      'what subject', 'subjects taught', 'school board', 'cbse school', 
+      'curriculum followed', 'education board', 'affiliated board'
+    ],
+    answer: "📚 We follow the CBSE curriculum with a well-balanced, student-centric academic programme that encourages holistic learning and critical thinking.\n\n🎓 Streams Offered (Classes 11-12):\n• Science\n• Commerce\n• Humanities\n\nOur curriculum emphasizes holistic development beyond textbooks, including hands-on activities, critical thinking, and creative expression.\n\n🔗 <a href='https://vantagehall.org/curriculum-boarding-school-dehradun/' target='_blank'>Full Curriculum Details</a>"
   },
 
   timings: {
-    keywords: ['timing', 'time', 'hour', 'schedule', 'start'],
-    answer: "🕐 School Timings:\n\n• Grades 3-9: 7:45 AM - 12:55 PM\n• Grades 10-12: 7:45 AM - 1:35 PM\n• Activity Classes: 2:45 PM - 4:05 PM"
+    keywords: [
+      'timing', 'time', 'hour', 'schedule', 'start',
+      'school timings', 'class schedule', 'school hours', 
+      'daily timing', 'activity timing'
+    ],
+    answer: "🕐 School Timings:\n\n• Grades 3-9: 7:45 AM - 12:55 PM\n• Grades 10-12: 7:45 AM - 1:35 PM\n• Activity Classes: 2:45 PM - 4:05 PM\n\n🔗 <a href='https://vantagehall.org/typical-day-boarding-school-dehradun/' target='_blank'>Typical Day</a>"
   },
 
   ratio: {
-    keywords: ['ratio', 'student', 'teacher', 'class size', 'students per'],
+    keywords: [
+      'ratio', 'student', 'teacher', 'class size', 'students per',
+      'teacher ratio', 'class strength', 'students per teacher', 'batch size'
+    ],
     answer: "👩‍🏫 Student-Teacher Ratio: 1:5\n\nWe maintain small class sizes to ensure personalized attention and effective learning for every student."
   },
 
   eligibility: {
-    keywords: ['eligibility', 'eligible', 'criteria', 'qualify', 'who can', 'age'],
-    answer: "📝 Eligibility Criteria:\n\n✅ Classes: 3-12\n✅ Age: As per CBSE guidelines\n✅ Eligibility: Successful completion of previous grade\n✅ Required: Transfer Certificate and Report Card\n⚠️ Note: Admission to Class 10 is considered only in exceptional cases"
+    keywords: [
+      'eligibility', 'eligible', 'criteria', 'qualify', 'who can', 'age',
+      'admission criteria', 'age requirement', 'entry rules', 
+      'class admission', 'eligibility details'
+    ],
+    answer: "📝 Eligibility Criteria:\n\n✅ Classes: 3-12\n✅ Age: As per CBSE guidelines\n✅ Eligibility: Successful completion of previous grade\n✅ Required: Transfer Certificate and Report Card\n⚠️ Note: Admission to Class 10 is considered only in exceptional cases\n\n🔗 <a href='https://vantagehall.org/admission-procedure-boarding-school/' target='_blank'>Admission Details</a>"
   },
 
   admission: {
-    keywords: ['admission', 'admit', 'process of admission', 'enroll', 'join', 'apply'],
-    answer: "📝 Admission Process:<br><br>✅ Step 1: Written Test (English, Mathematics, Science)<br>✅ Step 2: Interaction with Principal<br>✅ Step 3: Interaction with Director<br><br>📅 Registrations: September-October<br>📅 Session Starts: April<br><br>📞 Contact:<br>+91-8191912999, +91-7078311863<br>📧 admissions@vantagehall.org<br>🔗 <a href='https://vantagehall.org/admission-procedure/' target='_blank'>Admission Procedure</a> for complete details"
+    keywords: [
+      'admission', 'admit', 'process of admission', 'enroll', 'join', 'apply',
+      'admission steps', 'entrance test', 'selection process', 
+      'interview round', 'admission procedure'
+    ],
+    answer: "📝 Admission Process:\n\n✅ Step 1: Written Test (English, Mathematics, Science)\n✅ Step 2: Interaction with Principal\n✅ Step 3: Interaction with Director\n\n📅 Registrations: September-October\n📅 Session Starts: April\n\n📞 Contact:\n+91-8191912999, +91-7078311863\n📧 admissions@vantagehall.org\n\n🔗 <a href='https://vantagehall.org/admission-procedure/' target='_blank'>Complete Admission Details</a>"
+  },
+
+  admission_dates: {
+    keywords: [
+      'admission start', 'registration dates', 'session begins', 
+      'academic calendar', 'admission deadline'
+    ],
+    answer: "📅 Admission Timeline:\n\n• Registrations: September-October (of the previous academic year)\n• Academic Session: Begins in April\n\n🔗 <a href='https://vantagehall.org/wp-content/uploads/2025/03/VH-Calendar-2025-26-VH-CALENDAR-2025-26.pdf' target='_blank'>Academic Calendar 2025-26</a>"
   },
 
   documents: {
-    keywords: ['document', 'paper', 'certificate', 'required', 'need', 'bring'],
+    keywords: [
+      'document', 'paper', 'certificate', 'required', 'need', 'bring',
+      'admission documents', 'required papers', 'documents needed', 
+      'aadhaar required', 'tc required'
+    ],
     answer: "📄 Required Documents:\n\n• Birth Certificate & Aadhaar Card\n• Parents' Aadhaar & PAN Cards\n• Last examination mark sheet\n• Original Transfer Certificate\n• Medical Fitness Certificate\n• Student's PEN Number / APAAR ID"
   },
 
   fee: {
-    keywords: ['fee', 'fees', 'cost', 'tuition', 'charge', 'payment', 'price'],
-    answer: "💰 Fee Structure:<br><br>📌 Classes 3-7: ₹7,35,000 (Annual: ₹5,50,000 + One-time: ₹1,85,000)<br><br>📌 Classes 8-10: ₹8,35,000 (Annual: ₹6,50,000 + One-time: ₹1,85,000)<br><br>📌 Classes 11-12: ₹8,85,000 (Annual: ₹7,00,000 + One-time: ₹1,85,000)<br><br>*One-time fees include registration, joining kit, imprest deposit & admission fee.<br><br>For full details, visit: <a href='https://vantagehall.org/fee-structure/' target='_blank'>Fee Structure</a>"
+    keywords: [
+      'fee', 'fees', 'cost', 'tuition', 'charge', 'payment', 'price',
+      'school fees', 'hostel fees', 'annual charges', 'tuition cost', 'boarding fees'
+    ],
+    answer: "💰 Fee Structure:\n\n📌 Classes 3-7: ₹7,35,000\n(Annual: ₹5,50,000 + One-time: ₹1,85,000)\n\n📌 Classes 8-10: ₹8,35,000\n(Annual: ₹6,50,000 + One-time: ₹1,85,000)\n\n📌 Classes 11-12: ₹8,85,000\n(Annual: ₹7,00,000 + One-time: ₹1,85,000)\n\n*One-time fees include registration, joining kit, imprest deposit & admission fee.\n\n🔗 <a href='https://vantagehall.org/fee-structure/' target='_blank'>Complete Fee Details</a>"
   },
 
   hostel: {
-    keywords: ['hostel', 'hostel facilities', 'boarding', 'residential', 'accommodation', 'room'],
-    answer: "🏡 Hostel Facilities:\n\n✨ Well-furnished dormitories with beds, storage, study tables & wardrobes\n✨ Separate hostels for juniors & seniors\n✨ Regular laundry service\n✨ Daily housekeeping\n✨ 24/7 supervision by wardens\n✨ Safe & supportive environment"
+    keywords: [
+      'hostel', 'hostel facilities', 'boarding', 'residential', 'accommodation', 'room',
+      'hostel rooms', 'dorm facilities', 'boarding facilities', 'wifi hostel', 'laundry service'
+    ],
+    answer: "🏡 Hostel Facilities:\n\n✨ Well-furnished dormitories with beds, storage, study tables & wardrobes\n✨ Separate hostels for juniors & seniors\n✨ Regular laundry service\n✨ Daily housekeeping\n✨24/7 supervision by wardens\n✨ Safe & supportive environment\n\n🔗 <a href='https://vantagehall.org/hostel-facilities-boarding-school-dehradun/' target='_blank'>Hostel Details</a>"
+  },
+
+  hostel_rules: {
+    keywords: [
+      'hostel discipline', 'dorm rules', 'lights out timing', 
+      'boarding guidelines', 'hostel routine'
+    ],
+    answer: "📋 Hostel Rules:\n\n• Students must return to dorms at designated times\n• Fixed bedtime and lights-out schedules\n• Morning roll call and evening study attendance mandatory\n• Respectful behavior towards peers and staff\n• Polite language and proper conduct enforced\n\n🔗 <a href='https://vantagehall.org/pastoral-care-girls-boarding-school/' target='_blank'>Pastoral Care</a>"
   },
 
   food: {
-    keywords: ['food', 'dining', 'menu', 'meal', 'lunch', 'dinner', 'breakfast', 'diet'],
-    answer: "🍽️ Dining & Nutrition:\n\n✅ Nutritionist-planned meals\n✅ Special diets for athletes & medical needs\n✅ Veg & non-veg options\n✅ Menu rotates every 15 days\n\n🥗 Daily Meals:\n• Breakfast: Fruits, cereals, milk, eggs, bread/parathas\n• Lunch: Dal, rice/roti, vegetables, salad\n• Dinner: Similar to lunch with variety\n• Night Milk: Mandatory"
+    keywords: [
+      'food', 'dining', 'menu', 'meal', 'lunch', 'dinner', 'breakfast', 'diet',
+      'school food', 'mess menu', 'dining system', 'veg non-veg', 'special diet'
+    ],
+    answer: "🍽️ Dining & Nutrition:\n\n✅ Nutritionist-planned meals\n✅ Special diets for athletes & medical needs\n✅ Veg & non-veg options\n✅ Menu rotates every 15 days\n\n🥗 Daily Meals:\n• Breakfast: Fruits, cereals, milk, eggs, bread/parathas\n• Lunch: Dal, rice/roti, vegetables, salad\n• Dinner: Similar to lunch with variety\n• Night Milk: Mandatory\n\n🔗 <a href='https://vantagehall.org/food-nutrition-boarding-school-dehradun/' target='_blank'>Full Menu</a>"
+  },
+
+  leave_policy: {
+    keywords: [
+      'hostel leave', 'outing rules', 'leave permission', 
+      'weekend outing', 'holiday policy'
+    ],
+    answer: "📅 Leave & Outing Policy:\n\nLeave and outing schedules are mentioned in the Academic Calendar.\n\n🔗 <a href='https://vantagehall.org/wp-content/uploads/2025/03/VH-Calendar-2025-26-VH-CALENDAR-2025-26.pdf' target='_blank'>View Academic Calendar</a>"
   },
 
   sports: {
-    keywords: ['sports', 'sport available', 'games', 'what sports', 'sports facilities', 'athletics', 'physical education', 'football', 'cricket', 'basketball', 'swimming', 'which sports'],
-    answer: "⚽ Sports & Athletics:<br><br>Training under qualified coaches in:<br><br>🏃‍♀️ Football, Self Defense, Basketball,<br>🎾 Squash, Badminton, Zumba Classes, Table Tennis<br>⛸️ Skating, Gymnasium, Swimming<br>♟️ Indoor Games: Chess<br><br>For full details, visit: <a href='https://vantagehall.org/sports-facilities/' target='_blank'>Sports Facilities</a>"
+    keywords: [
+      'sports', 'sport available', 'games', 'what sports', 'sports facilities', 
+      'athletics', 'physical education', 'football', 'cricket', 'basketball', 
+      'swimming', 'which sports', 'sports offered', 'games available', 
+      'coaches available', 'swimming pool', 'sports teams'
+    ],
+    answer: "⚽ Sports & Athletics:\n\nTraining under qualified coaches in:\n\n🏃‍♀️ Football, Self Defense, Basketball\n🎾 Squash, Badminton, Zumba Classes, Table Tennis\n⛸️ Skating, Gymnasium, Swimming\n♟️ Indoor Games: Chess\n\n🔗 <a href='https://vantagehall.org/sports-facilities/' target='_blank'>Sports Facilities</a>\n🔗 <a href='https://vantagehall.org/sports-achievements-girls-boarding-school/' target='_blank'>Sports Achievements</a>"
   },
 
   clubs: {
-    keywords: ['club', 'activity', 'extracurricular', 'societies', 'hobby'],
-    answer: "🎨 Clubs & Societies:<br><br>• Art Club<br>• Culinary Club<br>• Dance & Music Club<br>• Theatre Club<br>• Finance & Maths Club<br>• IT Club<br>• Science Club<br>• Photography Club<br>• Sustainability Club<br>• Editorial Board<br><br>Explore more activities at: <a href='https://vantagehall.org/clubs/' target='_blank'>Clubs & Activities</a>"
+    keywords: [
+      'club', 'activity', 'extracurricular', 'societies', 'hobby',
+      'school clubs', 'student activities', 'debate club', 
+      'music club', 'stem club'
+    ],
+    answer: "🎨 Clubs & Societies:\n\n• Art Club\n• Culinary Club\n• Dance & Music Club\n• Theatre Club\n• Finance & Maths Club\n• IT Club\n• Science Club\n• Photography Club\n• Sustainability Club\n• Editorial Board\n\n🔗 <a href='https://vantagehall.org/clubs/' target='_blank'>Explore All Clubs</a>\n🔗 <a href='https://vantagehall.org/student-clubs-boarding-school-dehradun/' target='_blank'>Student Activities</a>"
+  },
+
+  events: {
+    keywords: [
+      'annual day', 'school events', 'sports day', 'cultural programs', 'celebrations'
+    ],
+    answer: "🎉 Cultural & Annual Events:\n\n• Annual Day\n• Sports Day\n• Independence Day & Republic Day\n• Educational Trips & Excursions\n• Festive Celebrations\n• Inter-House Competitions\n• Talent & Leadership Programs\n\n🔗 <a href='https://vantagehall.org/blog/' target='_blank'>Read Our Blog</a>"
+  },
+
+  leadership: {
+    keywords: [
+      'student council', 'prefect system', 'leadership roles', 
+      'house system', 'head girl'
+    ],
+    answer: "🌟 Leadership Opportunities:\n\nStudents are offered leadership roles through:\n\n• House System\n• Prefectship\n• Student Council\n\nThese help build confidence, communication, and responsibility.\n\n🔗 <a href='https://vantagehall.org/student-council/' target='_blank'>Student Council</a>"
+  },
+
+  trips: {
+    keywords: [
+      'school trips', 'educational tours', 'exchange program', 
+      'trekking', 'foreign trips', 'picnic'
+    ],
+    answer: "🗺️ Trips & Excursions:\n\n📍 Term-End Trips:\nKanatal, Manali, Shimla, Mumbai, Goa, Jim Corbett (grade-wise)\n\n📚 Educational Trips:\nScience Centre, Dehradun Zoo, FRI, IMA, Museums\n\n⛰️ Treks/Day Trips:\nBhadraj Temple, Than Gaon, Doonga treks, Mussoorie\n\n🛍️ Local Visits:\nPacific Mall, Centrio Mall, Dehradun Zoo\n\n🔗 <a href='https://vantagehall.org/trips-expeditions-boarding-school-dehradun/' target='_blank'>Trips & Expeditions</a>"
   },
 
   career: {
-    keywords: ['career', 'guidance', 'college', 'university', 'neet', 'jee', 'clat'],
-    answer: "🎯 Career Guidance:\n\nWe offer counseling for Grades 8-12, including:\n\n✅ Medical (NEET)\n✅ Engineering (JEE)\n✅ Law (CLAT, AILET)\n✅ Management (IPM, NMIMS)\n✅ Design (NIFT, UCEED)\n✅ SAT & AP (foreign universities)\n\n1-on-1 guidance sessions available!"
+    keywords: [
+      'career', 'guidance', 'college', 'university', 'neet', 'jee', 'clat',
+      'career counseling', 'entrance prep', 'neet coaching', 
+      'jee support', 'study abroad'
+    ],
+    answer: "🎯 Career Guidance:\n\nWe offer counseling for Grades 8-12, including:\n\n✅ Medical (NEET)\n✅ Engineering (JEE)\n✅ Law (CLAT, AILET)\n✅ Management (IPM, NMIMS)\n✅ Design (NIFT, UCEED)\n✅ SAT & AP (foreign universities)\n\n1-on-1 guidance sessions available!\n\n🔗 <a href='https://vantagehall.org/academic-programs-boarding-school/' target='_blank'>Academic Programs</a>"
+  },
+
+  parent_communication: {
+    keywords: [
+      'parent communication', 'school app', 'erp access', 
+      'weekly calls', 'whatsapp updates'
+    ],
+    answer: "📱 Parent Communication:\n\n• ERP system (attendance, academics, calendar, photos)\n• Email and WhatsApp updates\n• Weekly student-parent calls every Sunday (45 minutes)\n• Special calls on birthdays/anniversaries"
+  },
+
+  ptm: {
+    keywords: [
+      'parent meeting', 'ptm dates', 'teacher interaction', 'academic meeting'
+    ],
+    answer: "👨‍👩‍👧 Parent-Teacher Meetings:\n\nConducted four times in an academic year (Online & Offline)."
+  },
+
+  online_portal: {
+    keywords: [
+      'online portal', 'attendance tracking', 'fee tracking', 
+      'erp login', 'academic reports'
+    ],
+    answer: "💻 Online Portal:\n\nYes, parents can access the ERP system anytime to track:\n\n• Attendance\n• Academic Performance\n• Fee Status\n• Event Calendar"
+  },
+
+  counselor: {
+    keywords: [
+      'counselor available', 'emotional support', 'student psychologist', 'mental health'
+    ],
+    answer: "💚 School Counselor:\n\nYes, we have a dedicated counselor providing psychological and emotional support.\n\n🔗 <a href='https://vantagehall.org/emotional-health-boarding-school-dehradun/' target='_blank'>Emotional Health</a>"
+  },
+
+  complaint: {
+    keywords: [
+      'report bullying', 'complaint system', 'confidential support', 
+      'student grievance', 'safety concern'
+    ],
+    answer: "📮 Student Grievance System:\n\nWe have a zero-tolerance policy against bullying or harassment. Students may directly approach:\n\n• Director\n• Principal\n• Pastoral Care team\n\nFor confidential one-on-one sessions."
+  },
+
+  staff: {
+    keywords: [
+      'school principal', 'director name', 'house mother', 'medical staff'
+    ],
+    answer: "👥 Key Staff Members:\n\n• Principal\n• Director\n• HOD Pastoral Care\n• House Mothers\n• Medical Staff\n\n🔗 <a href='https://vantagehall.org/school-committee/' target='_blank'>School Committee</a>"
+  },
+
+  urgent_communication: {
+    keywords: [
+      'emergency update', 'holiday notice', 'urgent announcement', 'school alert'
+    ],
+    answer: "🚨 Urgent Communication:\n\n• Formal updates via Email and ERP\n• Medical emergencies: Direct phone calls to parents"
+  },
+
+  privacy: {
+    keywords: [
+      'data privacy', 'student information', 'confidential policy', 
+      'information security'
+    ],
+    answer: "🔒 Privacy Policy:\n\nThe chatbot never shares personal or confidential student information. All data is protected."
+  },
+
+  streams: {
+    keywords: [
+      'subjects offered', 'senior streams', 'science stream', 
+      'commerce stream', 'humanities stream'
+    ],
+    answer: "🎓 Streams Offered (Classes 11-12):\n\n• Science\n• Commerce\n• Humanities\n\n🔗 <a href='https://vantagehall.org/academic-programs-boarding-school/' target='_blank'>Academic Programs</a>"
+  },
+
+  examination: {
+    keywords: [
+      'exam system', 'unit tests', 'annual exams', 
+      'assessment method', 'half yearly exam'
+    ],
+    answer: "📝 Examination System:\n\n• Unit Tests: Twice a year\n• Mid-Term / Half-Yearly Exams\n• Final / Annual Exams (comprehensive)"
+  },
+
+  remedial: {
+    keywords: [
+      'extra classes', 'remedial support', 'academic help', 
+      'coaching support', 'doubt clearing'
+    ],
+    answer: "📚 Remedial Classes:\n\nYes, remedial and academic support classes are provided beyond regular teaching hours."
   },
 
   contact: {
     keywords: ['contact', 'phone', 'email', 'address', 'reach', 'call', 'number'],
-    answer: "📍 Vantage Hall Girls' Residential School\nThe Yellow Brick Road, Doonga\nDehradun - 248007, Uttarakhand\n📞 General: <a href='tel:01352776225'>0135-2776225</a>, <a href='tel:01352776226'>226</a>, <a href='tel:01352776227'>227</a>, <a href='tel:01352776228'>228</a>\n📧 <a href='mailto:info@vantagehall.org'>info@vantagehall.org</a>\n\n👤 Admissions:\n📞 <a href='tel:+918191912999'>+91-8191912999</a>, <a href='tel:+917078311863'>+91-7078311863</a>\n📧 <a href='mailto:admissions@vantagehall.org'>admissions@vantagehall.org</a>\n🔗 Contact page: <a href='https://vantagehall.org/contact-us' target='_blank'>vantagehall.org/contact-us</a>"
+    answer: "📍 Vantage Hall Girls' Residential School\nThe Yellow Brick Road, Doonga\nDehradun - 248007, Uttarakhand\n\n📞 General: <a href='tel:01352776225'>0135-2776225</a>, 226, 227, 228\n📧 <a href='mailto:info@vantagehall.org'>info@vantagehall.org</a>\n\n👤 Admissions:\n📞 <a href='tel:+918191912999'>+91-8191912999</a>, <a href='tel:+917078311863'>+91-7078311863</a>\n📧 <a href='mailto:admissions@vantagehall.org'>admissions@vantagehall.org</a>\n\n🔗 <a href='https://vantagehall.org/contact-us' target='_blank'>Complete Contact Page</a>"
   }
 };
 
 // ==============================================
-// ✅ NEW: EMAIL SENDING FUNCTION
+// EMAIL FUNCTIONS
 // ==============================================
 async function sendCallbackEmail(userDetails, query, callbackNumber) {
   try {
@@ -685,8 +854,60 @@ async function sendCallbackEmail(userDetails, query, callbackNumber) {
   }
 }
 
+async function sendAdminEmail(userDetails) {
+  try {
+    const mailOptions = {
+      from: EMAIL_CONFIG.auth.user,
+      to: ADMIN_EMAIL,
+      subject: '🔔 New Chatbot User Registration - Vantage Hall',
+      html: `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <style>
+            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+            .container { max-width: 600px; margin: 0 auto; padding: 20px; background: #f9f9f9; }
+            .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; text-align: center; border-radius: 8px 8px 0 0; }
+            .content { background: white; padding: 30px; border-radius: 0 0 8px 8px; }
+            .info-row { margin: 15px 0; padding: 12px; background: #f0f0f0; border-radius: 6px; }
+            .label { font-weight: bold; color: #667eea; }
+            .footer { text-align: center; margin-top: 20px; font-size: 12px; color: #999; }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <div class="header">
+              <h2>🎓 New User Started Chat</h2>
+              <p>Vantage Hall Chatbot</p>
+            </div>
+            <div class="content">
+              <h3>User Details:</h3>
+              <div class="info-row"><span class="label">👤 Name:</span><br>${userDetails.name}</div>
+              <div class="info-row"><span class="label">📧 Email:</span><br>${userDetails.email}</div>
+              <div class="info-row"><span class="label">📱 Phone:</span><br>${userDetails.phone}</div>
+              <div class="info-row"><span class="label">🕐 Time:</span><br>${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}</div>
+            </div>
+            <div class="footer">
+              <p>This is an automated notification from Vantage Hall Chatbot System</p>
+              <p>© ${new Date().getFullYear()} Vantage Hall Girls' Residential School</p>
+            </div>
+          </div>
+        </body>
+        </html>
+      `
+    };
+
+    await transporter.sendMail(mailOptions);
+    console.log('✅ Email sent to admin successfully!');
+    return true;
+  } catch (error) {
+    console.error('❌ Email sending failed:', error.message);
+    return false;
+  }
+}
+
 // ==============================================
-// SMART KEYWORD MATCHING - UPDATED
+// SMART KEYWORD MATCHING
 // ==============================================
 function findBestMatch(userMessage, lastTopic = null, lastOptionLevel = null, lastSelectedOption = null) {
   const msg = userMessage.toLowerCase().trim();
@@ -856,62 +1077,7 @@ function findBestMatch(userMessage, lastTopic = null, lastOptionLevel = null, la
 }
 
 // ==============================================
-// EMAIL NOTIFICATION FOR REGISTRATION
-// ==============================================
-async function sendAdminEmail(userDetails) {
-  try {
-    const mailOptions = {
-      from: EMAIL_CONFIG.auth.user,
-      to: ADMIN_EMAIL,
-      subject: '🔔 New Chatbot User Registration - Vantage Hall',
-      html: `
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <style>
-            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-            .container { max-width: 600px; margin: 0 auto; padding: 20px; background: #f9f9f9; }
-            .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; text-align: center; border-radius: 8px 8px 0 0; }
-            .content { background: white; padding: 30px; border-radius: 0 0 8px 8px; }
-            .info-row { margin: 15px 0; padding: 12px; background: #f0f0f0; border-radius: 6px; }
-            .label { font-weight: bold; color: #667eea; }
-            .footer { text-align: center; margin-top: 20px; font-size: 12px; color: #999; }
-          </style>
-        </head>
-        <body>
-          <div class="container">
-            <div class="header">
-              <h2>🎓 New User Started Chat</h2>
-              <p>Vantage Hall Chatbot</p>
-            </div>
-            <div class="content">
-              <h3>User Details:</h3>
-              <div class="info-row"><span class="label">👤 Name:</span><br>${userDetails.name}</div>
-              <div class="info-row"><span class="label">📧 Email:</span><br>${userDetails.email}</div>
-              <div class="info-row"><span class="label">📱 Phone:</span><br>${userDetails.phone}</div>
-              <div class="info-row"><span class="label">🕐 Time:</span><br>${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}</div>
-            </div>
-            <div class="footer">
-              <p>This is an automated notification from Vantage Hall Chatbot System</p>
-              <p>© ${new Date().getFullYear()} Vantage Hall Girls' Residential School</p>
-            </div>
-          </div>
-        </body>
-        </html>
-      `
-    };
-
-    await transporter.sendMail(mailOptions);
-    console.log('✅ Email sent to admin successfully!');
-    return true;
-  } catch (error) {
-    console.error('❌ Email sending failed:', error.message);
-    return false;
-  }
-}
-
-// ==============================================
-// GOOGLE GEMINI API CALL - UPDATED
+// GEMINI API CALL
 // ==============================================
 async function callGemini(prompt) {
   if (!genAI) {
@@ -961,16 +1127,16 @@ User question: ${prompt}`;
 app.get('/', (req, res) => {
   res.json({
     status: '✅ Server Running',
-    message: 'Vantage Hall Chatbot API - WITH EMAIL CALLBACK ✅',
-    model: 'Google Gemini Pro (FREE) + Email Notifications',
+    message: 'Vantage Hall Chatbot API - Production Ready',
+    model: 'Google Gemini Pro + Comprehensive Knowledge Base',
     knowledgeBaseTopics: Object.keys(KNOWLEDGE_BASE).length,
     geminiConfigured: !!GEMINI_API_KEY,
-    emailConfigured: !!EMAIL_CONFIG.auth.user,
+    emailConfigured: !!EMAIL_CONFIG.auth.user && EMAIL_CONFIG.auth.user !== 'your-email@gmail.com',
     endpoints: {
       health: '/api/health',
       chat: '/api/chat (POST)',
       register: '/api/register (POST)',
-      callback: '/api/callback-request (POST)', // ✅ NEW
+      callback: '/api/callback-request (POST)',
       test: '/api/test'
     }
   });
@@ -981,7 +1147,7 @@ app.get('/api/health', (req, res) => {
     status: 'ok', 
     timestamp: new Date().toISOString(),
     geminiConfigured: !!GEMINI_API_KEY,
-    emailConfigured: !!EMAIL_CONFIG.auth.user
+    emailConfigured: !!EMAIL_CONFIG.auth.user && EMAIL_CONFIG.auth.user !== 'your-email@gmail.com'
   });
 });
 
@@ -1030,9 +1196,6 @@ app.post('/api/register', async (req, res) => {
   }
 });
 
-// ==============================================
-// ✅ NEW: CALLBACK REQUEST ENDPOINT
-// ==============================================
 app.post('/api/callback-request', async (req, res) => {
   try {
     const { name, email, phone, query, callback_number } = req.body;
@@ -1044,7 +1207,6 @@ app.post('/api/callback-request', async (req, res) => {
       });
     }
 
-    // Validate callback number
     const phoneRegex = /^[6-9]\d{9}$/;
     const cleanedNumber = callback_number.replace(/\D/g, '');
     if (!phoneRegex.test(cleanedNumber)) {
@@ -1056,7 +1218,6 @@ app.post('/api/callback-request', async (req, res) => {
 
     console.log('📞 New callback request:', { name, callback_number, query });
     
-    // Send email
     const emailSent = await sendCallbackEmail(
       { name, email, phone },
       query,
@@ -1091,7 +1252,7 @@ app.get('/api/test', async (req, res) => {
         success: true,
         message: '✅ Server is working!',
         geminiStatus: 'Not configured (using Knowledge Base only)',
-        emailStatus: EMAIL_CONFIG.auth.user ? 'Configured ✅' : 'Not configured',
+        emailStatus: EMAIL_CONFIG.auth.user && EMAIL_CONFIG.auth.user !== 'your-email@gmail.com' ? 'Configured ✅' : 'Not configured',
         knowledgeBaseTopics: Object.keys(KNOWLEDGE_BASE).length,
         mode: 'Knowledge Base Mode'
       });
@@ -1102,7 +1263,7 @@ app.get('/api/test', async (req, res) => {
       success: true, 
       message: '✅ Gemini API is WORKING!',
       testReply: reply,
-      emailStatus: EMAIL_CONFIG.auth.user ? 'Configured ✅' : 'Not configured',
+      emailStatus: EMAIL_CONFIG.auth.user && EMAIL_CONFIG.auth.user !== 'your-email@gmail.com' ? 'Configured ✅' : 'Not configured',
       knowledgeBaseTopics: Object.keys(KNOWLEDGE_BASE).length,
       model: 'Google Gemini Pro'
     });
@@ -1111,7 +1272,7 @@ app.get('/api/test', async (req, res) => {
       success: true, 
       message: '✅ Server is working!',
       geminiStatus: 'Unavailable (' + error.message + ')',
-      emailStatus: EMAIL_CONFIG.auth.user ? 'Configured ✅' : 'Not configured',
+      emailStatus: EMAIL_CONFIG.auth.user && EMAIL_CONFIG.auth.user !== 'your-email@gmail.com' ? 'Configured ✅' : 'Not configured',
       fallbackMode: 'Using comprehensive Knowledge Base',
       knowledgeBaseTopics: Object.keys(KNOWLEDGE_BASE).length
     });
@@ -1137,11 +1298,6 @@ app.post('/api/chat', async (req, res) => {
     const GREETINGS = [
       "Hello! 👋 Welcome to Vantage Hall Girls' Residential School. How can I help you today?",
       "Hi there! I'm here to answer your questions about Vantage Hall. What would you like to know?"
-    ];
-
-    const GENERAL_FALLBACK = [
-      "For better assistance, we recommend connecting with us directly. 📞\n\nPlease feel free to contact our organization using the details below:\n\n📞 Phone: 0135-2776225\n📱 Mobile: +91-8191912999\n📧 Email: info@vantagehall.org\n\nOur team will be happy to assist you.",
-      "We believe direct communication works best. 😊\n\nKindly reach out to our organization through the contact details mentioned below:\n\n📞 0135-2776225\n📱 +91-8191912999\n📧 info@vantagehall.org\n\nWe look forward to assisting you."
     ];
 
     // Handle greetings
@@ -1195,11 +1351,11 @@ app.post('/api/chat', async (req, res) => {
         });
         
       } catch (geminiError) {
-        console.log('⚠️ Gemini unavailable, triggering callback'); // ✅ UPDATED
+        console.log('⚠️ Gemini unavailable, triggering callback');
       }
     }
 
-    // ✅ NEW: If no match found, trigger callback collection
+    // If no match found, trigger callback collection
     console.log('🔄 No match found - triggering callback collection');
     return res.json({ 
       success: true, 
@@ -1225,7 +1381,7 @@ app.post('/api/chat', async (req, res) => {
 // ==============================================
 app.listen(PORT, () => {
   console.log('\n╔═══════════════════════════════════════════╗');
-  console.log('║   🎓 Vantage Hall Chatbot Server            ║');
+  console.log('║   🎓 Vantage Hall Chatbot Server - PRODUCTION  ║');
   console.log('╚═══════════════════════════════════════════╝');
   console.log(`🌐 Server: http://localhost:${PORT}`);
   console.log(`🧪 Test API: http://localhost:${PORT}/api/test`);
@@ -1233,12 +1389,12 @@ app.listen(PORT, () => {
   console.log(`📚 Knowledge Base: ${Object.keys(KNOWLEDGE_BASE).length} topics ✅`);
   console.log(`📧 Email: ${EMAIL_CONFIG.auth.user !== 'your-email@gmail.com' ? 'Configured ✅' : 'Not Configured ❌'}`);
   console.log(`✅ FAQ Navigation: Working`);
-  console.log(`💚 Emotional Quotient: Added`);
+  console.log(`💚 Emotional Support: Complete with Keywords`);
+  console.log(`🔗 Hyperlinks: Added to all responses`);
   console.log(`⬅️ Back to Menu: Enabled`);
-  console.log(`📞 Callback System: Active ✅`); // ✅ NEW
-  console.log(`🔧 Fallback Mode: ${GEMINI_API_KEY ? 'Gemini Primary → Callback' : 'Knowledge Base → Callback'}`);
+  console.log(`📞 Callback System: Active ✅`);
+  console.log(`🔧 Production Ready for GitHub Push! 🚀`);
   console.log('╚═══════════════════════════════════════════\n');
-  console.log('🚀 Ready to chat with email callback support!\n');
   
   if (!GEMINI_API_KEY) {
     console.log('⚠️ NOTE: Gemini API key not configured.');
@@ -1247,9 +1403,6 @@ app.listen(PORT, () => {
   
   if (EMAIL_CONFIG.auth.user === 'your-email@gmail.com') {
     console.log('⚠️ IMPORTANT: Update email credentials in .env file!');
-    console.log('   Callback emails will not be sent until configured.\n');
+    console.log('   Set ADMIN_EMAIL and EMAIL_PASSWORD in your .env\n');
   }
-
 });
-
-
