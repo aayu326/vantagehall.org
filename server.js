@@ -414,6 +414,174 @@ const KNOWLEDGE_BASE = {
     answer: "🏫 Vantage Hall Girls' Residential School was established in 2013 with a vision to provide world-class boarding education for girls in a nurturing and empowering environment."
   },
 
+
+
+
+
+
+
+// ==============================================
+// GENERAL FALLBACK RESPONSES
+// ==============================================
+const generalFallback = {
+  location: {
+    keywords: ['location', 'map', 'how to reach', 'directions', 'bus stop', 'address', 'where is school'],
+    answer: "📍 Vantage Hall is located in Doonga, Dehradun — about 10 km from the city centre. Easily accessible via Sahaspur Road & Rajpur Road.\n🗺 Google Maps: https://maps.app.goo.gl/F9okR4GADbhN9x5G8"
+  },
+  
+  faculty: {
+    keywords: ['faculty', 'teachers', 'staff', 'teaching quality', 'teacher qualification', 'who teaches'],
+    answer: `🏫 All faculty members are highly qualified professionals with CBSE teaching certifications. Many hold postgraduate degrees and have years of teaching and mentoring experience.\n🔗 Learn more: <a href='https://vantagehall.org/teachers-bio/' target='_blank'>vantagehall.org/teachers-bio</a>`
+  },
+  
+  smart_class: {
+    keywords: ['smart class', 'technology', 'digital classroom', 'computer lab', 'ERP', 'online learning', 'wifi'],
+    answer: "💻 Digital & Smart Learning:\n• Smart classrooms with interactive panels\n• Computer & Robotics Labs\n• Wi-Fi-enabled learning environment\n• Integrated Edunext ERP for attendance, grades & communication"
+  },
+  
+  safety: {
+    keywords: ['safety', 'security', 'cctv', 'warden', 'camera', 'rules', 'discipline'],
+    answer: "🛡 Safety & Security:\n• 24x7 wardens in each hostel block\n• CCTV surveillance in corridors & common areas\n• Controlled visitor access with ID verification\n• Strict discipline & conduct policy"
+  },
+
+  // Parent Visit Keywords
+  parent_visit: {
+    keywords: [
+      'visiting hours', 'parent visit anytime', 'meet my daughter', 
+      'boarding visitation', 'weekend visit', 'visit policy', 
+      'parent meeting schedule', 'visit in dehradun'
+    ],
+    answer: "👨‍👩‍👧 Yes! Parents are warmly welcomed to visit their daughters whenever they wish.\n\n✅ Visit anytime you're in town\n✅ Preferably after school hours\n✅ No appointment needed\n\nWe encourage regular interaction between parents and students!"
+  },
+
+  // Communication Keywords
+  parent_communication: {
+    keywords: [
+      'phone calls', 'video call time', 'mobile rules', 'sunday call', 
+      'parent contact', 'emergency call', 'device policy'
+    ],
+    answer: "📱 Parent-Student Communication:\n\n📞 Every Sunday: 1 hour device access for video/phone calls\n🚨 Emergency: Pastoral team ensures immediate contact\n📞 Front desk available 24/7"
+  },
+
+  // Homesickness Keywords
+  homesickness: {
+    keywords: [
+      'homesick child', 'boarding loneliness', 'emotional care', 
+      'student counselling', 'mental health support', 'pastoral care', 
+      'sad in hostel'
+    ],
+    answer: "💚 Emotional Support:\n\n👩‍⚕️ Professional counselor on campus\n🏠 Caring dorm mothers\n👩‍🏫 Supportive teachers\n📞 Weekly video calls with parents\n🤝 Regular check-ins & bonding sessions"
+  },
+
+  // Staff Training Keywords
+  staff_training: {
+    keywords: [
+      'teacher training', 'pastoral staff', 'child psychology', 
+      'dorm mother role', 'mentor system', 'student support staff'
+    ],
+    answer: "👩‍🏫 Staff Training:\n\n📚 Pastoral care\n🧠 Child psychology\n💚 Emotional support techniques\n🤝 Mentoring skills\n\nOur staff act as mentors, ensuring every student feels supported!"
+  },
+
+  // New Students Keywords
+  new_students: {
+    keywords: [
+      'orientation program', 'buddy system', 'boarding adjustment', 
+      'first time hostel', 'settling in', 'induction support'
+    ],
+    answer: "🎒 Helping New Students:\n\n🤝 Buddy pairing\n✅ Personal mentor assigned\n✅ Caring dorm mother\n✅ Orientation sessions\n\nEvery child feels at home from day one!"
+  },
+
+  // Meal Schedule Keywords
+  meal_schedule: {
+    keywords: [
+      'meal timings', 'hostel food schedule', 'snacks allowed', 
+      'hungry between meals', 'late night food', 'nutrition plan', 
+      'dry fruits allowed'
+    ],
+    answer: "🍎 Meal Schedule:\n\n☀️ 8:00 AM - Breakfast\n🍪 11:00 AM - Morning Snack\n🍽️ 1:00 PM - Lunch\n🥤 6:00 PM - Evening Snack\n🍲 9:00 PM - Dinner\n🥛 Before Bed - Glass of Milk\n\n✅ Students can keep healthy snacks in dorms"
+  },
+
+  // Food Quality Keywords
+  food_quality: {
+    keywords: [
+      'healthy meals', 'school menu', 'vegetarian options', 
+      'nutritionist meals', 'hygienic food', 'balanced diet'
+    ],
+    answer: "🍽️ Food & Nutrition:\n\n✅ Nutritious & diverse\n✅ Lovingly prepared\n✅ Curated by nutritionist\n✅ Mix of Indian & Continental\n\n👩‍🍳 Pastoral team supervises mealtimes"
+  },
+
+  // Daily Routine Keywords
+  daily_routine: {
+    keywords: [
+      'student timetable', 'study hours', 'sports schedule', 
+      'weekend routine', 'self-study time', 'activity timetable'
+    ],
+    answer: "📅 Daily Routine:\n\n📚 Academics\n⚽ Sports & Physical Activities\n🎨 Co-curricular Activities\n📖 Self-Study Time\n😌 Relaxation Periods\n\n🌅 Evenings: Outdoor play\n🎯 Weekends: Hobbies & recreation"
+  },
+
+  // Security Keywords
+  security_measures: {
+    keywords: [
+      'school security', 'cctv campus', 'girls safety', 
+      '24/7 supervision', 'hostel security', 'safe boarding school', 
+      'entry restrictions'
+    ],
+    answer: "🛡️ Safety Measures:\n\n📹 24x7 CCTV surveillance\n👮 Trained security personnel\n🚪 Restricted entry with ID\n🏠 Round-the-clock dorm supervision\n🚨 Regular safety drills"
+  },
+
+  // Bullying Keywords
+  bullying_policy: {
+    keywords: [
+      'bullying policy', 'zero tolerance', 'student safety', 
+      'complaint system', 'peer issues', 'report bullying', 
+      'unsafe situation'
+    ],
+    answer: "🚫 Zero-Tolerance Bullying:\n\n✅ Students encouraged to speak with:\n• Dorm mothers • Counselors • Teachers\n\n📮 Multiple reporting channels\n⚡ All concerns addressed promptly, confidentially!"
+  },
+
+  // Emergency Keywords
+  emergency_protocols: {
+    keywords: [
+      'emergency procedure', 'fire drill', 'safety protocol', 
+      'crisis management', 'parent notification', 'disaster preparedness'
+    ],
+    answer: "🚨 Emergency Protocols:\n\n✅ Trained staff & pastoral team\n✅ Handled with utmost care\n📞 Parents informed immediately\n\nYour child's safety is our top priority!"
+  },
+
+  // Medical Keywords
+  medical_facilities: {
+    keywords: [
+      'school infirmary', 'nurse on campus', 'doctor visit', 
+      'medical emergency', 'hospital tie-up', 'sick child', 'health care'
+    ],
+    answer: "🏥 Medical Facilities:\n\n✅ Fully equipped infirmary - 24/7\n👩‍⚕️ Qualified female doctor & nurses\n🚑 School ambulance available\n🏥 Tie-ups with Graphic Era, Synergy, Max Hospital\n\n📞 Parents informed immediately!"
+  },
+
+  // Special Dietary Keywords
+  special_dietary: {
+    keywords: [
+      'allergy support', 'special diet', 'medical condition', 
+      'individual care plan', 'food customization', 'health monitoring'
+    ],
+    answer: "🏥 Special Dietary Needs:\n\n✅ Parents share medical conditions, allergies, dietary preferences\n🍽️ Meals tailored individually\n💚 Care plans personalized\n\nYour daughter receives exactly what she needs!"
+  },
+
+  // Academic Balance Keywords
+  academic_balance: {
+    keywords: [
+      'study and sports balance', 'extracurricular support', 
+      'academic focus', 'leadership programs', 'flexible schedule', 
+      'coaching support'
+    ],
+    answer: "⚖️ Academic & Extracurricular Balance:\n\n📚 Structured timetable ensures:\n✅ Equal importance to academics, sports, arts & leadership\n✅ Flexibility for individual needs\n\n🏃‍♀️ Sports enthusiasts: Encouraged\n📖 Academic focused: Time & support"
+  },
+
+
+
+
+
+  
+
   affiliation: {
     keywords: ['affiliation', 'cbse code', 'board affiliation', 'school code'],
     answer: "📘 The school is affiliated to the Central Board of Secondary Education (CBSE), New Delhi."
@@ -1251,3 +1419,4 @@ app.listen(PORT, () => {
   }
 
 });
+
