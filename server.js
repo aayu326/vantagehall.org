@@ -183,8 +183,12 @@ const KNOWLEDGE_BASE = {
   // ==============================================
   // EMOTIONAL QUOTIENT MENU (NEW SECTION)
   // ==============================================
+
   emotional_menu: {
-    keywords: ['emotional', 'emotional support', 'emotional quotient', 'wellbeing', 'mental health', 'care'],
+    keywords: [
+      'emotional', 'emotional support', 'emotional quotient', 'wellbeing', 'mental health', 
+      'care', 'pastoral care', 'counselling', 'student counselling'
+    ],
     answer: "💚 Emotional Support & Wellbeing:\n\nChoose a topic:",
     hasOptions: true,
     isEmotionalMenu: true,
@@ -198,13 +202,24 @@ const KNOWLEDGE_BASE = {
           {
             id: 1,
             label: "🏫 Can I visit my daughter?",
-            trigger: ['1', 'can i visit', 'visiting', 'visit daughter'],
+            trigger: [
+              '1', 'can i visit', 'visiting', 'visit daughter',
+              // Keywords added:
+              'visiting hours', 'parent visit anytime', 'meet my daughter', 
+              'boarding visitation', 'weekend visit', 'visit policy', 
+              'parent meeting schedule', 'visit in dehradun'
+            ],
             response: "👨‍👩‍👧 Parent Visits:\n\nYes! Parents are warmly welcomed to visit their daughters whenever they wish. We strongly believe in maintaining close family connections.\n\n✅ Visit anytime you're in town\n✅ Preferably after school hours\n✅ No appointment needed\n\nWe encourage regular interaction between parents and students. Your presence matters! 💙"
           },
           {
             id: 2,
             label: "📱 Can I speak to my daughter?",
-            trigger: ['2', 'speak to daughter', 'call daughter', 'phone call'],
+            trigger: [
+              '2', 'speak to daughter', 'call daughter', 'phone call',
+              // Keywords added:
+              'phone calls', 'video call time', 'mobile rules', 'sunday call', 
+              'parent contact', 'emergency call', 'device policy'
+            ],
             response: "📱 Parent-Student Communication:\n\n📞 Regular Calls:\n• Every Sunday: 1 hour device access for video/phone calls\n\n🚨 Emergency Communication:\n• Pastoral team ensures immediate contact\n• Front desk available 24/7\n• Parents informed instantly in emergencies\n\nWe ensure you stay connected while maintaining a healthy campus life balance!"
           }
         ]
@@ -218,19 +233,35 @@ const KNOWLEDGE_BASE = {
           {
             id: 1,
             label: "💙 What if daughter feels homesick?",
-            trigger: ['1', 'homesick', 'feeling sad', 'missing home'],
+            trigger: [
+              '1', 'homesick', 'feeling sad', 'missing home',
+              // Keywords added:
+              'homesick child', 'boarding loneliness', 'emotional care', 
+              'student counselling', 'mental health support', 'pastoral care', 
+              'sad in hostel'
+            ],
             response: "💚 Emotional Support:\n\nYes, we provide comprehensive emotional care:\n\n👩‍⚕️ Professional counselor on campus\n🏠 Caring dorm mothers\n👩‍🏫 Supportive teachers\n📞 Weekly video calls with parents\n👭 Small, close-knit community\n🤝 Regular check-ins & bonding sessions\n\nEvery girl receives continuous support to feel at home!"
           },
           {
             id: 2,
             label: "👩‍🏫 How is staff trained?",
-            trigger: ['2', 'staff trained', 'teacher training', 'staff care'],
+            trigger: [
+              '2', 'staff trained', 'teacher training', 'staff care',
+              // Keywords added:
+              'pastoral staff', 'child psychology', 'dorm mother role', 
+              'mentor system', 'student support staff'
+            ],
             response: "👩‍🏫 Staff Training:\n\nAll staff receive specialized training in:\n\n📚 Pastoral care\n🧠 Child psychology\n💚 Emotional support techniques\n🤝 Mentoring skills\n\nOur staff act as mentors, ensuring every student feels:\n✅ Supported ✅ Valued ✅ Heard ✅ Cared for"
           },
           {
             id: 3,
             label: "🆕 How do new students settle?",
-            trigger: ['3', 'new student', 'settling in', 'transition'],
+            trigger: [
+              '3', 'new student', 'settling in', 'transition',
+              // Keywords added:
+              'orientation program', 'buddy system', 'boarding adjustment', 
+              'first time hostel', 'induction support'
+            ],
             response: "🎒 Helping New Students:\n\nWe know boarding life transition can be emotional:\n\n🤝 Support System:\n✅ Buddy pairing\n✅ Personal mentor assigned\n✅ Caring dorm mother\n✅ Orientation sessions\n✅ Interactive activities\n\nEvery child feels at home, understood, and cared for from day one!"
           }
         ]
@@ -244,19 +275,35 @@ const KNOWLEDGE_BASE = {
           {
             id: 1,
             label: "🍎 Meal Schedule",
-            trigger: ['1', 'hungry', 'meal schedule', 'food timing'],
+            trigger: [
+              '1', 'hungry', 'meal schedule', 'food timing',
+              // Keywords added:
+              'meal timings', 'hostel food schedule', 'snacks allowed', 
+              'hungry between meals', 'late night food', 'nutrition plan', 
+              'dry fruits allowed'
+            ],
             response: "🍎 Meal Schedule:\n\nNo child ever goes hungry!\n\n☀️ 8:00 AM - Breakfast\n🍪 11:00 AM - Morning Snack\n🍽️ 1:00 PM - Lunch\n🥤 6:00 PM - Evening Snack\n🍲 9:00 PM - Dinner\n🥛 Before Bed - Glass of Milk\n\n✅ Students can keep healthy snacks in dorms\n✅ Staff ensures nutritious, satisfying meals"
           },
           {
             id: 2,
             label: "🍽️ Food Quality & Nutrition",
-            trigger: ['2', 'food quality', 'nutrition', 'what food'],
+            trigger: [
+              '2', 'food quality', 'nutrition', 'what food',
+              // Keywords added:
+              'healthy meals', 'school menu', 'vegetarian options', 
+              'nutritionist meals', 'hygienic food', 'balanced diet'
+            ],
             response: "🍽️ Food & Nutrition:\n\nMeals are:\n✅ Nutritious & diverse\n✅ Lovingly prepared\n✅ Curated by nutritionist\n✅ Mix of Indian & Continental\n\n👩‍🍳 Personal Care:\n• Pastoral team supervises mealtimes\n• Ensures no one skips meals\n• Makes sure each student eats properly"
           },
           {
             id: 3,
             label: "📅 Daily Routine",
-            trigger: ['3', 'daily routine', 'schedule', 'typical day'],
+            trigger: [
+              '3', 'daily routine', 'schedule', 'typical day',
+              // Keywords added:
+              'student timetable', 'study hours', 'sports schedule', 
+              'weekend routine', 'self-study time', 'activity timetable'
+            ],
             response: "📅 Daily Routine:\n\nBalanced routine includes:\n\n📚 Academics\n⚽ Sports & Physical Activities\n🎨 Co-curricular Activities\n📖 Self-Study Time\n😌 Relaxation Periods\n\n🌅 Evenings: Outdoor play\n🎯 Weekends: Hobbies & recreation\n\nPerfect balance of learning, activity, and rest!"
           }
         ]
@@ -270,19 +317,36 @@ const KNOWLEDGE_BASE = {
           {
             id: 1,
             label: "🛡️ Security Measures",
-            trigger: ['1', 'security', 'how safe', 'campus security'],
+            trigger: [
+              '1', 'security', 'how safe', 'campus security',
+              // Keywords added:
+              'school security', 'cctv campus', 'girls safety', 
+              '24/7 supervision', 'hostel security', 'safe boarding school', 
+              'entry restrictions'
+            ],
             response: "🛡️ Safety Measures:\n\n📹 24x7 CCTV surveillance\n👮 Trained security personnel\n🚪 Restricted entry with ID\n🏠 Round-the-clock dorm supervision\n🚨 Regular safety drills\n\nYour daughter's safety is our top priority with multiple protection layers!"
           },
           {
             id: 2,
             label: "🚫 Bullying Policy",
-            trigger: ['2', 'bullying', 'bullied', 'unsafe', 'harassment'],
+            trigger: [
+              '2', 'bullying', 'bullied', 'unsafe', 'harassment',
+              // Keywords added:
+              'bullying policy', 'zero tolerance', 'student safety', 
+              'complaint system', 'peer issues', 'report bullying', 
+              'unsafe situation'
+            ],
             response: "🚫 Zero-Tolerance Bullying:\n\nSTRICT zero-tolerance policy:\n\n✅ Students encouraged to speak with:\n• Dorm mothers • Counselors • Teachers\n\n📮 Multiple reporting channels:\n• Suggestion boxes\n• Feedback mechanisms\n• Regular meetings with leadership\n\n⚡ All concerns addressed promptly, confidentially!"
           },
           {
             id: 3,
             label: "🚨 Emergency Protocols",
-            trigger: ['3', 'emergency', 'emergency protocol', 'crisis'],
+            trigger: [
+              '3', 'emergency', 'emergency protocol', 'crisis',
+              // Keywords added:
+              'emergency procedure', 'fire drill', 'safety protocol', 
+              'crisis management', 'parent notification', 'disaster preparedness'
+            ],
             response: "🚨 Emergency Protocols:\n\nWell-defined procedures:\n\n✅ Trained staff & pastoral team\n✅ Handled with:\n• Utmost care\n• Calm approach\n• Empathy\n\n📞 Parents informed immediately\n\nYour child's safety is our top priority!"
           }
         ]
@@ -296,13 +360,24 @@ const KNOWLEDGE_BASE = {
           {
             id: 1,
             label: "🏥 Medical Facilities",
-            trigger: ['1', 'medical facility', 'doctor', 'infirmary' ,'is medical facility available in school', ],
+            trigger: [
+              '1', 'medical facility', 'doctor', 'infirmary', 
+              'is medical facility available in school',
+              // Keywords added:
+              'school infirmary', 'nurse on campus', 'doctor visit', 
+              'medical emergency', 'hospital tie-up', 'sick child', 'health care'
+            ],
             response: "🏥 Medical Facilities:\n\n✅ Fully equipped infirmary - 24/7\n👩‍⚕️ Qualified female doctor & nurses\n🚑 School ambulance available\n🏥 Tie-ups with hospitals:\n• Graphic Era\n• Synergy\n• Max Hospital\n\n📞 Parents informed immediately in any medical situation!"
           },
           {
             id: 2,
             label: "🍽️ Special Dietary Needs",
-            trigger: ['2', 'special dietary', 'allergies', 'food allergy'],
+            trigger: [
+              '2', 'special dietary', 'allergies', 'food allergy',
+              // Keywords added:
+              'allergy support', 'special diet', 'medical condition', 
+              'individual care plan', 'food customization', 'health monitoring'
+            ],
             response: "🏥 Special Dietary Needs:\n\nEvery child's well-being is personally attended:\n\n✅ Parents share:\n• Medical conditions\n• Allergies\n• Dietary preferences\n\n🍽️ Customized Care:\n• Meals tailored individually\n• Care plans personalized\n• Same attention as home\n\nYour daughter receives exactly what she needs!"
           }
         ]
@@ -316,7 +391,13 @@ const KNOWLEDGE_BASE = {
           {
             id: 1,
             label: "⚖️ How is balance maintained?",
-            trigger: ['1', 'balance academics', 'study balance', 'how balance'],
+            trigger: [
+              '1', 'balance academics', 'study balance', 'how balance',
+              // Keywords added:
+              'study and sports balance', 'extracurricular support', 
+              'academic focus', 'leadership programs', 'flexible schedule', 
+              'coaching support'
+            ],
             response: "⚖️ Academic & Extracurricular Balance:\n\nEvery child is unique with her own strengths:\n\n📚 Structured timetable ensures:\n✅ Equal importance to academics, sports, arts & leadership\n✅ Flexibility for individual needs\n\n🏃‍♀️ Sports enthusiasts: Encouraged\n📖 Academic focused: Time & support\n\nNo compromise on fitness or creative growth! Balance that nurtures intellect and individuality."
           }
         ]
@@ -1168,4 +1249,5 @@ app.listen(PORT, () => {
     console.log('⚠️ IMPORTANT: Update email credentials in .env file!');
     console.log('   Callback emails will not be sent until configured.\n');
   }
+
 });
