@@ -456,6 +456,17 @@ const KNOWLEDGE_BASE = {
     answer: "🎯 Our Vision & Mission:\n\nTo nurture happy, independent, and unique individuals in a safe and supportive environment.\n\n🔗 <a href='https://vantagehall.org/vision-mission-girls-school-dehradun/' target='_blank'>Learn More</a>"
   },
 
+
+thanks: {
+  keywords: [
+    'thank you', 'thanks', 'thnx', 'thankyou', 'ok', 'okay', 
+    'okk', 'k', 'great', 'good', 'nice', 'alright'
+  ],
+  answer: "😊 You're Welcome!\n\nIt’s our pleasure to assist you.\n\nIf you have any more questions about academics, admissions, facilities, or sports — feel free to ask anytime!\n\n📞 You can also contact us directly for detailed guidance.\n\nHave a great day! 🌟"
+},
+
+  
+
   curriculum: {
     keywords: [
       'curriculum', 'board', 'cbse', 'syllabus', 'academics system', 
@@ -1406,3 +1417,4 @@ app.listen(PORT, () => {
     console.log('   Set ADMIN_EMAIL and EMAIL_PASSWORD in your .env\n');
   }
 });
+
