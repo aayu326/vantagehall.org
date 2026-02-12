@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vantage Hall Chatbot - AI Powered - UPDATED</title>
+    <title>Vantage Hall Chatbot </title>
 
     <style>
         * {
@@ -67,7 +67,7 @@
             display: block;
         }
 
-        /* Floating particles around button */
+        /* Floating particles around button  */
         .chat-toggle::before {
             content: '';
             position: absolute;
@@ -578,7 +578,7 @@
             box-shadow: 0 4px 12px rgba(26, 58, 82, 0.4);
         }
 
-        /* NEW: Back to Menu Button Styles */
+        /* NEW: Back to Menu Button Styles  */
         .back-to-menu-btn {
             padding: 8px 14px;
             background: linear-gradient(135deg, #d4536c 0%, #b83e54 100%);
@@ -757,7 +757,7 @@
 
     <!-- Chat Container -->
     <div class="chat-container" id="chatContainer">
-        <!-- Registration Form Overlay -->
+        <!-- Registration Form Overlay input from user  -->
         <div class="registration-overlay" id="registrationOverlay">
             <div class="registration-header">
                 <h2>✨ Welcome to Vantage Hall!</h2>
@@ -818,12 +818,12 @@
             </div>
         </div>
 
-        <!-- Quick Replies -->
+        <!-- Quick Replies  back to menu ka option as per directed by sahil sir -->
         <div class="quick-replies" id="quickReplies">
             <!-- Back to Menu Button (Hidden by default) -->
             <button class="back-to-menu-btn" id="backToMenuBtn">⬅️ Back to Menu</button>
             
-            <!-- Default Quick Replies -->
+            <!-- Default Quick Replies jo user ko phle interface pe milega-->
             <button class="quick-reply-btn" data-reply="faq">❓ FAQ</button>
             <button class="quick-reply-btn" data-reply="emotional">💚 Emotional Support</button>
             <button class="quick-reply-btn" data-reply="What is the admission process?">📝 Admissions</button>
@@ -868,13 +868,13 @@ const CALLBACK_URL = "https://vantagehall.vercel.app/api/callback-request";
         const submitBtn = document.getElementById('submitBtn');
         const backToMenuBtn = document.getElementById('backToMenuBtn');
 
-        // Form inputs
+        // user se input lega email, name, number then start chatting 
         const userName = document.getElementById('userName');
         const userEmail = document.getElementById('userEmail');
         const userPhone = document.getElementById('userPhone');
 
         // ==============================================
-        // STATE MANAGEMENT - UPDATED ✅ NEW
+        // STATE MANAGEMENT - UPDATED NEW 
         // ==============================================
         let isProcessing = false;
         let isRegistered = false;
@@ -893,7 +893,7 @@ const CALLBACK_URL = "https://vantagehall.vercel.app/api/callback-request";
         }
 
         // ==============================================
-        // ✅ NEW: CALLBACK PHONE VALIDATION
+        // ✅ NEW: CALLBACK PHONE VALIDATION koe v user galt number nahi dal sakta hai 
         // ==============================================
         function validateCallbackPhone(phone) {
             const cleaned = phone.replace(/\D/g, '');
@@ -901,7 +901,7 @@ const CALLBACK_URL = "https://vantagehall.vercel.app/api/callback-request";
         }
 
         // ==============================================
-        // ✅ NEW: HANDLE CALLBACK REQUEST
+        // NEW: callback option updated by sahil sir 
         // ==============================================
         async function handleCallbackRequest(callbackNumber) {
             try {
@@ -1030,7 +1030,7 @@ const CALLBACK_URL = "https://vantagehall.vercel.app/api/callback-request";
         }
 
         // ==============================================
-        // HANDLE REGISTRATION FORM SUBMIT
+        // HANDLE REGISTRATION FORM SUBMIT (user registration form jo sabse phle aayga )
         // ==============================================
         userDetailsForm.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -1114,13 +1114,13 @@ const CALLBACK_URL = "https://vantagehall.vercel.app/api/callback-request";
         });
 
         // ==============================================
-        // SEND MESSAGE FUNCTION - UPDATED ✅ NEW
+        // SEND MESSAGE FUNCTION - updated 
         // ==============================================
         async function sendMessage() {
             const message = userInput.value.trim();
             if (message === '' || isProcessing) return;
 
-            // ✅ NEW: Check if waiting for callback number
+            // ✅ NEW:  (call back ke lie number aayga  usko check krna hai )
             if (waitingForCallback) {
                 if (validateCallbackPhone(message)) {
                     addMessage(message, 'user');
@@ -1185,7 +1185,7 @@ const CALLBACK_URL = "https://vantagehall.vercel.app/api/callback-request";
                 if (data.success && data.reply) {
                     addMessage(data.reply, 'bot');
                     
-                    // ✅ NEW: Check if callback is required
+                    // ✅ NEW: check krna hai call back required hai ya nahi 
                     if (data.requiresCallback) {
                         waitingForCallback = true;
                         pendingQuery = data.userQuery || message;
@@ -1249,7 +1249,7 @@ const CALLBACK_URL = "https://vantagehall.vercel.app/api/callback-request";
         }
 
         // ==============================================
-        // SHOW OPTION BUTTONS
+        // SHOW OPTION BUTTONS( jo quick reply button hoga )
         // ==============================================
         function showOptionButtons(options) {
             const backBtn = backToMenuBtn.cloneNode(true);
@@ -1293,7 +1293,7 @@ const CALLBACK_URL = "https://vantagehall.vercel.app/api/callback-request";
         }
 
         // ==============================================
-        // SCROLL TO BOTTOM
+        // SCROLL TO BOTTOM  button effect dega 
         // ==============================================
         function scrollToBottom() {
             setTimeout(() => {
@@ -1302,7 +1302,7 @@ const CALLBACK_URL = "https://vantagehall.vercel.app/api/callback-request";
         }
 
         // ==============================================
-        // HIDE NOTIFICATION BADGE
+        // HIDE NOTIFICATION BADGE  ( notification badge )
         // ==============================================
         function hideBadge() {
             setTimeout(() => {
@@ -1312,7 +1312,7 @@ const CALLBACK_URL = "https://vantagehall.vercel.app/api/callback-request";
         }
 
         // ==============================================
-        // EVENT LISTENERS
+        // EVENT LISTENERS listing the events  (eveent ko lisyting ke lie aayga ye )
         // ==============================================
         
         sendBtn.addEventListener('click', sendMessage);
@@ -1341,7 +1341,7 @@ const CALLBACK_URL = "https://vantagehall.vercel.app/api/callback-request";
         });
 
         // ==============================================
-        // WELCOME ANIMATION
+        // WELCOME ANIMATION ( user ke greetings ke lie )
         // ==============================================
         setTimeout(() => {
             if (!localStorage.getItem('vhChatVisited')) {
@@ -1357,3 +1357,4 @@ const CALLBACK_URL = "https://vantagehall.vercel.app/api/callback-request";
 </body>
 
 </html>
+
