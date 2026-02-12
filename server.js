@@ -1,4 +1,4 @@
-// server.js - PRODUCTION READY WITH ALL KEYWORDS & HYPERLINKS ✅
+// server.js - added all hyper link as provided by the director
 console.log("🔥 VANTAGE HALL SERVER.JS - PRODUCTION VERSION 🔥");
 
 const fetch = require('node-fetch');
@@ -16,7 +16,7 @@ app.use(cors());
 app.use(express.json());
 
 // ==============================================
-// API KEYS
+// API KEYS / but not yet
 // ==============================================
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
@@ -30,7 +30,7 @@ if (GEMINI_API_KEY) {
 }
 
 // ==============================================
-// EMAIL CONFIGURATION
+// EMAIL CONFIGURATION smpt used 
 // ==============================================
 const EMAIL_CONFIG = {
   service: 'gmail',
@@ -44,11 +44,11 @@ const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'admin@vantagehall.org';
 const transporter = nodemailer.createTransport(EMAIL_CONFIG);
 
 // ==============================================
-// COMPREHENSIVE KNOWLEDGE BASE - UPDATED ✅
+// COMPREHENSIVE knowlegde base by tech.team
 // ==============================================
 const KNOWLEDGE_BASE = {
   // ==============================================
-  // FAQ MENU (IT & Gadgets)
+  // FAQ MENU (IT & Gadgets) as provided by director
   // ==============================================
   faq_menu: {
     keywords: ['faq', 'faqs', 'frequently asked', 'common questions', 'questions'],
@@ -178,7 +178,7 @@ const KNOWLEDGE_BASE = {
   },
 
   // ==============================================
-  // EMOTIONAL QUOTIENT MENU - UPDATED WITH KEYWORDS ✅
+  // EMOTIONAL QUOTIENT MENU - updated with keywords and hyperlinks done done done 
   // ==============================================
   emotional_menu: {
     keywords: [
@@ -388,7 +388,7 @@ const KNOWLEDGE_BASE = {
   },
 
   // ==============================================
-  // GENERAL SCHOOL INFORMATION - UPDATED WITH HYPERLINKS ✅
+  // GENERAL School ke sare information added 
   // ==============================================
 
   founder: {
@@ -710,7 +710,7 @@ thanks: {
 };
 
 // ==============================================
-// EMAIL FUNCTIONS
+// EMAIL FUNCTIONS for callback and registration ke lie 
 // ==============================================
 async function sendCallbackEmail(userDetails, query, callbackNumber) {
   try {
@@ -918,12 +918,12 @@ async function sendAdminEmail(userDetails) {
 }
 
 // ==============================================
-// SMART KEYWORD MATCHING
+// SMART KEYWORD MATCHING easy to answer all questions by user
 // ==============================================
 function findBestMatch(userMessage, lastTopic = null, lastOptionLevel = null, lastSelectedOption = null) {
   const msg = userMessage.toLowerCase().trim();
   
-  // PRIORITY 1: Handle nested navigation (FAQ/Emotional) with proper context
+  // PRIORITY 1: Handle nested navigation faq emotional 
   if (lastTopic && KNOWLEDGE_BASE[lastTopic]) {
     const topicData = KNOWLEDGE_BASE[lastTopic];
     
@@ -932,7 +932,7 @@ function findBestMatch(userMessage, lastTopic = null, lastOptionLevel = null, la
       if (lastOptionLevel === 'sub' && lastSelectedOption !== null && lastSelectedOption !== undefined) {
         const mainOption = topicData.options[lastSelectedOption];
         if (mainOption && mainOption.subOptions) {
-          // Check for EXACT matches in sub-options FIRST
+          // Check for EXACT matches in sub-options FIRST exactly match krega 
           for (const subOption of mainOption.subOptions) {
             for (const trigger of subOption.trigger) {
               if (msg === trigger.toLowerCase()) {
@@ -950,7 +950,7 @@ function findBestMatch(userMessage, lastTopic = null, lastOptionLevel = null, la
             }
           }
           
-          // Then check for keyword matches
+          // Then check for keyword matches done bhai done 
           for (const subOption of mainOption.subOptions) {
             for (const trigger of subOption.trigger) {
               if (trigger.toLowerCase().length > 1 && msg.includes(trigger.toLowerCase())) {
@@ -972,7 +972,7 @@ function findBestMatch(userMessage, lastTopic = null, lastOptionLevel = null, la
       
       // If in main menu (first level)
       if (lastOptionLevel === 'main' || !lastOptionLevel) {
-        // Check for EXACT matches FIRST
+        // Check for EXACT matches FIRST yessss
         for (let i = 0; i < topicData.options.length; i++) {
           const option = topicData.options[i];
           for (const trigger of option.trigger) {
@@ -1003,7 +1003,7 @@ function findBestMatch(userMessage, lastTopic = null, lastOptionLevel = null, la
           }
         }
         
-        // Then check for keyword matches
+        // Then check for keyword matches 
         for (let i = 0; i < topicData.options.length; i++) {
           const option = topicData.options[i];
           for (const trigger of option.trigger) {
@@ -1037,7 +1037,7 @@ function findBestMatch(userMessage, lastTopic = null, lastOptionLevel = null, la
     }
   }
   
-  // PRIORITY 2: Search in global knowledge base
+  // PRIORITY 2: Search in global knowledge base uske bad answer dega user
   let bestMatch = null;
   let highestScore = 0;
   
@@ -1088,7 +1088,7 @@ function findBestMatch(userMessage, lastTopic = null, lastOptionLevel = null, la
 }
 
 // ==============================================
-// GEMINI API CALL
+// GEMINI API CALL abhi use nahi hai 
 // ==============================================
 async function callGemini(prompt) {
   if (!genAI) {
@@ -1133,7 +1133,7 @@ User question: ${prompt}`;
 }
 
 // ==============================================
-// ENDPOINTS
+// ENDPOINTS api
 // ==============================================
 app.get('/', (req, res) => {
   res.json({
@@ -1350,7 +1350,7 @@ app.post('/api/chat', async (req, res) => {
       });
     }
 
-    // Try Gemini API if configured
+    // Try Gemini API if configured but require nahi hai abhi
     if (GEMINI_API_KEY) {
       try {
         const reply = await callGemini(message);
@@ -1366,7 +1366,7 @@ app.post('/api/chat', async (req, res) => {
       }
     }
 
-    // If no match found, trigger callback collection
+    // If no match found, trigger callback collection ( email - my personal email)
     console.log('🔄 No match found - triggering callback collection');
     return res.json({ 
       success: true, 
@@ -1388,7 +1388,7 @@ app.post('/api/chat', async (req, res) => {
 });
 
 // ==============================================
-// START SERVER
+// START SERVER yeeeeeee server start ho jayga to ye aayga terminal me 
 // ==============================================
 app.listen(PORT, () => {
   console.log('\n╔═══════════════════════════════════════════╗');
@@ -1417,4 +1417,5 @@ app.listen(PORT, () => {
     console.log('   Set ADMIN_EMAIL and EMAIL_PASSWORD in your .env\n');
   }
 });
+
 
