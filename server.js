@@ -555,7 +555,7 @@ thanks: {
   food: {
     keywords: [
       'food', 'dining', 'menu', 'meal', 'lunch', 'dinner', 'breakfast', 'diet',
-      'school food', 'mess menu', 'dining system', 'veg non-veg', 'special diet'
+      'school food', 'mess menu', 'dining system', 'veg non-veg', 'meat' , 'non veg' , 'do you serve meat' , 'special diet'
     ],
     answer: "🍽️ Dining & Nutrition:\n\n✅ Nutritionist-planned meals\n✅ Special diets for athletes & medical needs\n✅ Veg & non-veg options\n✅ Menu rotates every 15 days\n\n🥗 Daily Meals:\n• Breakfast: Fruits, cereals, milk, eggs, bread/parathas\n• Lunch: Dal, rice/roti, vegetables, salad\n• Dinner: Similar to lunch with variety\n• Night Milk: Mandatory\n\n🔗 <a href='https://vantagehall.org/food-nutrition-boarding-school-dehradun/' target='_blank'>Full Menu</a>"
   },
@@ -1417,5 +1417,6 @@ app.listen(PORT, () => {
     console.log('   Set ADMIN_EMAIL and EMAIL_PASSWORD in your .env\n');
   }
 });
+
 
 
