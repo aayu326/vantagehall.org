@@ -1,4 +1,4 @@
-// server.js - FULL PRODUCTION VERSION WITH SINGLE CHILD SUPPORT
+// server.js - full development done with latest update (single child)
 console.log("🔥 VANTAGE HALL SERVER.JS - PRODUCTION VERSION 🔥");
 
 const fetch = require('node-fetch');
@@ -16,7 +16,7 @@ app.use(cors());
 app.use(express.json());
 
 // ==============================================
-// API KEYS
+// API KEYS (abhi required nahi hai ) 
 // ==============================================
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
@@ -30,7 +30,7 @@ if (GEMINI_API_KEY) {
 }
 
 // ==============================================
-// EMAIL CONFIGURATION
+// EMAIL CONFIGURATION (last update- using chat-gmail provided by tech team)
 // ==============================================
 const EMAIL_CONFIG = {
   service: 'gmail',
@@ -44,7 +44,7 @@ const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'admin@vantagehall.org';
 const transporter = nodemailer.createTransport(EMAIL_CONFIG);
 
 // ==============================================
-// COMPREHENSIVE KNOWLEDGE BASE
+// COMPREHENSIVE KNOWLEDGE BASE (QUE. and ANS. by TECH TEAM) 
 // ==============================================
 const KNOWLEDGE_BASE = {
   // ==============================================
@@ -178,7 +178,7 @@ const KNOWLEDGE_BASE = {
   },
 
   // ==============================================
-  // EMOTIONAL QUOTIENT MENU - FULLY UPDATED WITH SINGLE CHILD SUPPORT
+  // EMOTIONAL QUOTIENT MENU - LATEST UPDATE WITH SINGLE CHILD 
   // ==============================================
   emotional_menu: {
     keywords: [
@@ -191,7 +191,7 @@ const KNOWLEDGE_BASE = {
       'pastoral care',
       'counselling',
       'student counselling',
-      // Single Child Keywords
+      // Single Child Keywords PROVIDED BY TECHNICAL TEAM
       'single child',
       'only child',
       'lonely',
@@ -612,7 +612,7 @@ const KNOWLEDGE_BASE = {
   },
 
   // ==============================================
-  // GENERAL SCHOOL INFORMATION
+  // BASIC SCHOLL INFORMATION PROVIDED BY THE TECHNICAL TEAM 
   // ==============================================
   founder: {
     keywords: ['founder', 'established', 'history', 'who started', 'foundation', 'when founded'],
@@ -1135,7 +1135,7 @@ const KNOWLEDGE_BASE = {
 };
 
 // ==============================================
-// EMAIL FUNCTIONS
+// EMAIL FUNCTIONALITY ADDED BY ME AS PER GUIDANCE OF TECHNICAL TEAM 
 // ==============================================
 async function sendCallbackEmail(userDetails, query, callbackNumber) {
   try {
@@ -1244,7 +1244,7 @@ async function sendAdminEmail(userDetails) {
 }
 
 // ==============================================
-// SMART KEYWORD MATCHING
+// SMART KEYWORD MATCHING FOR BETTER RESULT 
 // ==============================================
 function findBestMatch(userMessage, lastTopic = null, lastOptionLevel = null, lastSelectedOption = null) {
   const msg = userMessage.toLowerCase().trim();
@@ -1276,7 +1276,7 @@ function findBestMatch(userMessage, lastTopic = null, lastOptionLevel = null, la
             }
           }
 
-          // Then check for keyword matches
+          // THIS FUNCTION WILL CHECK FOR THE BEST MATCHED KEYWORDS FOR OPTISED RESULT
           for (const subOption of mainOption.subOptions) {
             for (const trigger of subOption.trigger) {
               if (trigger.toLowerCase().length > 1 && msg.includes(trigger.toLowerCase())) {
@@ -1296,7 +1296,7 @@ function findBestMatch(userMessage, lastTopic = null, lastOptionLevel = null, la
         }
       }
 
-      // If in main menu (first level)
+      // If in main menu (first level) LIKE USER INTERFACE 
       if (lastOptionLevel === 'main' || !lastOptionLevel) {
         // Check for EXACT matches FIRST
         for (let i = 0; i < topicData.options.length; i++) {
@@ -1329,7 +1329,7 @@ function findBestMatch(userMessage, lastTopic = null, lastOptionLevel = null, la
           }
         }
 
-        // Then check for keyword matches
+        // THEN CHECK FOR THE BEST KEYWORDS MATCHING 
         for (let i = 0; i < topicData.options.length; i++) {
           const option = topicData.options[i];
           for (const trigger of option.trigger) {
@@ -1363,7 +1363,7 @@ function findBestMatch(userMessage, lastTopic = null, lastOptionLevel = null, la
     }
   }
 
-  // PRIORITY 2: Search in global knowledge base
+  // PRIORITY 2: SEARCH IN GLOBAL LOGIVC BASED IN THE CHATBOT
   let bestMatch = null;
   let highestScore = 0;
 
@@ -1412,7 +1412,7 @@ function findBestMatch(userMessage, lastTopic = null, lastOptionLevel = null, la
 }
 
 // ==============================================
-// GEMINI API CALL
+// NOW SHIFTED TO GEMINI API KEY AND UPDATED ALL THE FUNCTIONALITY ACCORDING TO THE GEMINI API KEY 
 // ==============================================
 async function callGemini(prompt) {
   if (!genAI) {
@@ -1644,7 +1644,7 @@ app.post('/api/chat', async (req, res) => {
       });
     }
 
-    // Try knowledge base first
+    // WHEN USER GIVE INPUT IT WILL FIRSTLY CHECK FOR THE KNOWLEGDE BASE THE PRIRITY IS SET 
     const knowledgeMatch = findBestMatch(message, lastTopic, lastOptionLevel, lastSelectedOption);
 
     if (knowledgeMatch) {
@@ -1672,7 +1672,7 @@ app.post('/api/chat', async (req, res) => {
       });
     }
 
-    // Try Gemini API if configured
+    //  IT WILL TRY GEMINI AOI KEY IF CONFIGIRED
     if (GEMINI_API_KEY) {
       try {
         const reply = await callGemini(message);
@@ -1686,7 +1686,7 @@ app.post('/api/chat', async (req, res) => {
       }
     }
 
-    // If no match found, trigger callback collection
+    // If no match found, trigger callback collectioN
     console.log('🔄 No match found - triggering callback collection');
     return res.json({
       success: true,
@@ -1707,11 +1707,11 @@ app.post('/api/chat', async (req, res) => {
 });
 
 // ==============================================
-// START SERVER
+// IF THIS MESSAGE WILL REFLECTED IN THE CONSOLE IN THE CHATBOT FOLDER THEN EVERYTHING IS FINE .....
 // ==============================================
 app.listen(PORT, () => {
   console.log('\n╔═══════════════════════════════════════════╗');
-  console.log('║ 🎓 Vantage Hall Chatbot Server - PRODUCTION ║');
+  console.log('║ 🎓 Vantage Hall Chatbot Server  - PRODUCTION ║');
   console.log('╚═══════════════════════════════════════════╝');
   console.log(`🌐 Server: http://localhost:${PORT}`);
   console.log(`🧪 Test API: http://localhost:${PORT}/api/test`);
@@ -1737,3 +1737,4 @@ app.listen(PORT, () => {
     console.log('  Set ADMIN_EMAIL and EMAIL_PASSWORD in your .env\n');
   }
 });
+
