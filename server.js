@@ -797,6 +797,20 @@ const KNOWLEDGE_BASE = {
     answer: "📝 Eligibility Criteria:\n\n✅ Classes: 3-12\n✅ Age: As per CBSE guidelines\n✅ Eligibility: Successful completion of previous grade\n✅ Required: Transfer Certificate and Report Card\n⚠️ Note: Admission to Class 10 is considered only in exceptional cases\n\n🔗 Admission Details: https://www.vantagehall.org/admissions"
   },
 
+
+ "school_achievements": {
+    "keywords": [
+      "school highlights",
+      "achievements",
+      "awards",
+      "infrastructure",
+      "sports record"
+    ],
+    "answer": "🏆 Important Achievements & Highlights:\n\n• Academic Excellence\n• Holistic Development\n• Sports Achievements\n• Modern Infrastructure & Facilities\n• Dedicated Pastoral Care & Student Well-being\n• International Exposure\n\n🔗 More info: https://vantagehall.org/sports-achievements-girls-boarding-school/"
+  },
+
+
+  
   admission: {
     keywords: [
       'admission',
@@ -1737,4 +1751,5 @@ app.listen(PORT, () => {
     console.log('  Set ADMIN_EMAIL and EMAIL_PASSWORD in your .env\n');
   }
 });
+
 
