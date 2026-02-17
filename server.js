@@ -1166,39 +1166,48 @@ async function sendCallbackEmail(userDetails, query, callbackNumber) {
           <meta charset="UTF-8">
           <style>
             * { margin: 0; padding: 0; box-sizing: border-box; }
-            body { font-family: 'Segoe UI', Arial, sans-serif; background: #0f0f0f; }
-            .wrapper { max-width: 620px; margin: 30px auto; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
-            .header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); padding: 40px 30px; text-align: center; }
-            .logo-circle { width: 70px; height: 70px; background: linear-gradient(135deg, #e94560, #c23152); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 30px; margin-bottom: 15px; }
-            .header h1 { color: #ffffff; font-size: 22px; font-weight: 700; letter-spacing: 1px; }
-            .header p { color: #a0aec0; font-size: 13px; margin-top: 6px; }
-            .alert-banner { background: linear-gradient(90deg, #e94560, #c23152); padding: 14px 30px; text-align: center; }
-            .alert-banner span { color: white; font-weight: 700; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; }
-            .body { background: #1a1a2e; padding: 35px 30px; }
-            .phone-box { background: linear-gradient(135deg, #e94560 0%, #c23152 100%); border-radius: 12px; padding: 25px; text-align: center; margin-bottom: 25px; box-shadow: 0 8px 25px rgba(233,69,96,0.4); }
-            .phone-box .label { color: rgba(255,255,255,0.8); font-size: 11px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
-            .phone-box .number { color: white; font-size: 32px; font-weight: 800; letter-spacing: 3px; }
-            .info-grid { display: grid; gap: 12px; margin-bottom: 20px; }
-            .info-card { background: #16213e; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 16px 20px; display: flex; align-items: center; gap: 15px; }
-            .info-card .icon { width: 40px; height: 40px; background: linear-gradient(135deg, #0f3460, #533483); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
-            .info-card .text-label { color: #718096; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 3px; }
-            .info-card .text-value { color: #e2e8f0; font-size: 15px; font-weight: 500; }
-            .query-card { background: #16213e; border: 1px solid rgba(233,69,96,0.3); border-left: 4px solid #e94560; border-radius: 10px; padding: 20px; margin-top: 5px; }
-            .query-card .qlabel { color: #e94560; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; margin-bottom: 10px; }
-            .query-card .qtext { color: #cbd5e0; font-size: 15px; line-height: 1.6; }
-            .timestamp-bar { background: #0f3460; border-radius: 8px; padding: 12px 20px; margin-top: 20px; display: flex; align-items: center; gap: 10px; }
-            .timestamp-bar span { color: #a0aec0; font-size: 13px; }
-            .footer { background: #0f0f0f; padding: 20px 30px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
-            .footer p { color: #4a5568; font-size: 12px; line-height: 1.8; }
-            .badge { display: inline-block; background: rgba(233,69,96,0.15); border: 1px solid rgba(233,69,96,0.3); color: #e94560; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 600; margin-top: 8px; }
+            body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f4f8; }
+            .wrapper { max-width: 620px; margin: 30px auto; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
+            .header { background: linear-gradient(135deg, #1a3a52 0%, #0d2436 100%); padding: 40px 30px; text-align: center; position: relative; }
+            .header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #e8502a, #f4854e, #e8502a); }
+            .logo-circle { width: 90px; height: 90px; border-radius: 50%; overflow: hidden; margin: 0 auto 18px auto; border: 3px solid rgba(232,80,42,0.6); box-shadow: 0 0 0 6px rgba(232,80,42,0.15); display: block; background: white; }
+            .logo-circle img { width: 100%; height: 100%; object-fit: contain; display: block; }
+            .header h1 { color: #ffffff; font-size: 22px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 5px; }
+            .header p { color: rgba(255,255,255,0.6); font-size: 12px; letter-spacing: 1px; }
+            .alert-banner { background: linear-gradient(90deg, #e8502a, #c73d1a); padding: 14px 30px; text-align: center; }
+            .alert-banner span { color: white; font-weight: 700; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; }
+            .body { background: #ffffff; padding: 35px 30px; }
+            .phone-box { background: linear-gradient(135deg, #1a3a52 0%, #0d2436 100%); border-radius: 14px; padding: 28px; text-align: center; margin-bottom: 28px; box-shadow: 0 8px 25px rgba(26,58,82,0.3); border: 2px solid rgba(232,80,42,0.4); }
+            .phone-box .plabel { color: rgba(255,255,255,0.6); font-size: 10px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 10px; }
+            .phone-box .pnumber { color: #ffffff; font-size: 34px; font-weight: 800; letter-spacing: 4px; }
+            .phone-box .pnumber span { color: #e8502a; }
+            .section-label { font-size: 11px; font-weight: 700; color: #a0aec0; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 2px solid #e8502a; display: inline-block; }
+            .info-grid { display: grid; gap: 12px; margin-bottom: 24px; }
+            .info-card { background: #f7fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 14px 18px; display: flex; align-items: center; gap: 14px; border-left: 4px solid #1a3a52; }
+            .icon-box { width: 42px; height: 42px; background: linear-gradient(135deg, #1a3a52, #2d6a8a); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+            .ilabel { font-size: 10px; color: #a0aec0; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 3px; }
+            .ivalue { font-size: 15px; color: #2d3748; font-weight: 600; }
+            .query-box { background: #fff8f6; border: 1px solid rgba(232,80,42,0.2); border-left: 4px solid #e8502a; border-radius: 10px; padding: 20px; margin-top: 5px; }
+            .qlabel { color: #e8502a; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; margin-bottom: 10px; }
+            .qtext { color: #4a5568; font-size: 15px; line-height: 1.7; }
+            .time-bar { background: #f7fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 18px; margin-top: 20px; display: flex; align-items: center; gap: 8px; }
+            .time-bar span { color: #718096; font-size: 13px; }
+            .footer { background: #1a3a52; padding: 25px 30px; text-align: center; }
+            .footer p { color: rgba(255,255,255,0.5); font-size: 12px; line-height: 1.8; }
+            .footer .school { color: rgba(255,255,255,0.8); font-size: 13px; font-weight: 600; margin-bottom: 5px; }
+            .divider { width: 40px; height: 2px; background: #e8502a; margin: 10px auto; border-radius: 2px; }
           </style>
         </head>
         <body>
           <div class="wrapper">
             <div class="header">
-              <div class="logo-circle">📞</div>
-              <h1>CALLBACK REQUEST</h1>
-              <p>Vantage Hall Girls' Residential School</p>
+              <div class="logo-circle">
+                <img src="https://vantagehall.org/wp-content/uploads/2022/01/VH-Logo-4.png" 
+                     alt="Vantage Hall Logo"
+                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'width:100%;height:100%;background:#1a3a52;display:flex;align-items:center;justify-content:center;font-size:28px;\'>🎓</div>'" />
+              </div>
+              <h1>Callback Request</h1>
+              <p>Vantage Hall Girls' Residential School · Dehradun</p>
             </div>
 
             <div class="alert-banner">
@@ -1207,41 +1216,44 @@ async function sendCallbackEmail(userDetails, query, callbackNumber) {
 
             <div class="body">
               <div class="phone-box">
-                <div class="label">Callback Number</div>
-                <div class="number">📱 ${callbackNumber}</div>
+                <div class="plabel">Callback Number</div>
+                <div class="pnumber"><span>📱</span> ${callbackNumber}</div>
               </div>
 
+              <div class="section-label">User Information</div>
               <div class="info-grid">
                 <div class="info-card">
-                  <div class="icon">👤</div>
+                  <div class="icon-box">👤</div>
                   <div>
-                    <div class="text-label">User Name</div>
-                    <div class="text-value">${userDetails.name}</div>
+                    <div class="ilabel">Full Name</div>
+                    <div class="ivalue">${userDetails.name}</div>
                   </div>
                 </div>
                 <div class="info-card">
-                  <div class="icon">📧</div>
+                  <div class="icon-box">📧</div>
                   <div>
-                    <div class="text-label">Email Address</div>
-                    <div class="text-value">${userDetails.email}</div>
+                    <div class="ilabel">Email Address</div>
+                    <div class="ivalue">${userDetails.email}</div>
                   </div>
                 </div>
                 <div class="info-card">
-                  <div class="icon">📱</div>
+                  <div class="icon-box">📱</div>
                   <div>
-                    <div class="text-label">Registered Phone</div>
-                    <div class="text-value">${userDetails.phone}</div>
+                    <div class="ilabel">Registered Phone</div>
+                    <div class="ivalue">${userDetails.phone}</div>
                   </div>
                 </div>
               </div>
 
-              <div class="query-card">
-                <div class="qlabel">❓ User's Query</div>
+              <div class="section-label">Query Details</div>
+              <div class="query-box">
+                <div class="qlabel">❓ User's Question</div>
                 <div class="qtext">${query}</div>
               </div>
 
-              <div class="timestamp-bar">
-                <span>⏰ Received: ${new Date().toLocaleString('en-IN', {
+              <div class="time-bar">
+                <span>⏰</span>
+                <span>Received: ${new Date().toLocaleString('en-IN', {
                   timeZone: 'Asia/Kolkata',
                   day: 'numeric',
                   month: 'long',
@@ -1253,16 +1265,16 @@ async function sendCallbackEmail(userDetails, query, callbackNumber) {
             </div>
 
             <div class="footer">
+              <p class="school">Vantage Hall Girls' Residential School</p>
+              <div class="divider"></div>
               <p>Automated message from Vantage Hall Chatbot System</p>
               <p>Please call back at your earliest convenience</p>
-              <span class="badge">🎓 Vantage Hall Chatbot</span>
             </div>
           </div>
         </body>
         </html>
       `
     };
-
     await transporter.sendMail(mailOptions);
     console.log('✅ Callback email sent!');
     return true;
@@ -1271,7 +1283,6 @@ async function sendCallbackEmail(userDetails, query, callbackNumber) {
     return false;
   }
 }
-
 // ==============================================
 // SMART KEYWORD MATCHING FOR BETTER RESULT 
 // ==============================================
@@ -1766,6 +1777,7 @@ app.listen(PORT, () => {
     console.log('  Set ADMIN_EMAIL and EMAIL_PASSWORD in your .env\n');
   }
 });
+
 
 
 
