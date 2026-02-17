@@ -1272,6 +1272,7 @@ const CALLBACK_URL = "https://vantagehall.vercel.app/api/callback-request";
 
         // ==============================================
         // ADD MESSAGE TO CHAT
+        // ✅ ONLY CHANGE: Added linkify step to make URLs clickable
         // ==============================================
         function addMessage(text, sender) {
             const messageDiv = document.createElement('div');
@@ -1283,7 +1284,8 @@ const CALLBACK_URL = "https://vantagehall.vercel.app/api/callback-request";
             const formattedText = text
                 .replace(/\n/g, '<br>')
                 .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                .replace(/\*(.*?)\*/g, '<em>$1</em>');
+                .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                .replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer" style="color:#1a7a52;text-decoration:underline;word-break:break-all;">$1</a>');
             
             contentDiv.innerHTML = formattedText;
             
@@ -1357,4 +1359,3 @@ const CALLBACK_URL = "https://vantagehall.vercel.app/api/callback-request";
 </body>
 
 </html>
-
