@@ -1158,103 +1158,116 @@ async function sendCallbackEmail(userDetails, query, callbackNumber) {
     const mailOptions = {
       from: EMAIL_CONFIG.auth.user,
       to: ADMIN_EMAIL,
-      subject: '🔔 Callback Request - Vantage Hall Chatbot',
+      subject: '📞 Callback Request - Vantage Hall Chatbot',
       html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px;">
-          <h2 style="color: #2c3e50; text-align: center;">📞 New Callback Request</h2>
-          <p style="text-align: center; color: #7f8c8d;">From Vantage Hall Chatbot</p>
-          <hr style="border: 1px solid #ecf0f1;">
-          
-          <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; margin: 15px 0;">
-            <h3 style="color: #e74c3c; margin-top: 0;">CALLBACK NUMBER</h3>
-            <p style="font-size: 18px; font-weight: bold; color: #2c3e50;">📱 ${callbackNumber}</p>
-          </div>
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="UTF-8">
+          <style>
+            * { margin: 0; padding: 0; box-sizing: border-box; }
+            body { font-family: 'Segoe UI', Arial, sans-serif; background: #0f0f0f; }
+            .wrapper { max-width: 620px; margin: 30px auto; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+            .header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); padding: 40px 30px; text-align: center; }
+            .logo-circle { width: 70px; height: 70px; background: linear-gradient(135deg, #e94560, #c23152); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 30px; margin-bottom: 15px; }
+            .header h1 { color: #ffffff; font-size: 22px; font-weight: 700; letter-spacing: 1px; }
+            .header p { color: #a0aec0; font-size: 13px; margin-top: 6px; }
+            .alert-banner { background: linear-gradient(90deg, #e94560, #c23152); padding: 14px 30px; text-align: center; }
+            .alert-banner span { color: white; font-weight: 700; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; }
+            .body { background: #1a1a2e; padding: 35px 30px; }
+            .phone-box { background: linear-gradient(135deg, #e94560 0%, #c23152 100%); border-radius: 12px; padding: 25px; text-align: center; margin-bottom: 25px; box-shadow: 0 8px 25px rgba(233,69,96,0.4); }
+            .phone-box .label { color: rgba(255,255,255,0.8); font-size: 11px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
+            .phone-box .number { color: white; font-size: 32px; font-weight: 800; letter-spacing: 3px; }
+            .info-grid { display: grid; gap: 12px; margin-bottom: 20px; }
+            .info-card { background: #16213e; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 16px 20px; display: flex; align-items: center; gap: 15px; }
+            .info-card .icon { width: 40px; height: 40px; background: linear-gradient(135deg, #0f3460, #533483); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+            .info-card .text-label { color: #718096; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 3px; }
+            .info-card .text-value { color: #e2e8f0; font-size: 15px; font-weight: 500; }
+            .query-card { background: #16213e; border: 1px solid rgba(233,69,96,0.3); border-left: 4px solid #e94560; border-radius: 10px; padding: 20px; margin-top: 5px; }
+            .query-card .qlabel { color: #e94560; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; margin-bottom: 10px; }
+            .query-card .qtext { color: #cbd5e0; font-size: 15px; line-height: 1.6; }
+            .timestamp-bar { background: #0f3460; border-radius: 8px; padding: 12px 20px; margin-top: 20px; display: flex; align-items: center; gap: 10px; }
+            .timestamp-bar span { color: #a0aec0; font-size: 13px; }
+            .footer { background: #0f0f0f; padding: 20px 30px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
+            .footer p { color: #4a5568; font-size: 12px; line-height: 1.8; }
+            .badge { display: inline-block; background: rgba(233,69,96,0.15); border: 1px solid rgba(233,69,96,0.3); color: #e94560; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 600; margin-top: 8px; }
+          </style>
+        </head>
+        <body>
+          <div class="wrapper">
+            <div class="header">
+              <div class="logo-circle">📞</div>
+              <h1>CALLBACK REQUEST</h1>
+              <p>Vantage Hall Girls' Residential School</p>
+            </div>
 
-          <div style="margin: 20px 0;">
-            <h4 style="color: #34495e; margin-bottom: 5px;">👤 User Name</h4>
-            <p style="margin: 0; padding: 10px; background: #ecf0f1; border-radius: 5px;">${userDetails.name}</p>
-          </div>
+            <div class="alert-banner">
+              <span>⚡ Action Required — Please Call Back</span>
+            </div>
 
-          <div style="margin: 20px 0;">
-            <h4 style="color: #34495e; margin-bottom: 5px;">📧 Email Address</h4>
-            <p style="margin: 0; padding: 10px; background: #ecf0f1; border-radius: 5px;">${userDetails.email}</p>
-          </div>
+            <div class="body">
+              <div class="phone-box">
+                <div class="label">Callback Number</div>
+                <div class="number">📱 ${callbackNumber}</div>
+              </div>
 
-          <div style="margin: 20px 0;">
-            <h4 style="color: #34495e; margin-bottom: 5px;">📱 Registered Phone</h4>
-            <p style="margin: 0; padding: 10px; background: #ecf0f1; border-radius: 5px;">${userDetails.phone}</p>
-          </div>
+              <div class="info-grid">
+                <div class="info-card">
+                  <div class="icon">👤</div>
+                  <div>
+                    <div class="text-label">User Name</div>
+                    <div class="text-value">${userDetails.name}</div>
+                  </div>
+                </div>
+                <div class="info-card">
+                  <div class="icon">📧</div>
+                  <div>
+                    <div class="text-label">Email Address</div>
+                    <div class="text-value">${userDetails.email}</div>
+                  </div>
+                </div>
+                <div class="info-card">
+                  <div class="icon">📱</div>
+                  <div>
+                    <div class="text-label">Registered Phone</div>
+                    <div class="text-value">${userDetails.phone}</div>
+                  </div>
+                </div>
+              </div>
 
-          <div style="margin: 20px 0;">
-            <h4 style="color: #34495e; margin-bottom: 5px;">❓ User's Query</h4>
-            <p style="margin: 0; padding: 10px; background: #fff3cd; border-radius: 5px; border-left: 4px solid #ffc107;">${query}</p>
-          </div>
+              <div class="query-card">
+                <div class="qlabel">❓ User's Query</div>
+                <div class="qtext">${query}</div>
+              </div>
 
-          <hr style="border: 1px solid #ecf0f1; margin: 20px 0;">
-          
-          <p style="text-align: center; color: #7f8c8d; font-size: 12px;">
-            ⏰ Received: ${new Date().toLocaleString('en-IN', { 
-              timeZone: 'Asia/Kolkata', 
-              day: 'numeric', 
-              month: 'long', 
-              year: 'numeric', 
-              hour: '2-digit', 
-              minute: '2-digit' 
-            })}
-          </p>
-          
-          <p style="text-align: center; color: #95a5a6; font-size: 11px; margin-top: 20px;">
-            This is an automated message from Vantage Hall Chatbot System<br>
-            Please call back at your earliest convenience
-          </p>
-        </div>
+              <div class="timestamp-bar">
+                <span>⏰ Received: ${new Date().toLocaleString('en-IN', {
+                  timeZone: 'Asia/Kolkata',
+                  day: 'numeric',
+                  month: 'long',
+                  year: 'numeric',
+                  hour: '2-digit',
+                  minute: '2-digit'
+                })} IST</span>
+              </div>
+            </div>
+
+            <div class="footer">
+              <p>Automated message from Vantage Hall Chatbot System</p>
+              <p>Please call back at your earliest convenience</p>
+              <span class="badge">🎓 Vantage Hall Chatbot</span>
+            </div>
+          </div>
+        </body>
+        </html>
       `
     };
 
     await transporter.sendMail(mailOptions);
-    console.log('✅ Callback email sent successfully!');
+    console.log('✅ Callback email sent!');
     return true;
   } catch (error) {
-    console.error('❌ Email sending failed:', error.message);
-    return false;
-  }
-}
-
-async function sendAdminEmail(userDetails) {
-  try {
-    const mailOptions = {
-      from: EMAIL_CONFIG.auth.user,
-      to: ADMIN_EMAIL,
-      subject: '🔔 New Chatbot User Registration - Vantage Hall',
-      html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px;">
-          <h2 style="color: #2c3e50; text-align: center;">🎓 New User Started Chat</h2>
-          <p style="text-align: center; color: #7f8c8d;">Vantage Hall Chatbot</p>
-          <hr style="border: 1px solid #ecf0f1;">
-          
-          <div style="margin: 20px 0;">
-            <h3 style="color: #34495e;">User Details:</h3>
-            <p style="margin: 10px 0;"><strong>👤 Name:</strong> ${userDetails.name}</p>
-            <p style="margin: 10px 0;"><strong>📧 Email:</strong> ${userDetails.email}</p>
-            <p style="margin: 10px 0;"><strong>📱 Phone:</strong> ${userDetails.phone}</p>
-            <p style="margin: 10px 0;"><strong>🕐 Time:</strong> ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}</p>
-          </div>
-
-          <hr style="border: 1px solid #ecf0f1;">
-          
-          <p style="text-align: center; color: #95a5a6; font-size: 11px; margin-top: 20px;">
-            This is an automated notification from Vantage Hall Chatbot System<br>
-            © ${new Date().getFullYear()} Vantage Hall Girls' Residential School
-          </p>
-        </div>
-      `
-    };
-
-    await transporter.sendMail(mailOptions);
-    console.log('✅ Email sent to admin successfully!');
-    return true;
-  } catch (error) {
-    console.error('❌ Email sending failed:', error.message);
+    console.error('❌ Email failed:', error.message);
     return false;
   }
 }
@@ -1753,6 +1766,7 @@ app.listen(PORT, () => {
     console.log('  Set ADMIN_EMAIL and EMAIL_PASSWORD in your .env\n');
   }
 });
+
 
 
 
