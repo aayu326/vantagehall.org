@@ -1205,7 +1205,7 @@ async function sendAdminEmail(userDetails) {
           <div class="wrapper">
             <div class="header">
               <div class="logo-circle">
-                <img src="https://vantagehall.org/wp-content/uploads/2022/01/VH-Logo-4.png" 
+                <img src="https://tse4.mm.bing.net/th/id/OIP.ObhPteB_2loAm-xq-0Sw9AHaHa" 
                      alt="Vantage Hall Logo"
                      onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'width:100%;height:100%;background:#1a3a52;display:flex;align-items:center;justify-content:center;font-size:28px;\'>🎓</div>'" />
               </div>
@@ -1910,6 +1910,7 @@ app.listen(PORT, () => {
     console.log('  Set ADMIN_EMAIL and EMAIL_PASSWORD in your .env\n');
   }
 });
+
 
 
 
