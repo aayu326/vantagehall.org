@@ -1150,6 +1150,139 @@ const KNOWLEDGE_BASE = {
   }
 };
 
+
+// ==============================================
+// EMAIL FUNCTIONALITY ADDED BY ME AS PER GUIDANCE OF TECHNICAL TEAM 
+// ==============================================
+
+
+async function sendAdminEmail(userDetails) {
+  try {
+    const mailOptions = {
+      from: EMAIL_CONFIG.auth.user,
+      to: ADMIN_EMAIL,
+      subject: '🎓 New User — Vantage Hall Chatbot',
+      html: `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="UTF-8">
+          <style>
+            * { margin: 0; padding: 0; box-sizing: border-box; }
+            body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f4f8; }
+            .wrapper { max-width: 580px; margin: 30px auto; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.12); }
+            .header { background: linear-gradient(135deg, #1a3a52 0%, #0d2436 100%); padding: 40px 30px; text-align: center; position: relative; }
+            .header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #e8502a, #f4854e, #e8502a); }
+            .logo-circle { width: 90px; height: 90px; border-radius: 50%; overflow: hidden; margin: 0 auto 18px auto; border: 3px solid rgba(232,80,42,0.6); box-shadow: 0 0 0 6px rgba(232,80,42,0.15); background: white; }
+            .logo-circle img { width: 100%; height: 100%; object-fit: contain; display: block; }
+            .header h1 { color: #ffffff; font-size: 22px; font-weight: 700; letter-spacing: 1px; margin-bottom: 6px; }
+            .header p { color: rgba(255,255,255,0.6); font-size: 12px; }
+            .new-badge { display: inline-block; background: linear-gradient(135deg, #e8502a, #c73d1a); color: white; padding: 6px 18px; border-radius: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-top: 14px; }
+            .body { background: #ffffff; padding: 35px 30px; }
+            .section-label { font-size: 11px; font-weight: 700; color: #a0aec0; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #e8502a; display: inline-block; }
+            .user-header { display: flex; align-items: center; gap: 16px; background: linear-gradient(135deg, #f7fafc, #edf2f7); border-radius: 12px; padding: 20px; margin-bottom: 20px; border-left: 4px solid #1a3a52; }
+            .avatar { width: 55px; height: 55px; background: linear-gradient(135deg, #1a3a52, #2d6a8a); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+            .uname { font-size: 20px; font-weight: 700; color: #1a202c; }
+            .utag { font-size: 12px; color: #718096; margin-top: 3px; }
+            .info-list { display: grid; gap: 10px; }
+            .info-item { background: #f7fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 14px 18px; display: flex; align-items: center; gap: 14px; }
+            .iicon { width: 38px; height: 38px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+            .email-icon { background: #fff5f0; border: 1px solid rgba(232,80,42,0.2); }
+            .phone-icon { background: #f0fff4; border: 1px solid rgba(72,187,120,0.2); }
+            .time-icon { background: #fffff0; border: 1px solid rgba(236,201,75,0.3); }
+            .ilabel { font-size: 10px; color: #a0aec0; text-transform: uppercase; letter-spacing: 1px; }
+            .ivalue { font-size: 14px; color: #2d3748; font-weight: 600; margin-top: 2px; }
+            .note-box { background: #fff8f6; border: 1px solid rgba(232,80,42,0.2); border-radius: 10px; padding: 16px 18px; margin-top: 20px; display: flex; gap: 12px; align-items: flex-start; }
+            .note-box .nicon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+            .note-box p { color: #744210; font-size: 13px; line-height: 1.6; }
+            .footer { background: #1a3a52; padding: 25px 30px; text-align: center; }
+            .footer .school { color: rgba(255,255,255,0.9); font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+            .divider { width: 40px; height: 2px; background: #e8502a; margin: 8px auto 10px; border-radius: 2px; }
+            .footer p { color: rgba(255,255,255,0.45); font-size: 11px; line-height: 1.8; }
+          </style>
+        </head>
+        <body>
+          <div class="wrapper">
+            <div class="header">
+              <div class="logo-circle">
+                <img src="https://vantagehall.org/wp-content/uploads/2022/01/VH-Logo-4.png" 
+                     alt="Vantage Hall Logo"
+                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'width:100%;height:100%;background:#1a3a52;display:flex;align-items:center;justify-content:center;font-size:28px;\'>🎓</div>'" />
+              </div>
+              <h1>New User Started Chat</h1>
+              <p>A visitor has registered on the Chatbot</p>
+              <span class="new-badge">✨ New Registration</span>
+            </div>
+
+            <div class="body">
+              <div class="section-label">User Details</div>
+
+              <div class="user-header">
+                <div class="avatar">👤</div>
+                <div>
+                  <div class="uname">${userDetails.name}</div>
+                  <div class="utag">New Chatbot User</div>
+                </div>
+              </div>
+
+              <div class="info-list">
+                <div class="info-item">
+                  <div class="iicon email-icon">📧</div>
+                  <div>
+                    <div class="ilabel">Email Address</div>
+                    <div class="ivalue">${userDetails.email}</div>
+                  </div>
+                </div>
+                <div class="info-item">
+                  <div class="iicon phone-icon">📱</div>
+                  <div>
+                    <div class="ilabel">Phone Number</div>
+                    <div class="ivalue">${userDetails.phone}</div>
+                  </div>
+                </div>
+                <div class="info-item">
+                  <div class="iicon time-icon">⏰</div>
+                  <div>
+                    <div class="ilabel">Registration Time</div>
+                    <div class="ivalue">${new Date().toLocaleString('en-IN', {
+                      timeZone: 'Asia/Kolkata',
+                      day: 'numeric',
+                      month: 'long',
+                      year: 'numeric',
+                      hour: '2-digit',
+                      minute: '2-digit'
+                    })} IST</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="note-box">
+                <div class="nicon">💡</div>
+                <p>This user has registered on the Vantage Hall chatbot and may have an admission or general enquiry. Consider following up if no callback request is received.</p>
+              </div>
+            </div>
+
+            <div class="footer">
+              <div class="school">Vantage Hall Girls' Residential School</div>
+              <div class="divider"></div>
+              <p>Automated notification from Vantage Hall Chatbot System</p>
+              <p>© ${new Date().getFullYear()} Vantage Hall · Dehradun, Uttarakhand</p>
+            </div>
+          </div>
+        </body>
+        </html>
+      `
+    };
+    await transporter.sendMail(mailOptions);
+    console.log('✅ Admin email sent!');
+    return true;
+  } catch (error) {
+    console.error('❌ Email failed:', error.message);
+    return false;
+  }
+}
+
+
 // ==============================================
 // EMAIL FUNCTIONALITY ADDED BY ME AS PER GUIDANCE OF TECHNICAL TEAM 
 // ==============================================
@@ -1777,6 +1910,7 @@ app.listen(PORT, () => {
     console.log('  Set ADMIN_EMAIL and EMAIL_PASSWORD in your .env\n');
   }
 });
+
 
 
 
