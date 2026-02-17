@@ -804,6 +804,8 @@ const KNOWLEDGE_BASE = {
       "achievements",
       "awards",
       "infrastructure",
+      "award",
+      "prize",
       "sports record"
     ],
     "answer": "🏆 Important Achievements & Highlights:\n\n• Academic Excellence\n• Holistic Development\n• Sports Achievements\n• Modern Infrastructure & Facilities\n• Dedicated Pastoral Care & Student Well-being\n• International Exposure\n\n🔗 More info: https://vantagehall.org/sports-achievements-girls-boarding-school/"
@@ -1751,5 +1753,6 @@ app.listen(PORT, () => {
     console.log('  Set ADMIN_EMAIL and EMAIL_PASSWORD in your .env\n');
   }
 });
+
 
 
