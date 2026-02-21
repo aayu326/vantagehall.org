@@ -177,7 +177,7 @@ const KNOWLEDGE_BASE = {
     ]
   },
 
-  // ==============================================
+// ==============================================
   // EMOTIONAL QUOTIENT MENU - LATEST UPDATE WITH SINGLE CHILD 
   // ==============================================
   emotional_menu: {
@@ -277,7 +277,7 @@ const KNOWLEDGE_BASE = {
               'pastoral care',
               'sad in hostel'
             ],
-            response: "💚 Emotional Support:\n\nYes, we provide comprehensive emotional care:\n\n👩‍⚕️ Professional counselor on campus\n🏠 Caring dorm mothers\n👩‍🏫 Supportive teachers\n📞 Weekly video calls with parents\n👭 Small, close-knit community\n🤝 Regular check-ins & bonding sessions\n\nEvery girl receives continuous support to feel at home!\n\n🔗 Learn more: https://www.vantagehall.org/pastoral-care"
+            response: "💚 Emotional Support:\n\nYes, we provide comprehensive emotional care:\n\n👩‍⚕️ Professional counselor on campus\n🏠 Caring dorm mothers\n👩‍🏫 Supportive teachers\n📞 Weekly video calls with parents\n👭 Small, close-knit community\n🤝 Regular check-ins & bonding sessions\n\nEvery girl receives continuous support to feel at home!\n\n🔗 Learn more: https://vantagehall.org/emotional-health-boarding-school-dehradun/"
           },
           {
             id: 2,
@@ -352,7 +352,7 @@ const KNOWLEDGE_BASE = {
               'hygienic food',
               'balanced diet'
             ],
-            response: "🍽️ Food & Nutrition:\n\nMeals are:\n✅ Nutritious & diverse\n✅ Lovingly prepared\n✅ Curated by nutritionist\n✅ Mix of Indian & Continental\n\n👩‍🍳 Personal Care:\n• Pastoral team supervises mealtimes\n• Ensures no one skips meals\n• Makes sure each student eats properly\n\n🔗 Full Menu Details: https://www.vantagehall.org/facilities#dining"
+            response: "🍽️ Food & Nutrition:\n\nMeals are:\n✅ Nutritious & diverse\n✅ Lovingly prepared\n✅ Curated by nutritionist\n✅ Mix of Indian & Continental\n\n👩‍🍳 Personal Care:\n• Pastoral team supervises mealtimes\n• Ensures no one skips meals\n• Makes sure each student eats properly\n\n🔗 Full Menu Details: https://vantagehall.org/food-nutrition-boarding-school-dehradun/"
           },
           {
             id: 3,
@@ -369,7 +369,7 @@ const KNOWLEDGE_BASE = {
               'self-study time',
               'activity timetable'
             ],
-            response: "📅 Daily Routine:\n\nBalanced routine includes:\n\n📚 Academics\n⚽ Sports & Physical Activities\n🎨 Co-curricular Activities\n📖 Self-Study Time\n😌 Relaxation Periods\n\n🌅 Evenings: Outdoor play\n🎯 Weekends: Hobbies & recreation\n\nPerfect balance of learning, activity, and rest!\n\n🔗 Learn more: https://www.vantagehall.org/life-at-vantage"
+            response: "📅 Daily Routine:\n\nBalanced routine includes:\n\n📚 Academics\n⚽ Sports & Physical Activities\n🎨 Co-curricular Activities\n📖 Self-Study Time\n😌 Relaxation Periods\n\n🌅 Evenings: Outdoor play\n🎯 Weekends: Hobbies & recreation\n\nPerfect balance of learning, activity, and rest!\n\n🔗 Learn more: https://vantagehall.org/typical-day-boarding-school-dehradun/"
           }
         ]
       },
@@ -395,7 +395,7 @@ const KNOWLEDGE_BASE = {
               'safe boarding school',
               'entry restrictions'
             ],
-            response: "🛡️ Safety Measures:\n\n📹 24x7 CCTV surveillance\n👮 Trained security personnel\n🚪 Restricted entry with ID\n🏠 Round-the-clock dorm supervision\n🚨 Regular safety drills\n\nYour daughter's safety is our top priority with multiple protection layers!\n\n🔗 Security Details: https://www.vantagehall.org/safety"
+            response: "🛡️ Safety Measures:\n\n📹 24x7 CCTV surveillance\n👮 Trained security personnel\n🚪 Restricted entry with ID\n🏠 Round-the-clock dorm supervision\n🚨 Regular safety drills\n\nYour daughter's safety is our top priority with multiple protection layers!\n\n🔗 Security Details: https://vantagehall.org/security-girls-boarding-school-dehradun/"
           },
           {
             id: 2,
@@ -458,7 +458,7 @@ const KNOWLEDGE_BASE = {
               'sick child',
               'health care'
             ],
-            response: "🏥 Medical Facilities:\n\n✅ Fully equipped infirmary - 24/7\n👩‍⚕️ Qualified female doctor & nurses\n🚑 School ambulance available\n🏥 Tie-ups with hospitals:\n• Graphic Era\n• Synergy\n• Max Hospital\n\n📞 Parents informed immediately in any medical situation!\n\n🔗 Medical Services: https://www.vantagehall.org/facilities#medical"
+            response: "🏥 Medical Facilities:\n\n✅ Fully equipped infirmary - 24/7\n👩‍⚕️ Qualified female doctor & nurses\n🚑 School ambulance available\n🏥 Tie-ups with hospitals:\n• Graphic Era\n• Synergy\n• Max Hospital\n\n📞 Parents informed immediately in any medical situation!\n\n🔗 Medical Services: https://vantagehall.org/medical-services-boarding-school-dehradun/"
           },
           {
             id: 2,
@@ -542,7 +542,7 @@ const KNOWLEDGE_BASE = {
               'second family',
               'community feel'
             ],
-            response: "🤝 Building Friendships:\n\nNot at all! Our close-knit community ensures your daughter quickly builds strong friendships:\n\n✅ Buddy system for new students\n✅ Caring dorm mothers\n✅ House activities & bonding sessions\n✅ Small community feel\n✅ Second family environment\n\nShe'll never feel alone – she'll feel like she belongs! 💙\n\n🔗 Learn more: https://www.vantagehall.org/pastoral-care"
+            response: "🤝 Building Friendships:\n\nNot at all! Our close-knit community ensures your daughter quickly builds strong friendships:\n\n✅ Buddy system for new students\n✅ Caring dorm mothers\n✅ House activities & bonding sessions\n✅ Small community feel\n✅ Second family environment\n\nShe'll never feel alone – she'll feel like she belongs! 💙\n\n🔗 Learn more: https://vantagehall.org/pastoral-care-girls-boarding-school/"
           },
           {
             id: 2,
@@ -604,7 +604,7 @@ const KNOWLEDGE_BASE = {
               'emotional care',
               'secure environment'
             ],
-            response: "🛡️ Emotional Security:\n\nYes! We ensure every child feels emotionally secure:\n\n✅ Structured daily routine\n✅ Nurturing environment\n✅ Strong pastoral care system\n✅ 24/7 caring staff\n✅ Safe & valued every day\n\nYour daughter will feel emotionally supported, safe, and valued at all times! 💙\n\n🔗 Learn more: https://www.vantagehall.org/pastoral-care"
+            response: "🛡️ Emotional Security:\n\nYes! We ensure every child feels emotionally secure:\n\n✅ Structured daily routine\n✅ Nurturing environment\n✅ Strong pastoral care system\n✅ 24/7 caring staff\n✅ Safe & valued every day\n\nYour daughter will feel emotionally supported, safe, and valued at all times! 💙\n\n🔗 Learn more: https://vantagehall.org/pastoral-care-girls-boarding-school/"
           }
         ]
       }
@@ -612,16 +612,16 @@ const KNOWLEDGE_BASE = {
   },
 
   // ==============================================
-  // BASIC SCHOLL INFORMATION PROVIDED BY THE TECHNICAL TEAM 
+  // BASIC SCHOOL INFORMATION PROVIDED BY THE TECHNICAL TEAM 
   // ==============================================
   founder: {
     keywords: ['founder', 'established', 'history', 'who started', 'foundation', 'when founded'],
-    answer: "🏫 Vantage Hall Girls' Residential School was established in 2013 with a vision to provide world-class boarding education for girls in a nurturing and empowering environment.\n\n🔗 Vision & Mission: https://www.vantagehall.org/about"
+    answer: "🏫 Vantage Hall Girls' Residential School was established in 2013 with a vision to provide world-class boarding education for girls in a nurturing and empowering environment.\n\n🔗 Vision & Mission: https://vantagehall.org/vision-mission-girls-school-dehradun/"
   },
 
   affiliation: {
     keywords: ['affiliation', 'cbse code', 'board affiliation', 'school code'],
-    answer: "📘 The school is affiliated to the Central Board of Secondary Education (CBSE), New Delhi."
+    answer: "📘 The school is affiliated to the Central Board of Secondary Education (CBSE), New Delhi.\n\n🔗 CBSE Mandatory Disclosure: https://vantagehall.org/cbse-mandatory-disclosure/"
   },
 
   location: {
@@ -639,7 +639,7 @@ const KNOWLEDGE_BASE = {
       'admission contact',
       'dehradun boarding school'
     ],
-    answer: "📍 Vantage Hall Girls' Residential School\nThe Yellow Brick Road, Doonga\nDehradun - 248007, Uttarakhand\n\n🗺 Google Maps: https://maps.app.goo.gl/F9okR4GADbhN9x5G8\n\n🔗 Full Contact Details: https://www.vantagehall.org/contact"
+    answer: "📍 Vantage Hall Girls' Residential School\nThe Yellow Brick Road, Doonga\nDehradun - 248007, Uttarakhand\n\n🗺 Google Maps: https://maps.app.goo.gl/F9okR4GADbhN9x5G8\n\n🔗 Full Contact Details: https://vantagehall.org/contact-vantage-hall-boarding-school/"
   },
 
   faculty: {
@@ -651,7 +651,7 @@ const KNOWLEDGE_BASE = {
       'teacher qualification',
       'who teaches'
     ],
-    answer: "🏫 All faculty members are highly qualified professionals with CBSE teaching certifications. Many hold postgraduate degrees and have years of teaching and mentoring experience.\n\n🔗 Meet Our Teachers: https://www.vantagehall.org/faculty"
+    answer: "🏫 All faculty members are highly qualified professionals with CBSE teaching certifications. Many hold postgraduate degrees and have years of teaching and mentoring experience.\n\n🔗 Meet Our Teachers: https://vantagehall.org/teachers-bio-boarding-school/"
   },
 
   smart_class: {
@@ -664,12 +664,12 @@ const KNOWLEDGE_BASE = {
       'online learning',
       'wifi'
     ],
-    answer: "💻 Digital & Smart Learning:\n\n• Smart classrooms with interactive panels\n• Computer & Robotics Labs\n• Wi-Fi-enabled learning environment\n• Integrated Edunext ERP for attendance, grades & communication"
+    answer: "💻 Digital & Smart Learning:\n\n• Smart classrooms with interactive panels\n• Computer & Robotics Labs\n• Wi-Fi-enabled learning environment\n• Integrated Edunext ERP for attendance, grades & communication\n\n🔗 Academic Facilities: https://vantagehall.org/campus-facilities-boarding-school/"
   },
 
   safety: {
     keywords: ['safety', 'security', 'cctv', 'warden', 'camera', 'rules', 'discipline'],
-    answer: "🛡 Safety & Security:\n\n• 24x7 wardens in each hostel block\n• CCTV surveillance in corridors & common areas\n• Controlled visitor access with ID verification\n• Strict discipline & conduct policy\n\n🔗 Security Details: https://www.vantagehall.org/safety"
+    answer: "🛡 Safety & Security:\n\n• 24x7 wardens in each hostel block\n• CCTV surveillance in corridors & common areas\n• Controlled visitor access with ID verification\n• Strict discipline & conduct policy\n\n🔗 Security Details: https://vantagehall.org/security-girls-boarding-school-dehradun/"
   },
 
   campus: {
@@ -681,7 +681,7 @@ const KNOWLEDGE_BASE = {
       'facilities available',
       'auditorium'
     ],
-    answer: "🏫 Campus Facilities:\n\n• 12-acre lush green campus\n• Modern academic blocks & labs\n• Fully stocked library\n• Amphitheatre & multi-purpose auditorium\n• Indoor & outdoor sports arenas"
+    answer: "🏫 Campus Facilities:\n\n• 12-acre lush green campus\n• Modern academic blocks & labs\n• Fully stocked library\n• Amphitheatre & multi-purpose auditorium\n• Indoor & outdoor sports arenas\n\n🔗 Academic Facilities: https://vantagehall.org/campus-facilities-boarding-school/"
   },
 
   medical: {
@@ -694,7 +694,7 @@ const KNOWLEDGE_BASE = {
       'infirmary',
       'ambulance'
     ],
-    answer: "🏥 Medical Facilities:\n\n✅ Fully equipped infirmary – 24/7\n👩‍⚕️ Qualified female doctor & nurses\n🚑 School ambulance available\n🏥 Tie-ups with hospitals:\n• Graphic Era\n• Synergy\n• Max Hospital\n\n📞 Parents are informed immediately in any medical situation!"
+    answer: "🏥 Medical Facilities:\n\n✅ Fully equipped infirmary – 24/7\n👩‍⚕️ Qualified female doctor & nurses\n🚑 School ambulance available\n🏥 Tie-ups with hospitals:\n• Graphic Era\n• Synergy\n• Max Hospital\n\n📞 Parents are informed immediately in any medical situation!\n\n🔗 Medical Services: https://vantagehall.org/medical-services-boarding-school-dehradun/"
   },
 
   vision: {
@@ -710,7 +710,7 @@ const KNOWLEDGE_BASE = {
       'school philosophy',
       'educational goals'
     ],
-    answer: "🎯 Our Vision & Mission:\n\nTo nurture happy, independent, and unique individuals in a safe and supportive environment.\n\n🔗 Learn More: https://www.vantagehall.org/about"
+    answer: "🎯 Our Vision & Mission:\n\nTo nurture happy, independent, and unique individuals in a safe and supportive environment.\n\n🔗 Learn More: https://vantagehall.org/vision-mission-girls-school-dehradun/"
   },
 
   thanks: {
@@ -746,7 +746,7 @@ const KNOWLEDGE_BASE = {
       'education board',
       'affiliated board'
     ],
-    answer: "📚 We follow the CBSE curriculum with a well-balanced, student-centric academic programme that encourages holistic learning and critical thinking.\n\n🎓 Streams Offered (Classes 11-12):\n• Science\n• Commerce\n• Humanities\n\nOur curriculum emphasizes holistic development beyond textbooks, including hands-on activities, critical thinking, and creative expression.\n\n🔗 Full Curriculum Details: https://www.vantagehall.org/academics"
+    answer: "📚 We follow the CBSE curriculum with a well-balanced, student-centric academic programme that encourages holistic learning and critical thinking.\n\n🎓 Streams Offered (Classes 11-12):\n• Science\n• Commerce\n• Humanities\n\nOur curriculum emphasizes holistic development beyond textbooks, including hands-on activities, critical thinking, and creative expression.\n\n🔗 Full Curriculum Details: https://vantagehall.org/curriculum-boarding-school-dehradun/"
   },
 
   timings: {
@@ -762,7 +762,7 @@ const KNOWLEDGE_BASE = {
       'daily timing',
       'activity timing'
     ],
-    answer: "🕐 School Timings:\n\n• Grades 3-9: 7:45 AM - 12:55 PM\n• Grades 10-12: 7:45 AM - 1:35 PM\n• Activity Classes: 2:45 PM - 4:05 PM\n\n🔗 Typical Day: https://www.vantagehall.org/life-at-vantage"
+    answer: "🕐 School Timings:\n\n• Grades 3-9: 7:45 AM - 12:55 PM\n• Grades 10-12: 7:45 AM - 1:35 PM\n• Activity Classes: 2:45 PM - 4:05 PM\n\n🔗 Typical Day: https://vantagehall.org/typical-day-boarding-school-dehradun/"
   },
 
   ratio: {
@@ -794,12 +794,11 @@ const KNOWLEDGE_BASE = {
       'class admission',
       'eligibility details'
     ],
-    answer: "📝 Eligibility Criteria:\n\n✅ Classes: 3-12\n✅ Age: As per CBSE guidelines\n✅ Eligibility: Successful completion of previous grade\n✅ Required: Transfer Certificate and Report Card\n⚠️ Note: Admission to Class 10 is considered only in exceptional cases\n\n🔗 Admission Details: https://www.vantagehall.org/admissions"
+    answer: "📝 Eligibility Criteria:\n\n✅ Classes: 3-12\n✅ Age: As per CBSE guidelines\n✅ Eligibility: Successful completion of previous grade\n✅ Required: Transfer Certificate and Report Card\n⚠️ Note: Admission to Class 10 is considered only in exceptional cases\n\n🔗 Admission Details: https://vantagehall.org/admission-procedure-boarding-school/"
   },
 
-
- "school_achievements": {
-    "keywords": [
+  school_achievements: {
+    keywords: [
       "school highlights",
       "achievements",
       "awards",
@@ -808,11 +807,9 @@ const KNOWLEDGE_BASE = {
       "prize",
       "sports record"
     ],
-    "answer": "🏆 Important Achievements & Highlights:\n\n• Academic Excellence\n• Holistic Development\n• Sports Achievements\n• Modern Infrastructure & Facilities\n• Dedicated Pastoral Care & Student Well-being\n• International Exposure\n\n🔗 More info: https://vantagehall.org/sports-achievements-girls-boarding-school/"
+    answer: "🏆 Important Achievements & Highlights:\n\n• Academic Excellence\n• Holistic Development\n• Sports Achievements\n• Modern Infrastructure & Facilities\n• Dedicated Pastoral Care & Student Well-being\n• International Exposure\n\n🔗 More info: https://vantagehall.org/sports-achievements-girls-boarding-school/"
   },
 
-
-  
   admission: {
     keywords: [
       'admission',
@@ -827,7 +824,7 @@ const KNOWLEDGE_BASE = {
       'interview round',
       'admission procedure'
     ],
-    answer: "📝 Admission Process:\n\n✅ Step 1: Written Test (English, Mathematics, Science)\n✅ Step 2: Interaction with Principal\n✅ Step 3: Interaction with Director\n\n📅 Registrations: September-October\n📅 Session Starts: April\n\n📞 Contact:\n+91-8191912999, +91-7078311863\n📧 admissions@vantagehall.org\n\n🔗 Complete Admission Details: https://www.vantagehall.org/admissions"
+    answer: "📝 Admission Process:\n\n✅ Step 1: Written Test (English, Mathematics, Science)\n✅ Step 2: Interaction with Principal\n✅ Step 3: Interaction with Director\n\n📅 Registrations: September-October\n📅 Session Starts: April\n\n📞 Contact:\n+91-8191912999, +91-7078311863\n📧 admissions@vantagehall.org\n\n🔗 Complete Admission Details: https://vantagehall.org/admission-procedure-boarding-school/"
   },
 
   admission_dates: {
@@ -838,7 +835,7 @@ const KNOWLEDGE_BASE = {
       'academic calendar',
       'admission deadline'
     ],
-    answer: "📅 Admission Timeline:\n\n• Registrations: September-October (of the previous academic year)\n• Academic Session: Begins in April\n\n🔗 Academic Calendar 2025-26: https://www.vantagehall.org/calendar"
+    answer: "📅 Admission Timeline:\n\n• Registrations: September-October (of the previous academic year)\n• Academic Session: Begins in April\n\n🔗 Admission Procedure: https://vantagehall.org/admission-procedure-boarding-school/"
   },
 
   documents: {
@@ -855,7 +852,7 @@ const KNOWLEDGE_BASE = {
       'aadhaar required',
       'tc required'
     ],
-    answer: "📄 Required Documents:\n\n• Birth Certificate & Aadhaar Card\n• Parents' Aadhaar & PAN Cards\n• Last examination mark sheet\n• Original Transfer Certificate\n• Medical Fitness Certificate\n• Student's PEN Number / APAAR ID"
+    answer: "📄 Required Documents:\n\n• Birth Certificate & Aadhaar Card\n• Parents' Aadhaar & PAN Cards\n• Last examination mark sheet\n• Original Transfer Certificate\n• Medical Fitness Certificate\n• Student's PEN Number / APAAR ID\n\n🔗 Admission Details: https://vantagehall.org/admission-procedure-boarding-school/"
   },
 
   fee: {
@@ -873,7 +870,7 @@ const KNOWLEDGE_BASE = {
       'tuition cost',
       'boarding fees'
     ],
-    answer: "💰 Fee Structure:\n\n📌 Classes 3-7: ₹7,35,000\n(Annual: ₹5,50,000 + One-time: ₹1,85,000)\n\n📌 Classes 8-10: ₹8,35,000\n(Annual: ₹6,50,000 + One-time: ₹1,85,000)\n\n📌 Classes 11-12: ₹8,85,000\n(Annual: ₹7,00,000 + One-time: ₹1,85,000)\n\n*One-time fees include registration, joining kit, imprest deposit & admission fee.\n\n🔗 Complete Fee Details: https://www.vantagehall.org/admissions#fees"
+    answer: "💰 Fee Structure:\n\n📌 Classes 3-7: ₹7,35,000\n(Annual: ₹5,50,000 + One-time: ₹1,85,000)\n\n📌 Classes 8-10: ₹8,35,000\n(Annual: ₹6,50,000 + One-time: ₹1,85,000)\n\n📌 Classes 11-12: ₹8,85,000\n(Annual: ₹7,00,000 + One-time: ₹1,85,000)\n\n*One-time fees include registration, joining kit, imprest deposit & admission fee.\n\n🔗 Complete Fee Details: https://vantagehall.org/fee-structure-boarding-school-dehradun/"
   },
 
   hostel: {
@@ -890,7 +887,7 @@ const KNOWLEDGE_BASE = {
       'wifi hostel',
       'laundry service'
     ],
-    answer: "🏡 Hostel Facilities:\n\n✨ Well-furnished dormitories with beds, storage, study tables & wardrobes\n✨ Separate hostels for juniors & seniors\n✨ Regular laundry service\n✨ Daily housekeeping\n✨24/7 supervision by wardens\n✨ Safe & supportive environment\n\n🔗 Hostel Details: https://www.vantagehall.org/facilities#hostel"
+    answer: "🏡 Hostel Facilities:\n\n✨ Well-furnished dormitories with beds, storage, study tables & wardrobes\n✨ Separate hostels for juniors & seniors\n✨ Regular laundry service\n✨ Daily housekeeping\n✨ 24/7 supervision by wardens\n✨ Safe & supportive environment\n\n🔗 Hostel Details: https://vantagehall.org/hostel-facilities-boarding-school-dehradun/"
   },
 
   hostel_rules: {
@@ -901,7 +898,7 @@ const KNOWLEDGE_BASE = {
       'boarding guidelines',
       'hostel routine'
     ],
-    answer: "📋 Hostel Rules:\n\n• Students must return to dorms at designated times\n• Fixed bedtime and lights-out schedules\n• Morning roll call and evening study attendance mandatory\n• Respectful behavior towards peers and staff\n• Polite language and proper conduct enforced\n\n🔗 Pastoral Care: https://www.vantagehall.org/pastoral-care"
+    answer: "📋 Hostel Rules:\n\n• Students must return to dorms at designated times\n• Fixed bedtime and lights-out schedules\n• Morning roll call and evening study attendance mandatory\n• Respectful behavior towards peers and staff\n• Polite language and proper conduct enforced\n\n🔗 Pastoral Care: https://vantagehall.org/pastoral-care-girls-boarding-school/"
   },
 
   food: {
@@ -923,7 +920,7 @@ const KNOWLEDGE_BASE = {
       'do you serve meat',
       'special diet'
     ],
-    answer: "🍽️ Dining & Nutrition:\n\n✅ Nutritionist-planned meals\n✅ Special diets for athletes & medical needs\n✅ Veg & non-veg options\n✅ Menu rotates every 15 days\n\n🥗 Daily Meals:\n• Breakfast: Fruits, cereals, milk, eggs, bread/parathas\n• Lunch: Dal, rice/roti, vegetables, salad\n• Dinner: Similar to lunch with variety\n• Night Milk: Mandatory\n\n🔗 Full Menu: https://www.vantagehall.org/facilities#dining"
+    answer: "🍽️ Dining & Nutrition:\n\n✅ Nutritionist-planned meals\n✅ Special diets for athletes & medical needs\n✅ Veg & non-veg options\n✅ Menu rotates every 15 days\n\n🥗 Daily Meals:\n• Breakfast: Fruits, cereals, milk, eggs, bread/parathas\n• Lunch: Dal, rice/roti, vegetables, salad\n• Dinner: Similar to lunch with variety\n• Night Milk: Mandatory\n\n🔗 Food & Nourishment: https://vantagehall.org/food-nutrition-boarding-school-dehradun/"
   },
 
   leave_policy: {
@@ -934,7 +931,7 @@ const KNOWLEDGE_BASE = {
       'weekend outing',
       'holiday policy'
     ],
-    answer: "📅 Leave & Outing Policy:\n\nLeave and outing schedules are mentioned in the Academic Calendar.\n\n🔗 View Academic Calendar: https://www.vantagehall.org/calendar"
+    answer: "📅 Leave & Outing Policy:\n\nLeave and outing schedules are mentioned in the Admission details section.\n\n🔗 Admission Procedure: https://vantagehall.org/admission-procedure-boarding-school/"
   },
 
   sports: {
@@ -957,7 +954,7 @@ const KNOWLEDGE_BASE = {
       'swimming pool',
       'sports teams'
     ],
-    answer: "⚽ Sports & Athletics:\n\nTraining under qualified coaches in:\n\n🏃‍♀️ Football, Self Defense, Basketball\n🎾 Squash, Badminton, Zumba Classes, Table Tennis\n⛸️ Skating, Gymnasium, Swimming\n♟️ Indoor Games: Chess\n\n🔗 Sports Facilities: https://www.vantagehall.org/sports\n🔗 Sports Achievements: https://www.vantagehall.org/achievements"
+    answer: "⚽ Sports & Athletics:\n\nTraining under qualified coaches in:\n\n🏃‍♀️ Football, Self Defense, Basketball\n🎾 Squash, Badminton, Zumba Classes, Table Tennis\n⛸️ Skating, Gymnasium, Swimming\n♟️ Indoor Games: Chess\n\n🔗 Sports Program: https://vantagehall.org/sports-program-girls-boarding-school/\n🔗 Sports Achievements: https://vantagehall.org/sports-achievements-girls-boarding-school/"
   },
 
   clubs: {
@@ -973,7 +970,7 @@ const KNOWLEDGE_BASE = {
       'music club',
       'stem club'
     ],
-    answer: "🎨 Clubs & Societies:\n\n• Art Club\n• Culinary Club\n• Dance & Music Club\n• Theatre Club\n• Finance & Maths Club\n• IT Club\n• Science Club\n• Photography Club\n• Sustainability Club\n• Editorial Board\n\n🔗 Explore All Clubs: https://www.vantagehall.org/clubs\n🔗 Student Activities: https://www.vantagehall.org/life-at-vantage"
+    answer: "🎨 Clubs & Societies:\n\n• Art Club\n• Culinary Club\n• Dance & Music Club\n• Theatre Club\n• Finance & Maths Club\n• IT Club\n• Science Club\n• Photography Club\n• Sustainability Club\n• Editorial Board\n\n🔗 Explore All Clubs: https://vantagehall.org/student-clubs-boarding-school-dehradun/\n🔗 Student Activities: https://vantagehall.org/typical-day-boarding-school-dehradun/"
   },
 
   events: {
@@ -984,7 +981,7 @@ const KNOWLEDGE_BASE = {
       'cultural programs',
       'celebrations'
     ],
-    answer: "🎉 Cultural & Annual Events:\n\n• Annual Day\n• Sports Day\n• Independence Day & Republic Day\n• Educational Trips & Excursions\n• Festive Celebrations\n• Inter-House Competitions\n• Talent & Leadership Programs\n\n🔗 Read Our Blog: https://www.vantagehall.org/blog"
+    answer: "🎉 Cultural & Annual Events:\n\n• Annual Day\n• Sports Day\n• Independence Day & Republic Day\n• Educational Trips & Excursions\n• Festive Celebrations\n• Inter-House Competitions\n• Talent & Leadership Programs\n\n🔗 Read Our Blog: https://vantagehall.org/blog/"
   },
 
   leadership: {
@@ -995,7 +992,7 @@ const KNOWLEDGE_BASE = {
       'house system',
       'head girl'
     ],
-    answer: "🌟 Leadership Opportunities:\n\nStudents are offered leadership roles through:\n\n• House System\n• Prefectship\n• Student Council\n\nThese help build confidence, communication, and responsibility.\n\n🔗 Student Council: https://www.vantagehall.org/leadership"
+    answer: "🌟 Leadership Opportunities:\n\nStudents are offered leadership roles through:\n\n• House System\n• Prefectship\n• Student Council\n\nThese help build confidence, communication, and responsibility.\n\n🔗 Our Houses: https://vantagehall.org/our-houses-boarding-school-dehradun/"
   },
 
   trips: {
@@ -1007,7 +1004,7 @@ const KNOWLEDGE_BASE = {
       'foreign trips',
       'picnic'
     ],
-    answer: "🗺️ Trips & Excursions:\n\n📍 Term-End Trips:\nKanatal, Manali, Shimla, Mumbai, Goa, Jim Corbett (grade-wise)\n\n📚 Educational Trips:\nScience Centre, Dehradun Zoo, FRI, IMA, Museums\n\n⛰️ Treks/Day Trips:\nBhadraj Temple, Than Gaon, Doonga treks, Mussoorie\n\n🛍️ Local Visits:\nPacific Mall, Centrio Mall, Dehradun Zoo\n\n🔗 Trips & Expeditions: https://www.vantagehall.org/trips"
+    answer: "🗺️ Trips & Excursions:\n\n📍 Term-End Trips:\nKanatal, Manali, Shimla, Mumbai, Goa, Jim Corbett (grade-wise)\n\n📚 Educational Trips:\nScience Centre, Dehradun Zoo, FRI, IMA, Museums\n\n⛰️ Treks/Day Trips:\nBhadraj Temple, Than Gaon, Doonga treks, Mussoorie\n\n🛍️ Local Visits:\nPacific Mall, Centrio Mall, Dehradun Zoo\n\n🔗 Trips & Expeditions: https://vantagehall.org/trips-expeditions-boarding-school-dehradun/"
   },
 
   career: {
@@ -1025,7 +1022,7 @@ const KNOWLEDGE_BASE = {
       'jee support',
       'study abroad'
     ],
-    answer: "🎯 Career Guidance:\n\nWe offer counseling for Grades 8-12, including:\n\n✅ Medical (NEET)\n✅ Engineering (JEE)\n✅ Law (CLAT, AILET)\n✅ Management (IPM, NMIMS)\n✅ Design (NIFT, UCEED)\n✅ SAT & AP (foreign universities)\n\n1-on-1 guidance sessions available!\n\n🔗 Academic Programs: https://www.vantagehall.org/academics"
+    answer: "🎯 Career Guidance:\n\nWe offer counseling for Grades 8-12, including:\n\n✅ Medical (NEET)\n✅ Engineering (JEE)\n✅ Law (CLAT, AILET)\n✅ Management (IPM, NMIMS)\n✅ Design (NIFT, UCEED)\n✅ SAT & AP (foreign universities)\n\n1-on-1 guidance sessions available!\n\n🔗 Career Planning: https://vantagehall.org/career-planning-prep-boarding-school/"
   },
 
   parent_communication: {
@@ -1036,7 +1033,7 @@ const KNOWLEDGE_BASE = {
       'weekly calls',
       'whatsapp updates'
     ],
-    answer: "📱 Parent Communication:\n\n• ERP system (attendance, academics, calendar, photos)\n• Email and WhatsApp updates\n• Weekly student-parent calls every Sunday (45 minutes)\n• Special calls on birthdays/anniversaries"
+    answer: "📱 Parent Communication:\n\n• ERP system (attendance, academics, calendar, photos)\n• Email and WhatsApp updates\n• Weekly student-parent calls every Sunday (45 minutes)\n• Special calls on birthdays/anniversaries\n\n🔗 Meet The Counsellor: https://vantagehall.org/meet-the-counselor-boarding-school/"
   },
 
   ptm: {
@@ -1046,7 +1043,7 @@ const KNOWLEDGE_BASE = {
       'teacher interaction',
       'academic meeting'
     ],
-    answer: "👨‍👩‍👧 Parent-Teacher Meetings:\n\nConducted four times in an academic year (Online & Offline)."
+    answer: "👨‍👩‍👧 Parent-Teacher Meetings:\n\nConducted four times in an academic year (Online & Offline).\n\n🔗 Meet The Counsellor: https://vantagehall.org/meet-the-counselor-boarding-school/"
   },
 
   online_portal: {
@@ -1057,7 +1054,7 @@ const KNOWLEDGE_BASE = {
       'erp login',
       'academic reports'
     ],
-    answer: "💻 Online Portal:\n\nYes, parents can access the ERP system anytime to track:\n\n• Attendance\n• Academic Performance\n• Fee Status\n• Event Calendar"
+    answer: "💻 Online Portal:\n\nYes, parents can access the ERP system anytime to track:\n\n• Attendance\n• Academic Performance\n• Fee Status\n• Event Calendar\n\n🔗 ERP Login: https://vantagehall.edunexttechnologies.com/Index"
   },
 
   counselor: {
@@ -1067,7 +1064,7 @@ const KNOWLEDGE_BASE = {
       'student psychologist',
       'mental health'
     ],
-    answer: "💚 School Counselor:\n\nYes, we have a dedicated counselor providing psychological and emotional support.\n\n🔗 Emotional Health: https://www.vantagehall.org/pastoral-care"
+    answer: "💚 School Counselor:\n\nYes, we have a dedicated counselor providing psychological and emotional support.\n\n🔗 Emotional Health: https://vantagehall.org/emotional-health-boarding-school-dehradun/"
   },
 
   complaint: {
@@ -1078,7 +1075,7 @@ const KNOWLEDGE_BASE = {
       'student grievance',
       'safety concern'
     ],
-    answer: "📮 Student Grievance System:\n\nWe have a zero-tolerance policy against bullying or harassment. Students may directly approach:\n\n• Director\n• Principal\n• Pastoral Care team\n\nFor confidential one-on-one sessions."
+    answer: "📮 Student Grievance System:\n\nWe have a zero-tolerance policy against bullying or harassment. Students may directly approach:\n\n• Director\n• Principal\n• Pastoral Care team\n\nFor confidential one-on-one sessions.\n\n🔗 Student Support: https://vantagehall.org/student-support-services-boarding-school/"
   },
 
   staff: {
@@ -1088,7 +1085,7 @@ const KNOWLEDGE_BASE = {
       'house mother',
       'medical staff'
     ],
-    answer: "👥 Key Staff Members:\n\n• Principal\n• Director\n• HOD Pastoral Care\n• House Mothers\n• Medical Staff\n\n🔗 School Committee: https://www.vantagehall.org/about#staff"
+    answer: "👥 Key Staff Members:\n\n• Principal\n• Director\n• HOD Pastoral Care\n• House Mothers\n• Medical Staff\n\n🔗 School Committee: https://vantagehall.org/school-committee/"
   },
 
   urgent_communication: {
@@ -1098,7 +1095,7 @@ const KNOWLEDGE_BASE = {
       'urgent announcement',
       'school alert'
     ],
-    answer: "🚨 Urgent Communication:\n\n• Formal updates via Email and ERP\n• Medical emergencies: Direct phone calls to parents"
+    answer: "🚨 Urgent Communication:\n\n• Formal updates via Email and ERP\n• Medical emergencies: Direct phone calls to parents\n\n📞 Contact: +91-8191912999\n📧 admissions@vantagehall.org"
   },
 
   privacy: {
@@ -1119,7 +1116,7 @@ const KNOWLEDGE_BASE = {
       'commerce stream',
       'humanities stream'
     ],
-    answer: "🎓 Streams Offered (Classes 11-12):\n\n• Science\n• Commerce\n• Humanities\n\n🔗 Academic Programs: https://www.vantagehall.org/academics"
+    answer: "🎓 Streams Offered (Classes 11-12):\n\n• Science\n• Commerce\n• Humanities\n\n🔗 Academic Programs: https://vantagehall.org/academic-programs-boarding-school/"
   },
 
   examination: {
@@ -1130,7 +1127,7 @@ const KNOWLEDGE_BASE = {
       'assessment method',
       'half yearly exam'
     ],
-    answer: "📝 Examination System:\n\n• Unit Tests: Twice a year\n• Mid-Term / Half-Yearly Exams\n• Final / Annual Exams (comprehensive)"
+    answer: "📝 Examination System:\n\n• Unit Tests: Twice a year\n• Mid-Term / Half-Yearly Exams\n• Final / Annual Exams (comprehensive)\n\n🔗 Academic Results: https://vantagehall.org/academic-results-2023-2025-boarding-school/"
   },
 
   remedial: {
@@ -1141,12 +1138,12 @@ const KNOWLEDGE_BASE = {
       'coaching support',
       'doubt clearing'
     ],
-    answer: "📚 Remedial Classes:\n\nYes, remedial and academic support classes are provided beyond regular teaching hours."
+    answer: "📚 Remedial Classes:\n\nYes, remedial and academic support classes are provided beyond regular teaching hours.\n\n🔗 Student Support Services: https://vantagehall.org/student-support-services-boarding-school/"
   },
 
   contact: {
     keywords: ['contact', 'phone', 'email', 'address', 'reach', 'call', 'number'],
-    answer: "📍 Vantage Hall Girls' Residential School\nThe Yellow Brick Road, Doonga\nDehradun - 248007, Uttarakhand\n\n📞 General: 0135-2776225, 226, 227, 228\n📧 info@vantagehall.org\n\n👤 Admissions:\n📞 +91-8191912999, +91-7078311863\n📧 admissions@vantagehall.org\n\n🔗 Complete Contact Page: https://www.vantagehall.org/contact"
+    answer: "📍 Vantage Hall Girls' Residential School\nThe Yellow Brick Road, Doonga\nDehradun - 248007, Uttarakhand\n\n📞 General: 0135-2776225, 226, 227, 228\n📧 info@vantagehall.org\n\n👤 Admissions:\n📞 +91-8191912999, +91-7078311863\n📧 admissions@vantagehall.org\n\n🔗 Complete Contact Page: https://vantagehall.org/contact-vantage-hall-boarding-school/"
   }
 };
 
@@ -1910,6 +1907,7 @@ app.listen(PORT, () => {
     console.log('  Set ADMIN_EMAIL and EMAIL_PASSWORD in your .env\n');
   }
 });
+
 
 
 
