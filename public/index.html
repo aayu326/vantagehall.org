@@ -410,6 +410,11 @@
             animation: fadeIn 0.3s ease;
         }
 
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .submit-btn {
             width: 100%;
             padding: 16px;
@@ -448,6 +453,25 @@
             background: white;
             border-radius: 10px;
             border: 1px solid #e5e5e5;
+        }
+
+        /* OTP Mail Notification Banner */
+        .otp-mail-notice {
+            display: none;
+            background: linear-gradient(135deg, #f0f8ff, #e8f4fd);
+            border: 1.5px solid #1a3a52;
+            border-radius: 10px;
+            padding: 12px 16px;
+            margin-bottom: 16px;
+            font-size: 13px;
+            color: #1a3a52;
+            font-weight: 600;
+            text-align: center;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .otp-mail-notice.show {
+            display: block;
         }
 
         .loading-spinner {
@@ -757,7 +781,7 @@
 
     <!-- Chat Container -->
     <div class="chat-container" id="chatContainer">
-        <!-- Registration Form Overlay input from user  -->
+        <!-- Registration Form Overlay -->
         <div class="registration-overlay" id="registrationOverlay">
             <div class="registration-header">
                 <h2>✨ Welcome to Vantage Hall!</h2>
@@ -777,6 +801,25 @@
                         <div class="error-message" id="emailError">Please enter a valid email</div>
                     </div>
 
+                    <!-- OTP Mail Notification Banner -->
+                    <div class="otp-mail-notice" id="otpMailNotice">
+                        📧 Please check your mail and enter the 6 digit OTP below
+                    </div>
+
+                    <!-- OTP Field - hidden by default -->
+                    <div class="form-group" id="otpGroup" style="display:none;">
+                        <label for="otpInput">
+                            Enter OTP <span class="required">*</span>
+                            <span id="otpTimer" style="color:#e8502a;font-size:11px;margin-left:8px;font-weight:normal;"></span>
+                        </label>
+                        <input type="text" id="otpInput" placeholder="• • • • • •" maxlength="6"
+                            style="letter-spacing:8px;font-size:20px;font-weight:700;text-align:center;width:100%;">
+                        <div class="error-message" id="otpError"></div>
+                        <div id="otpSuccess" style="color:#16a34a;font-size:12px;margin-top:6px;display:none;">
+                            ✅ Email verified successfully!
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <label for="userPhone">Phone Number <span class="required">*</span></label>
                         <input type="tel" id="userPhone" placeholder="10-digit mobile number" required maxlength="10">
@@ -784,11 +827,11 @@
                     </div>
 
                     <button type="submit" class="submit-btn" id="submitBtn">
-                        Start Chatting 🚀
+                        Verify & Start Chatting 🚀
                     </button>
 
-                    <div class="form-note">
-                        🔒 Your information is secure and will only be used to provide better assistance.
+                    <div class="form-note" id="formNote">
+                        🔒 Your details are safe with us.
                     </div>
                 </form>
             </div>
@@ -818,12 +861,9 @@
             </div>
         </div>
 
-        <!-- Quick Replies  back to menu ka option as per directed by sahil sir -->
+        <!-- Quick Replies -->
         <div class="quick-replies" id="quickReplies">
-            <!-- Back to Menu Button (Hidden by default) -->
             <button class="back-to-menu-btn" id="backToMenuBtn">⬅️ Back to Menu</button>
-            
-            <!-- Default Quick Replies jo user ko phle interface pe milega-->
             <button class="quick-reply-btn" data-reply="faq">❓ FAQ</button>
             <button class="quick-reply-btn" data-reply="emotional">💚 Emotional Support</button>
             <button class="quick-reply-btn" data-reply="What is the admission process?">📝 Admissions</button>
@@ -847,10 +887,12 @@
         // ==============================================
         // CONFIGURATION
         // ==============================================
-const API_URL = "https://vantagehall.vercel.app/api/chat";
-const REGISTER_URL = "https://vantagehall.vercel.app/api/register";
-const CALLBACK_URL = "https://vantagehall.vercel.app/api/callback-request";
-// ✅ NEW
+  const API_URL = "https://mail-otp-vh.vercel.app/api/chat";
+  const REGISTER_URL = "https://mail-otp-vh.vercel.app/api/register";
+  const CALLBACK_URL = "https://mail-otp-vh.vercel.app/api/callback-request";
+  const SEND_OTP_URL = "https://mail-otp-vh.vercel.app/api/send-otp";
+  const VERIFY_OTP_URL = "https://mail-otp-vh.vercel.app/api/verify-otp";   
+
 
         // ==============================================
         // DOM ELEMENTS
@@ -868,13 +910,12 @@ const CALLBACK_URL = "https://vantagehall.vercel.app/api/callback-request";
         const submitBtn = document.getElementById('submitBtn');
         const backToMenuBtn = document.getElementById('backToMenuBtn');
 
-        // user se input lega email, name, number then start chatting 
         const userName = document.getElementById('userName');
         const userEmail = document.getElementById('userEmail');
         const userPhone = document.getElementById('userPhone');
 
         // ==============================================
-        // STATE MANAGEMENT - UPDATED NEW 
+        // STATE MANAGEMENT
         // ==============================================
         let isProcessing = false;
         let isRegistered = false;
@@ -883,8 +924,20 @@ const CALLBACK_URL = "https://vantagehall.vercel.app/api/callback-request";
         let currentOptionLevel = null;
         let currentSelectedOption = null;
         let interactionCount = 0;
-        let waitingForCallback = false; // ✅ NEW
-        let pendingQuery = ''; // ✅ NEW
+        let waitingForCallback = false;
+        let pendingQuery = '';
+
+        // OTP State
+        let otpVerified = false;
+        let otpSent = false;
+        let otpTimerInterval = null;
+
+        // OTP DOM Elements
+        const otpGroup = document.getElementById('otpGroup');
+        const otpInput = document.getElementById('otpInput');
+        const otpTimer = document.getElementById('otpTimer');
+        const otpSuccess = document.getElementById('otpSuccess');
+        const otpMailNotice = document.getElementById('otpMailNotice');
 
         // Check if user is already registered
         if (localStorage.getItem('vhUserRegistered')) {
@@ -893,7 +946,96 @@ const CALLBACK_URL = "https://vantagehall.vercel.app/api/callback-request";
         }
 
         // ==============================================
-        // ✅ NEW: CALLBACK PHONE VALIDATION koe v user galt number nahi dal sakta hai 
+        // OTP TIMER FUNCTION
+        // ==============================================
+        function startOTPTimer(seconds) {
+            clearInterval(otpTimerInterval);
+            let remaining = seconds;
+
+            otpTimerInterval = setInterval(() => {
+                remaining--;
+                const m = Math.floor(remaining / 60);
+                const s = remaining % 60;
+                otpTimer.textContent = `(${m}:${s.toString().padStart(2, '0')})`;
+
+                if (remaining <= 0) {
+                    clearInterval(otpTimerInterval);
+                    otpTimer.textContent = '(Expired)';
+                    otpTimer.style.color = '#d4536c';
+                }
+            }, 1000);
+        }
+
+        // ==============================================
+        // TOAST NOTIFICATION
+        // ==============================================
+        function showToast(msg, isError = false) {
+            document.querySelector('.vh-toast')?.remove();
+            const t = document.createElement('div');
+            t.className = 'vh-toast';
+            t.textContent = msg;
+            t.style.cssText = `position:absolute;top:12px;left:50%;transform:translateX(-50%);background:${isError ? '#d4536c' : '#16a34a'};color:white;padding:10px 20px;border-radius:20px;font-size:13px;font-weight:600;z-index:999;white-space:nowrap;box-shadow:0 4px 15px rgba(0,0,0,0.2);transition:all 0.3s ease;`;
+            document.querySelector('.registration-overlay').appendChild(t);
+            setTimeout(() => t.remove(), 3000);
+        }
+
+        // ==============================================
+        // AUTO VERIFY OTP ON 6 DIGITS
+        // ==============================================
+        otpInput.addEventListener('input', async (e) => {
+            e.target.value = e.target.value.replace(/\D/g, '').slice(0, 6);
+
+            // Reset error on new input
+            const otpErr = document.getElementById('otpError');
+            otpErr.classList.remove('show');
+            e.target.style.borderColor = '#e5e5e5';
+
+            if (e.target.value.length === 6 && !otpVerified) {
+                const email = userEmail.value.trim();
+
+                try {
+                    const res = await fetch(VERIFY_OTP_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email, otp: e.target.value })
+                    });
+                    const data = await res.json();
+
+                    if (data.success) {
+                        otpVerified = true;
+                        otpInput.style.borderColor = '#16a34a';
+                        otpSuccess.style.display = 'block';
+                        otpErr.classList.remove('show');
+                        clearInterval(otpTimerInterval);
+                        otpTimer.textContent = '';
+                        // Update button text to indicate ready
+                        submitBtn.innerHTML = 'Verify & Start Chatting 🚀';
+                        submitBtn.disabled = false;
+                    } else {
+                        otpVerified = false;
+                        otpInput.style.borderColor = '#d4536c';
+                        otpErr.textContent = '❗ The OTP you entered is incorrect. Please try again.';
+                        otpErr.classList.add('show');
+                        otpInput.classList.add('error');
+                        submitBtn.disabled = true;
+                        setTimeout(() => otpInput.classList.remove('error'), 500);
+                    }
+                } catch (err) {
+                    otpErr.textContent = '❗ The OTP you entered is incorrect. Please try again.';
+                    otpErr.classList.add('show');
+                }
+            }
+
+            // Agar verified tha aur user change kare
+            if (e.target.value.length < 6 && otpVerified) {
+                otpVerified = false;
+                otpSuccess.style.display = 'none';
+                submitBtn.disabled = true;
+            }
+        });
+
+        // ==============================================
+        // CALLBACK PHONE VALIDATION
         // ==============================================
         function validateCallbackPhone(phone) {
             const cleaned = phone.replace(/\D/g, '');
@@ -901,7 +1043,7 @@ const CALLBACK_URL = "https://vantagehall.vercel.app/api/callback-request";
         }
 
         // ==============================================
-        // NEW: callback option updated by sahil sir 
+        // CALLBACK REQUEST HANDLER
         // ==============================================
         async function handleCallbackRequest(callbackNumber) {
             try {
@@ -956,8 +1098,8 @@ const CALLBACK_URL = "https://vantagehall.vercel.app/api/callback-request";
             currentOptionLevel = null;
             currentSelectedOption = null;
             interactionCount = 0;
-            waitingForCallback = false; // ✅ NEW
-            pendingQuery = ''; // ✅ NEW
+            waitingForCallback = false;
+            pendingQuery = '';
             
             hideBackButton();
             showDefaultQuickReplies();
@@ -1030,82 +1172,147 @@ const CALLBACK_URL = "https://vantagehall.vercel.app/api/callback-request";
         }
 
         // ==============================================
-        // HANDLE REGISTRATION FORM SUBMIT (user registration form jo sabse phle aayga )
+        // HANDLE REGISTRATION FORM SUBMIT
+        // Step 1: Send OTP (first click, otpSent = false)
+        // Step 2: Verify & Register (after OTP verified)
         // ==============================================
         userDetailsForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
-            document.querySelectorAll('.error-message').forEach(el => el.classList.remove('show'));
-            document.querySelectorAll('input').forEach(el => el.classList.remove('error'));
-            
+
+            // ---- STEP 1: Send OTP ----
+            if (!otpSent) {
+                document.querySelectorAll('.error-message').forEach(el => el.classList.remove('show'));
+                document.querySelectorAll('input').forEach(el => el.classList.remove('error'));
+
+                const name = userName.value.trim();
+                const email = userEmail.value.trim();
+                const phone = userPhone.value.trim();
+
+                let hasError = false;
+
+                if (!name) {
+                    userName.classList.add('error');
+                    document.getElementById('nameError').classList.add('show');
+                    hasError = true;
+                }
+
+                if (!email || !validateEmail(email)) {
+                    userEmail.classList.add('error');
+                    const emailErr = document.getElementById('emailError');
+                    emailErr.textContent = !email ? 'Please enter your email' : 'Please enter a valid email';
+                    emailErr.classList.add('show');
+                    hasError = true;
+                }
+
+                if (!phone || !validatePhone(phone)) {
+                    userPhone.classList.add('error');
+                    const phoneErr = document.getElementById('phoneError');
+                    phoneErr.textContent = !phone ? 'Please enter your phone number' : 'Please enter a valid 10-digit number';
+                    phoneErr.classList.add('show');
+                    hasError = true;
+                }
+
+                if (hasError) return;
+
+                // Send OTP
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<span class="loading-spinner"></span>Sending OTP...';
+
+                try {
+                    const res = await fetch(SEND_OTP_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email })
+                    });
+                    const data = await res.json();
+
+                    if (data.success) {
+                        otpSent = true;
+
+                        // Show OTP field and mail notice
+                        otpGroup.style.display = 'block';
+                        otpMailNotice.classList.add('show');
+
+                        // Update form note
+                        document.getElementById('formNote').textContent = '🔒 OTP sent to your email. Valid for 10 minutes.';
+
+                        // Update button — stays disabled until OTP verified
+                        submitBtn.disabled = true;
+                        submitBtn.innerHTML = 'Verify & Start Chatting 🚀';
+
+                        // Lock name, email, phone fields
+                        userName.disabled = true;
+                        userEmail.disabled = true;
+                        userPhone.disabled = true;
+
+                        startOTPTimer(600);
+                        otpInput.focus();
+
+                    } else {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = 'Verify & Start Chatting 🚀';
+                        showToast('❌ ' + (data.error || 'Failed to send OTP. Please try again.'), true);
+                    }
+                } catch (err) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = 'Verify & Start Chatting 🚀';
+                    showToast('❌ Connection error. Please try again.', true);
+                }
+
+                return;
+            }
+
+            // ---- STEP 2: Final Submit after OTP Verified ----
+            if (!otpVerified) {
+                const otpErr = document.getElementById('otpError');
+                otpErr.textContent = '❗ The OTP you entered is incorrect. Please try again.';
+                otpErr.classList.add('show');
+                return;
+            }
+
             const name = userName.value.trim();
             const email = userEmail.value.trim();
             const phone = userPhone.value.trim();
-            
-            let hasError = false;
-            
-            if (!name) {
-                userName.classList.add('error');
-                document.getElementById('nameError').classList.add('show');
-                hasError = true;
-            }
-            
-            if (!email || !validateEmail(email)) {
-                userEmail.classList.add('error');
-                document.getElementById('emailError').classList.add('show');
-                document.getElementById('emailError').textContent = !email ? 'Please enter your email' : 'Please enter a valid email';
-                hasError = true;
-            }
-            
-            if (!phone || !validatePhone(phone)) {
-                userPhone.classList.add('error');
-                document.getElementById('phoneError').classList.add('show');
-                document.getElementById('phoneError').textContent = !phone ? 'Please enter your phone number' : 'Please enter a valid 10-digit number';
-                hasError = true;
-            }
-            
-            if (hasError) return;
-            
+
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<span class="loading-spinner"></span>Processing...';
-            
+
             try {
                 const response = await fetch(REGISTER_URL, {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ name, email, phone })
                 });
-                
+
                 const data = await response.json();
-                
+
                 if (data.success) {
                     userData = { name, email, phone };
                     localStorage.setItem('vhUserRegistered', 'true');
                     localStorage.setItem('vhUserData', JSON.stringify(userData));
                     isRegistered = true;
-                    
+
                     registrationOverlay.classList.add('hidden');
-                    
+
                     userInput.disabled = false;
                     sendBtn.disabled = false;
                     userInput.focus();
-                    
+
                     setTimeout(() => {
                         addMessage(`Hello ${name}! 👋 Welcome to Vantage Hall Girls' Residential School, Dehradun! I'm your AI assistant and I can help you with information about admissions, facilities, curriculum, fees, and much more. How can I assist you today?`, 'bot');
                         localStorage.setItem('vhWelcomeShown', 'true');
                     }, 300);
-                    
+
                 } else {
-                    alert(data.error || 'Registration failed. Please try again.');
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = 'Verify & Start Chatting 🚀';
+                    showToast('❌ ' + (data.error || 'Registration failed. Please try again.'), true);
                 }
             } catch (error) {
                 console.error('Registration error:', error);
-                alert('Connection error. Please check your internet and try again.');
-            } finally {
                 submitBtn.disabled = false;
-                submitBtn.innerHTML = 'Start Chatting 🚀';
+                submitBtn.innerHTML = 'Verify & Start Chatting 🚀';
+                showToast('❌ Connection error. Please check your internet and try again.', true);
             }
         });
 
@@ -1114,13 +1321,12 @@ const CALLBACK_URL = "https://vantagehall.vercel.app/api/callback-request";
         });
 
         // ==============================================
-        // SEND MESSAGE FUNCTION - updated 
+        // SEND MESSAGE FUNCTION
         // ==============================================
         async function sendMessage() {
             const message = userInput.value.trim();
             if (message === '' || isProcessing) return;
 
-            // ✅ NEW:  (call back ke lie number aayga  usko check krna hai )
             if (waitingForCallback) {
                 if (validateCallbackPhone(message)) {
                     addMessage(message, 'user');
@@ -1185,7 +1391,6 @@ const CALLBACK_URL = "https://vantagehall.vercel.app/api/callback-request";
                 if (data.success && data.reply) {
                     addMessage(data.reply, 'bot');
                     
-                    // ✅ NEW: check krna hai call back required hai ya nahi 
                     if (data.requiresCallback) {
                         waitingForCallback = true;
                         pendingQuery = data.userQuery || message;
@@ -1249,7 +1454,7 @@ const CALLBACK_URL = "https://vantagehall.vercel.app/api/callback-request";
         }
 
         // ==============================================
-        // SHOW OPTION BUTTONS( jo quick reply button hoga )
+        // SHOW OPTION BUTTONS
         // ==============================================
         function showOptionButtons(options) {
             const backBtn = backToMenuBtn.cloneNode(true);
@@ -1272,7 +1477,6 @@ const CALLBACK_URL = "https://vantagehall.vercel.app/api/callback-request";
 
         // ==============================================
         // ADD MESSAGE TO CHAT
-        // ✅ ONLY CHANGE: Added linkify step to make URLs clickable
         // ==============================================
         function addMessage(text, sender) {
             const messageDiv = document.createElement('div');
@@ -1295,7 +1499,7 @@ const CALLBACK_URL = "https://vantagehall.vercel.app/api/callback-request";
         }
 
         // ==============================================
-        // SCROLL TO BOTTOM  button effect dega 
+        // SCROLL TO BOTTOM
         // ==============================================
         function scrollToBottom() {
             setTimeout(() => {
@@ -1304,7 +1508,7 @@ const CALLBACK_URL = "https://vantagehall.vercel.app/api/callback-request";
         }
 
         // ==============================================
-        // HIDE NOTIFICATION BADGE  ( notification badge )
+        // HIDE NOTIFICATION BADGE
         // ==============================================
         function hideBadge() {
             setTimeout(() => {
@@ -1314,7 +1518,7 @@ const CALLBACK_URL = "https://vantagehall.vercel.app/api/callback-request";
         }
 
         // ==============================================
-        // EVENT LISTENERS listing the events  (eveent ko lisyting ke lie aayga ye )
+        // EVENT LISTENERS
         // ==============================================
         
         sendBtn.addEventListener('click', sendMessage);
@@ -1343,7 +1547,7 @@ const CALLBACK_URL = "https://vantagehall.vercel.app/api/callback-request";
         });
 
         // ==============================================
-        // WELCOME ANIMATION ( user ke greetings ke lie )
+        // WELCOME ANIMATION
         // ==============================================
         setTimeout(() => {
             if (!localStorage.getItem('vhChatVisited')) {
@@ -1352,8 +1556,9 @@ const CALLBACK_URL = "https://vantagehall.vercel.app/api/callback-request";
             }
         }, 1000);
 
-        console.log('🎓 Vantage Hall Chatbot - WITH EMAIL CALLBACK ✅');
-        console.log('📧 Unknown queries trigger callback collection');
+        console.log('🎓 Vantage Hall Chatbot - Updated OTP Flow ✅');
+        console.log('🔐 OTP sent on first button click');
+        console.log('📧 Mail notice shown after OTP send');
     </script>
 
 </body>
