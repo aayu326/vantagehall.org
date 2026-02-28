@@ -1667,7 +1667,7 @@ app.post('/api/send-otp', async (req, res) => {
     if (otpStore.has(email)) {
       const existing = otpStore.get(email);
       const timeLeft = Math.ceil((existing.expiry - Date.now()) / 1000);
-      if (timeLeft > 420) {
+      if (timeLeft > 90) {
         return res.status(429).json({
           success: false,
           error: `Please wait ${Math.ceil(timeLeft / 60)} minute(s) before requesting again`
@@ -1678,7 +1678,7 @@ app.post('/api/send-otp', async (req, res) => {
     const otp = generateOTP();
     otpStore.set(email, {
       otp,
-      expiry: Date.now() + 10 * 60 * 1000,
+      expiry: Date.now() + 2 * 60 * 1000,
       attempts: 0
     });
 
@@ -1694,7 +1694,7 @@ app.post('/api/send-otp', async (req, res) => {
           <div style="max-width:480px;margin:0 auto;background:white;border-radius:16px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,0.1);">
             <div style="background:linear-gradient(135deg,#1a3a52,#0d2436);padding:35px 30px;text-align:center;position:relative;">
               <div style="position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#e8502a,#f4854e,#e8502a);"></div>
-              <div style="width:70px;height:70px;background:white;border-radius:50%;margin:0 auto 15px;display:flex;align-items:center;justify-content:center;font-size:32px;line-height:70px;text-align:center;box-shadow:0 4px 15px rgba(0,0,0,0.2);">🎓</div>
+              <div style="width:200px;height:70px;background:white;border-radius:8px;margin:0 auto 15px;overflow:hidden;box-shadow:0 4px 15px rgba(0,0,0,0.2);"><img src="https://vantagehall.org/wp-content/uploads/2024/10/BANNER-LOGO-VANTAGE-HALL-800-x-310-px-1.png" alt="Vantage Hall" style="width:100%;height:100%;object-fit:contain;display:block;" onerror="this.parentElement.innerHTML='🎓'" /></div>
               <h1 style="color:white;margin:0;font-size:22px;letter-spacing:1px;">Vantage Hall</h1>
               <p style="color:rgba(255,255,255,0.7);margin:5px 0 0;font-size:13px;">Girls' Residential School · Dehradun</p>
             </div>
@@ -1704,7 +1704,7 @@ app.post('/api/send-otp', async (req, res) => {
               <div style="background:linear-gradient(135deg,#f0f8ff,#e8f4fd);border:2px dashed #1a3a52;border-radius:14px;padding:30px;margin:0 0 20px;">
                 <p style="color:#888;font-size:11px;margin:0 0 10px;text-transform:uppercase;letter-spacing:3px;">Your One-Time Password</p>
                 <div style="font-size:46px;font-weight:900;color:#1a3a52;letter-spacing:14px;">${otp}</div>
-                <p style="color:#e8502a;font-size:12px;margin:12px 0 0;font-weight:600;">⏱️ Valid for 10 minutes only</p>
+                <p style="color:#e8502a;font-size:12px;margin:12px 0 0;font-weight:600;">⏱️ Valid for 2 minutes only</p>
               </div>
               <div style="background:#fff8f6;border-left:4px solid #e8502a;border-radius:8px;padding:14px 18px;text-align:left;">
                 <p style="color:#744210;font-size:13px;margin:0;">⚠️ <strong>Do not share</strong> this OTP with anyone. Vantage Hall staff will never ask for your OTP.</p>
