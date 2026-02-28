@@ -44,6 +44,15 @@ const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'admin@vantagehall.org';
 const transporter = nodemailer.createTransport(EMAIL_CONFIG);
 
 // ==============================================
+// OTP STORE (in-memory)
+// ==============================================
+const otpStore = new Map();
+
+function generateOTP() {
+  return Math.floor(100000 + Math.random() * 900000).toString();
+}
+
+// ==============================================
 // COMPREHENSIVE KNOWLEDGE BASE (QUE. and ANS. by TECH TEAM) 
 // ==============================================
 const KNOWLEDGE_BASE = {
@@ -1413,26 +1422,23 @@ async function sendCallbackEmail(userDetails, query, callbackNumber) {
     return false;
   }
 }
+
 // ==============================================
 // SMART KEYWORD MATCHING FOR BETTER RESULT 
 // ==============================================
 function findBestMatch(userMessage, lastTopic = null, lastOptionLevel = null, lastSelectedOption = null) {
   const msg = userMessage.toLowerCase().trim();
 
-  // PRIORITY 1: Handle nested navigation
   if (lastTopic && KNOWLEDGE_BASE[lastTopic]) {
     const topicData = KNOWLEDGE_BASE[lastTopic];
 
     if (topicData.hasOptions) {
-      // If in sub-menu (second level)
       if (lastOptionLevel === 'sub' && lastSelectedOption !== null && lastSelectedOption !== undefined) {
         const mainOption = topicData.options[lastSelectedOption];
         if (mainOption && mainOption.subOptions) {
-          // Check for EXACT matches in sub-options FIRST
           for (const subOption of mainOption.subOptions) {
             for (const trigger of subOption.trigger) {
               if (msg === trigger.toLowerCase()) {
-                console.log(`✅ Sub-option exact match: ${trigger}`);
                 return {
                   answer: subOption.response,
                   topic: lastTopic,
@@ -1445,12 +1451,9 @@ function findBestMatch(userMessage, lastTopic = null, lastOptionLevel = null, la
               }
             }
           }
-
-          // THIS FUNCTION WILL CHECK FOR THE BEST MATCHED KEYWORDS FOR OPTISED RESULT
           for (const subOption of mainOption.subOptions) {
             for (const trigger of subOption.trigger) {
               if (trigger.toLowerCase().length > 1 && msg.includes(trigger.toLowerCase())) {
-                console.log(`✅ Sub-option keyword match: ${trigger}`);
                 return {
                   answer: subOption.response,
                   topic: lastTopic,
@@ -1466,14 +1469,11 @@ function findBestMatch(userMessage, lastTopic = null, lastOptionLevel = null, la
         }
       }
 
-      // If in main menu (first level) LIKE USER INTERFACE 
       if (lastOptionLevel === 'main' || !lastOptionLevel) {
-        // Check for EXACT matches FIRST
         for (let i = 0; i < topicData.options.length; i++) {
           const option = topicData.options[i];
           for (const trigger of option.trigger) {
             if (msg === trigger.toLowerCase()) {
-              console.log(`✅ Main option exact match: ${trigger} (index: ${i})`);
               if (option.subOptions) {
                 return {
                   answer: option.response,
@@ -1499,12 +1499,10 @@ function findBestMatch(userMessage, lastTopic = null, lastOptionLevel = null, la
           }
         }
 
-        // THEN CHECK FOR THE BEST KEYWORDS MATCHING 
         for (let i = 0; i < topicData.options.length; i++) {
           const option = topicData.options[i];
           for (const trigger of option.trigger) {
             if (trigger.toLowerCase().length > 1 && msg.includes(trigger.toLowerCase())) {
-              console.log(`✅ Main option keyword match: ${trigger} (index: ${i})`);
               if (option.subOptions) {
                 return {
                   answer: option.response,
@@ -1533,7 +1531,6 @@ function findBestMatch(userMessage, lastTopic = null, lastOptionLevel = null, la
     }
   }
 
-  // PRIORITY 2: SEARCH IN GLOBAL LOGIVC BASED IN THE CHATBOT
   let bestMatch = null;
   let highestScore = 0;
 
@@ -1543,7 +1540,6 @@ function findBestMatch(userMessage, lastTopic = null, lastOptionLevel = null, la
 
     for (const keyword of data.keywords) {
       const keywordLower = keyword.toLowerCase();
-
       if (msg === keywordLower) {
         score += 100;
         matchedKeywords.push(keyword);
@@ -1574,7 +1570,6 @@ function findBestMatch(userMessage, lastTopic = null, lastOptionLevel = null, la
   }
 
   if (bestMatch && bestMatch.score >= 10) {
-    console.log(`✅ Best Match: ${bestMatch.topic} (Score: ${bestMatch.score})`);
     return bestMatch;
   }
 
@@ -1582,7 +1577,7 @@ function findBestMatch(userMessage, lastTopic = null, lastOptionLevel = null, la
 }
 
 // ==============================================
-// NOW SHIFTED TO GEMINI API KEY AND UPDATED ALL THE FUNCTIONALITY ACCORDING TO THE GEMINI API KEY 
+// GEMINI API
 // ==============================================
 async function callGemini(prompt) {
   if (!genAI) {
@@ -1641,6 +1636,8 @@ app.get('/', (req, res) => {
       chat: '/api/chat (POST)',
       register: '/api/register (POST)',
       callback: '/api/callback-request (POST)',
+      sendOtp: '/api/send-otp (POST)',
+      verifyOtp: '/api/verify-otp (POST)',
       test: '/api/test'
     }
   });
@@ -1653,6 +1650,125 @@ app.get('/api/health', (req, res) => {
     geminiConfigured: !!GEMINI_API_KEY,
     emailConfigured: !!EMAIL_CONFIG.auth.user && EMAIL_CONFIG.auth.user !== 'your-email@gmail.com'
   });
+});
+
+// ==============================================
+// OTP ENDPOINTS - ADDED BY TECH TEAM
+// ==============================================
+app.post('/api/send-otp', async (req, res) => {
+  try {
+    const { email } = req.body;
+
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      return res.status(400).json({ success: false, error: 'Invalid email address' });
+    }
+
+    // Rate limit check
+    if (otpStore.has(email)) {
+      const existing = otpStore.get(email);
+      const timeLeft = Math.ceil((existing.expiry - Date.now()) / 1000);
+      if (timeLeft > 420) {
+        return res.status(429).json({
+          success: false,
+          error: `Please wait ${Math.ceil(timeLeft / 60)} minute(s) before requesting again`
+        });
+      }
+    }
+
+    const otp = generateOTP();
+    otpStore.set(email, {
+      otp,
+      expiry: Date.now() + 10 * 60 * 1000,
+      attempts: 0
+    });
+
+    await transporter.sendMail({
+      from: EMAIL_CONFIG.auth.user,
+      to: email,
+      subject: '🔐 Your OTP - Vantage Hall Chatbot',
+      html: `
+        <!DOCTYPE html>
+        <html>
+        <head><meta charset="UTF-8"></head>
+        <body style="font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f8;margin:0;padding:20px;">
+          <div style="max-width:480px;margin:0 auto;background:white;border-radius:16px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,0.1);">
+            <div style="background:linear-gradient(135deg,#1a3a52,#0d2436);padding:35px 30px;text-align:center;position:relative;">
+              <div style="position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#e8502a,#f4854e,#e8502a);"></div>
+              <div style="width:70px;height:70px;background:white;border-radius:50%;margin:0 auto 15px;display:flex;align-items:center;justify-content:center;font-size:32px;line-height:70px;text-align:center;box-shadow:0 4px 15px rgba(0,0,0,0.2);">🎓</div>
+              <h1 style="color:white;margin:0;font-size:22px;letter-spacing:1px;">Vantage Hall</h1>
+              <p style="color:rgba(255,255,255,0.7);margin:5px 0 0;font-size:13px;">Girls' Residential School · Dehradun</p>
+            </div>
+            <div style="padding:35px 30px;text-align:center;">
+              <h2 style="color:#1a3a52;margin-bottom:8px;font-size:20px;">Email Verification</h2>
+              <p style="color:#666;font-size:14px;margin-bottom:25px;">Use the OTP below to verify your email address</p>
+              <div style="background:linear-gradient(135deg,#f0f8ff,#e8f4fd);border:2px dashed #1a3a52;border-radius:14px;padding:30px;margin:0 0 20px;">
+                <p style="color:#888;font-size:11px;margin:0 0 10px;text-transform:uppercase;letter-spacing:3px;">Your One-Time Password</p>
+                <div style="font-size:46px;font-weight:900;color:#1a3a52;letter-spacing:14px;">${otp}</div>
+                <p style="color:#e8502a;font-size:12px;margin:12px 0 0;font-weight:600;">⏱️ Valid for 10 minutes only</p>
+              </div>
+              <div style="background:#fff8f6;border-left:4px solid #e8502a;border-radius:8px;padding:14px 18px;text-align:left;">
+                <p style="color:#744210;font-size:13px;margin:0;">⚠️ <strong>Do not share</strong> this OTP with anyone. Vantage Hall staff will never ask for your OTP.</p>
+              </div>
+            </div>
+            <div style="background:#1a3a52;padding:20px 30px;text-align:center;">
+              <p style="color:rgba(255,255,255,0.5);font-size:11px;margin:0;">© ${new Date().getFullYear()} Vantage Hall Girls' Residential School · Dehradun</p>
+            </div>
+          </div>
+        </body>
+        </html>
+      `
+    });
+
+    console.log(`✅ OTP sent to: ${email}`);
+    res.json({ success: true, message: 'OTP sent to your email' });
+
+  } catch (error) {
+    console.error('❌ OTP send error:', error.message);
+    res.status(500).json({ success: false, error: 'Failed to send OTP. Please try again.' });
+  }
+});
+
+app.post('/api/verify-otp', (req, res) => {
+  try {
+    const { email, otp } = req.body;
+
+    if (!email || !otp) {
+      return res.status(400).json({ success: false, error: 'Email and OTP are required' });
+    }
+
+    const stored = otpStore.get(email);
+
+    if (!stored) {
+      return res.status(400).json({ success: false, error: 'OTP expired or not found. Please request a new one.' });
+    }
+
+    if (Date.now() > stored.expiry) {
+      otpStore.delete(email);
+      return res.status(400).json({ success: false, error: 'OTP has expired. Please request a new one.' });
+    }
+
+    if (stored.attempts >= 5) {
+      otpStore.delete(email);
+      return res.status(429).json({ success: false, error: 'Too many attempts. Please request a new OTP.' });
+    }
+
+    if (stored.otp !== otp.toString()) {
+      stored.attempts++;
+      otpStore.set(email, stored);
+      const remaining = 5 - stored.attempts;
+      return res.status(400).json({
+        success: false,
+        error: `Incorrect OTP. ${remaining} attempt(s) remaining.`
+      });
+    }
+
+    otpStore.delete(email);
+    res.json({ success: true, message: 'Email verified successfully!' });
+
+  } catch (error) {
+    console.error('❌ OTP verify error:', error.message);
+    res.status(500).json({ success: false, error: 'Verification failed. Please try again.' });
+  }
 });
 
 app.post('/api/register', async (req, res) => {
@@ -1804,7 +1920,6 @@ app.post('/api/chat', async (req, res) => {
       "Hi there! I'm here to answer your questions about Vantage Hall. What would you like to know?"
     ];
 
-    // Handle greetings
     if (/^(hi|hello|hey|good morning|good afternoon|good evening)/i.test(message.trim())) {
       const greeting = GREETINGS[Math.floor(Math.random() * GREETINGS.length)];
       return res.json({
@@ -1814,7 +1929,6 @@ app.post('/api/chat', async (req, res) => {
       });
     }
 
-    // WHEN USER GIVE INPUT IT WILL FIRSTLY CHECK FOR THE KNOWLEGDE BASE THE PRIRITY IS SET 
     const knowledgeMatch = findBestMatch(message, lastTopic, lastOptionLevel, lastSelectedOption);
 
     if (knowledgeMatch) {
@@ -1842,7 +1956,6 @@ app.post('/api/chat', async (req, res) => {
       });
     }
 
-    //  IT WILL TRY GEMINI AOI KEY IF CONFIGIRED
     if (GEMINI_API_KEY) {
       try {
         const reply = await callGemini(message);
@@ -1856,7 +1969,6 @@ app.post('/api/chat', async (req, res) => {
       }
     }
 
-    // If no match found, trigger callback collectioN
     console.log('🔄 No match found - triggering callback collection');
     return res.json({
       success: true,
@@ -1894,6 +2006,7 @@ app.listen(PORT, () => {
   console.log(`🔗 Hyperlinks: Added to all responses`);
   console.log(`⬅️ Back to Menu: Enabled`);
   console.log(`📞 Callback System: Active ✅`);
+  console.log(`🔐 OTP System: Active ✅`);
   console.log(`🔧 Production Ready for GitHub Push! 🚀`);
   console.log('╚═══════════════════════════════════════════\n');
 
@@ -1907,13 +2020,3 @@ app.listen(PORT, () => {
     console.log('  Set ADMIN_EMAIL and EMAIL_PASSWORD in your .env\n');
   }
 });
-
-
-
-
-
-
-
-
-
-
