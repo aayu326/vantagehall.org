@@ -9,61 +9,178 @@
 
     <!-- SEO DESCRIPTION -->
     <meta name="description"
-        content="Vantage Hall Dehradun Girls' Residential School chatbot. Get information about admissions, fees, academics, boarding facilities, campus life, contact details and more.">
-
-    <!-- KEYWORDS -->
-    <meta name="keywords"
-        content="Vantage Hall Dehradun, Vantage Hall School Dehradun, Vantage Hall Girls Residential School, Vantage Hall Boarding School, Vantage Hall admission, Vantage Hall fees, Vantage Hall hostel, Vantage Hall Uttarakhand, Vantage Hall school">
+        content="Vantage Hall Dehradun information chatbot for parents and students. Explore information about admissions, academics, boarding, fees, campus life and frequently asked questions about Vantage Hall.">
 
     <!-- ROBOTS -->
     <meta name="robots"
         content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="author" content="Vantage Hall Dehradun Chatbot (independent, informational)">
 
     <!-- GOOGLE SEARCH CONSOLE -->
     <meta name="google-site-verification"
         content="9chHnX9pN6eVXnhfdEgc6vf3yeS5kbXlc7XMdc8gY1U">
 
-    <!-- CANONICAL -->
-    <link rel="canonical"
-        href="https://vantagehall-org.vercel.app/">
+    <!-- CANONICAL (single, matches production URL) -->
+    <link rel="canonical" href="https://vantagehall-org.vercel.app/">
 
     <!-- OPEN GRAPH -->
     <meta property="og:type" content="website">
-    <meta property="og:url"
-        content="https://vantagehall-org.vercel.app/">
-    <meta property="og:title"
-        content="Vantage Hall Dehradun | Girls' Residential School">
+    <meta property="og:url" content="https://vantagehall-org.vercel.app/">
+    <meta property="og:site_name" content="Vantage Hall Dehradun Chatbot">
+    <meta property="og:title" content="Vantage Hall Dehradun | Girls' Residential School Chatbot">
     <meta property="og:description"
-        content="Get information about Vantage Hall Dehradun, admissions, fees, academics, boarding facilities, campus life and more through the Vantage Hall chatbot.">
-    <meta property="og:site_name"
-        content="Vantage Hall Dehradun">
+        content="An independent informational chatbot about Vantage Hall Dehradun. Ask about admissions, academics, boarding, fees and campus life.">
+    <meta property="og:image" content="https://tse4.mm.bing.net/th/id/OIP.ObhPteB_2loAm-xq-0Sw9AHaHa?cb=12&amp;rs=1&amp;pid=ImgDetMain&amp;o=7&amp;rm=3">
+    <meta property="og:image:alt" content="Vantage Hall Dehradun chatbot logo">
+    <meta property="og:locale" content="en_IN">
 
-    <!-- TWITTER -->
+    <!-- TWITTER / X -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title"
-        content="Vantage Hall Dehradun | Girls' Residential School">
+    <meta name="twitter:title" content="Vantage Hall Dehradun | Girls' Residential School Chatbot">
     <meta name="twitter:description"
-        content="Information about Vantage Hall Dehradun, admissions, fees, academics, boarding and campus life.">
+        content="An independent informational chatbot about Vantage Hall Dehradun — admissions, academics, boarding, fees and campus life.">
+    <meta name="twitter:image" content="https://tse4.mm.bing.net/th/id/OIP.ObhPteB_2loAm-xq-0Sw9AHaHa?cb=12&amp;rs=1&amp;pid=ImgDetMain&amp;o=7&amp;rm=3">
 
-    <!-- STRUCTURED DATA -->
+    <!-- Performance: warm up the connection used by the header avatar image -->
+    <link rel="preconnect" href="https://tse4.mm.bing.net">
+    <link rel="dns-prefetch" href="https://tse4.mm.bing.net">
+
+    <!-- ==============================================
+         STRUCTURED DATA
+         Three separate JSON-LD blocks:
+         1) This website itself (independent chatbot, NOT the official school site)
+         2) The school it provides information about (facts only, no invented data)
+         3) Breadcrumb trail
+         ============================================== -->
+
+    <!-- 1) This site = an independent WebApplication/chatbot ABOUT the school -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Vantage Hall Dehradun Chatbot",
+      "applicationCategory": "Informational chatbot",
+      "url": "https://vantagehall-org.vercel.app/",
+      "description": "An independent, unofficial informational chatbot that answers questions about Vantage Hall Dehradun, including admissions, fees, boarding and academics. Not affiliated with or operated by Vantage Hall School.",
+      "isAccessibleForFree": true,
+      "about": { "@id": "https://vantagehall-org.vercel.app/#school" }
+    }
+    </script>
+
+    <!-- 2) The subject of the site: the school itself (facts only) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "EducationalOrganization",
+      "@id": "https://vantagehall-org.vercel.app/#school",
       "name": "Vantage Hall Girls' Residential School",
       "alternateName": [
         "Vantage Hall",
         "Vantage Hall Dehradun",
         "Vantage Hall School Dehradun"
       ],
-      "url": "https://vantagehall-org.vercel.app/",
-      "description": "Vantage Hall Girls' Residential School in Dehradun, Uttarakhand.",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Dehradun",
         "addressRegion": "Uttarakhand",
         "addressCountry": "IN"
       }
+    }
+    </script>
+
+    <!-- 3) Breadcrumb trail (matches the visually-hidden nav in <body>) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://vantagehall-org.vercel.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Vantage Hall Dehradun",
+          "item": "https://vantagehall-org.vercel.app/#school"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Vantage Hall Chatbot",
+          "item": "https://vantagehall-org.vercel.app/#chatbot"
+        }
+      ]
+    }
+    </script>
+
+    <!-- 4) FAQPage — mirrors the visually-hidden (but real, in-DOM) FAQ block below.
+         Google restricts FAQ rich-result eligibility mostly to government/health
+         sites now, but the markup remains valid semantic data either way. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Vantage Hall Dehradun?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vantage Hall Dehradun is a girls' residential (boarding) school located in Dehradun, Uttarakhand, India. This website is an independent, unofficial chatbot that provides informational answers about the school; it is not the school's official website."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is Vantage Hall located?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vantage Hall is located in Dehradun, in the state of Uttarakhand, India."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Vantage Hall a residential school?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Vantage Hall is described as a girls' residential (boarding) school in Dehradun."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I get information about Vantage Hall admissions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can ask the chatbot on this page directly about the admission process using the 'Admissions' quick-reply button or by typing your question, such as 'What is the admission process?'"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I find information about Vantage Hall fees?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use the 'Fee Structure' quick-reply button in the chatbot, or type a question like 'Tell me about fee structure', and the assistant will share the information it has available."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What information can the Vantage Hall chatbot provide?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The chatbot can answer common questions about admissions, fee structure, hostel and boarding facilities, and how to contact the school, along with general frequently asked questions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can parents use the chatbot?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Parents can open the chat window, verify their details with a one-time email OTP, and then ask questions in plain language or use the quick-reply buttons to get information about the school."
+          }
+        }
+      ]
     }
     </script>
 
@@ -76,6 +193,21 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Screen-reader / crawler-only content: present in the DOM for
+           accessibility and semantic SEO, but does not change the visible
+           design in any way. Standard "visually-hidden" pattern. */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
 
         /* Chat Toggle Button */
@@ -745,22 +877,151 @@
 </head>
 <body>
 
+    <!-- ==============================================
+         Visually-hidden, screen-reader/crawler-accessible
+         semantic content. Not a design change: nothing
+         here is shown on screen. It exists so the page has
+         real <header>/<main>/<h1>/FAQ content backing the
+         structured data above, and so an independent
+         disclaimer is explicit in the actual document. -->
+    <header class="sr-only">
+        <nav aria-label="Breadcrumb">
+            <ol>
+                <li><a href="https://vantagehall-org.vercel.app/">Home</a></li>
+                <li>Vantage Hall Dehradun</li>
+                <li>Vantage Hall Chatbot</li>
+            </ol>
+        </nav>
+    </header>
+
+    <main class="sr-only">
+        <h1>Vantage Hall Dehradun</h1>
+        <p>
+            This is an independent, informational chatbot website about Vantage Hall,
+            a girls' residential school in Dehradun, Uttarakhand. It is not the
+            official Vantage Hall website and is not operated by the school.
+        </p>
+
+        <section>
+            <h2>Vantage Hall Girls' Residential School</h2>
+            <p>
+                Vantage Hall Dehradun is known as a girls' residential (boarding)
+                school in Dehradun. This chatbot was built to help parents and
+                students quickly find informational answers about the school.
+            </p>
+        </section>
+
+        <section>
+            <h2>Vantage Hall School Dehradun</h2>
+            <p>
+                Use the chat assistant on this page to ask about Vantage Hall
+                School Dehradun directly — including admissions, academics,
+                boarding and student life — instead of searching separately.
+            </p>
+        </section>
+
+        <section>
+            <h2>Vantage Hall Admissions</h2>
+            <p>
+                Ask the assistant "What is the admission process?" or use the
+                Admissions quick-reply button to get information about how
+                admissions at Vantage Hall work.
+            </p>
+        </section>
+
+        <section>
+            <h2>Vantage Hall Fees and Boarding Information</h2>
+            <p>
+                For fee structure and hostel/boarding facility information, ask
+                the assistant directly or use the Fee Structure and Hostel
+                quick-reply buttons in the chat window.
+            </p>
+        </section>
+
+        <section>
+            <h2>Vantage Hall Academics and Student Life</h2>
+            <p>
+                The assistant can share available information on academics and
+                day-to-day student life at Vantage Hall when asked.
+            </p>
+        </section>
+
+        <section>
+            <h2>Frequently Asked Questions About Vantage Hall</h2>
+            <dl>
+                <dt>What is Vantage Hall Dehradun?</dt>
+                <dd>
+                    Vantage Hall Dehradun is a girls' residential (boarding)
+                    school in Dehradun, Uttarakhand. This site is an
+                    independent, unofficial chatbot that answers questions
+                    about it.
+                </dd>
+
+                <dt>Where is Vantage Hall located?</dt>
+                <dd>Vantage Hall is located in Dehradun, Uttarakhand, India.</dd>
+
+                <dt>Is Vantage Hall a residential school?</dt>
+                <dd>Yes, it is described as a girls' residential (boarding) school.</dd>
+
+                <dt>How can I get information about Vantage Hall admissions?</dt>
+                <dd>
+                    Ask the chatbot directly, for example: "What is the
+                    admission process?", or use the Admissions quick-reply
+                    button.
+                </dd>
+
+                <dt>How can I find information about Vantage Hall fees?</dt>
+                <dd>
+                    Use the Fee Structure quick-reply button or ask the
+                    chatbot, for example: "Tell me about fee structure."
+                </dd>
+
+                <dt>What information can the Vantage Hall chatbot provide?</dt>
+                <dd>
+                    Admissions, fee structure, hostel/boarding facilities,
+                    contact details and general FAQs.
+                </dd>
+
+                <dt>What academic information can I find?</dt>
+                <dd>
+                    Ask the assistant about academics and it will share the
+                    information currently available to it.
+                </dd>
+
+                <dt>How can parents use the chatbot?</dt>
+                <dd>
+                    Open the chat, verify your details with a one-time email
+                    OTP, then type a question or tap a quick-reply button.
+                </dd>
+            </dl>
+        </section>
+    </main>
+
+    <footer class="sr-only">
+        <p>
+            Vantage Hall Dehradun Chatbot — an independent informational
+            website, not affiliated with or the official site of Vantage Hall
+            School.
+        </p>
+    </footer>
+    <!-- End of visually-hidden semantic content -->
+
     <div class="chat-bubble" id="chatBubble">
-        <span class="wave-emoji">👋</span>
+        <span class="wave-emoji" aria-hidden="true">👋</span>
         Hello! How can I help you today?
     </div>
 
-    <button class="chat-toggle" id="chatToggle">
+    <button class="chat-toggle" id="chatToggle" aria-label="Open Vantage Hall chat assistant">
         <span class="notification-badge">1</span>
-        <svg viewBox="0 0 24 24" class="chat-icon">
+        <svg viewBox="0 0 24 24" class="chat-icon" aria-hidden="true">
             <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
         </svg>
-        <svg viewBox="0 0 24 24" class="close-icon">
+        <svg viewBox="0 0 24 24" class="close-icon" aria-hidden="true">
             <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
         </svg>
     </button>
 
-    <div class="chat-container" id="chatContainer">
+    <div class="chat-container" id="chatContainer" role="dialog" aria-label="Vantage Hall chat assistant">
         <!-- Registration Form Overlay -->
         <div class="registration-overlay" id="registrationOverlay">
             <div class="registration-header">
@@ -820,12 +1081,12 @@
         <!-- Chat Header -->
         <div class="chat-header">
             <div class="chat-header-avatar">
-                <img src="https://tse4.mm.bing.net/th/id/OIP.ObhPteB_2loAm-xq-0Sw9AHaHa?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3" 
-                     alt="Vantage Hall Logo">
+                <img src="https://tse4.mm.bing.net/th/id/OIP.ObhPteB_2loAm-xq-0Sw9AHaHa?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3"
+                     alt="Vantage Hall Dehradun chatbot logo" width="48" height="48">
             </div>
             <div class="chat-header-info">
                 <h3>Vantage Hall Assistant</h3>
-                <p><span class="status-dot"></span>Online •  Ready to help</p>
+                <p><span class="status-dot" aria-hidden="true"></span>Online •  Ready to help</p>
                 <span class="ai-badge">🤖 AI-POWERED</span>
             </div>
         </div>
@@ -852,9 +1113,9 @@
 
         <!-- Chat Input -->
         <div class="chat-input">
-            <input type="text" id="userInput" placeholder="Type your message..." disabled>
-            <button id="sendBtn" disabled>
-                <svg viewBox="0 0 24 24">
+            <input type="text" id="userInput" placeholder="Type your message..." disabled aria-label="Type your message">
+            <button id="sendBtn" disabled aria-label="Send message">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
                 </svg>
             </button>
@@ -1477,9 +1738,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
